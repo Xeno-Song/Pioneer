@@ -1,4 +1,5 @@
 #include "cMd3dDevice.h"
+#include "cMSystemManager.h"
 #include "defines.h"
 
 cMd3dDevice::cMd3dDevice()
@@ -25,6 +26,7 @@ bool cMd3dDevice::CreateDevice()
 	m_pD3d = Direct3DCreate9(D3D_SDK_VERSION);
 	if (m_pD3d == NULL)
 	{
+		
 		return FALSE;
 	}
 

@@ -2,7 +2,6 @@
 
 cMd3dManager::cMd3dManager()
 {
-	m_pDevice = NULL;
 }
 
 cMd3dManager::~cMd3dManager()
@@ -10,12 +9,18 @@ cMd3dManager::~cMd3dManager()
 
 }
 
-bool cMd3dManager::CreateDevice(bool _bWindowed)
+bool cMd3dManager::GetLastError(E_D3dError * _pError)
 {
+	if (m_lastError == E_D3dError::D3DERROR_NONE)
+	{
+		(*_pError) = m_lastError;
+		return true;
+	}
+
 	return false;
 }
 
-LPDIRECT3DDEVICE9 cMd3dManager::GetDevice()
+void cMd3dManager::SetLastError(E_D3dError _pError)
 {
-	return LPDIRECT3DDEVICE9();
+	m_lastError = _pError;
 }
