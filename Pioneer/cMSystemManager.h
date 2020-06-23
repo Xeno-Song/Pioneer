@@ -3,7 +3,7 @@
 #ifndef __M_C_SYSTEM_MANAGER_H__
 #define __M_C_SYSTEM_MANAGER_H__
 
-#define GetSystem()		cMSystemManager::GetManager()
+#define MGetSystem()		cMSystemManager::GetManager()
 
 class cMd3dManager;
 
