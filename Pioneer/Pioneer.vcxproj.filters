@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="defines.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDevice.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="cMd3dManager.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -28,6 +22,27 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="cMSystemManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dSprite.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dDeviceControl.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMVector3.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Mmath.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMRect.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Mdefines.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MEngine.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +53,19 @@
     <ClCompile Include="cMd3dManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dDevice.cpp">
+    <ClCompile Include="cMSystemManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMSystemManager.cpp">
+    <ClCompile Include="cMd3dSprite.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMd3dDeviceControl.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMVector3.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMRect.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

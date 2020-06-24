@@ -5,7 +5,9 @@
 
 #define MGetSystem()		cMSystemManager::GetManager()
 
-class cMd3dManager;
+#include "Mdefines.h"
+
+#include "cMd3dManager.h"
 
 class cMSystemManager
 {

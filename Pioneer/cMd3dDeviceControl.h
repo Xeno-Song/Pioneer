@@ -4,10 +4,11 @@
 #define	__C_M_D3D_MANAGER_H__
 
 #include <d3d9.h>
+#include <d3dx9.h>
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
 
-class cMd3dDevice
+class cMd3dDeviceControl
 {
 protected:
 	LPDIRECT3D9				m_pD3d;
@@ -18,8 +19,8 @@ private:
 	UINT	m_uFullScreenRefreshRateInHz;
 
 public:
-	cMd3dDevice();
-	virtual ~cMd3dDevice();
+	cMd3dDeviceControl();
+	virtual ~cMd3dDeviceControl();
 
 	bool	Cleanup();
 
@@ -59,7 +60,7 @@ public:
 	UINT	GetFullScreenRefreshRateInHz();
 	UINT	GetPresentationInterval();
 
-	LPDIRECT3DDEVICE9	GetDevice();
+	const LPDIRECT3DDEVICE9	GetDevice();
 };
 
 #endif
