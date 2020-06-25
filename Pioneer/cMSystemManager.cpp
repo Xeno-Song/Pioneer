@@ -1,5 +1,5 @@
 #include "cMSystemManager.h"
-#include "defines.h"
+#include "Mdefines.h"
 
 cMSystemManager::cMSystemManager()
 {

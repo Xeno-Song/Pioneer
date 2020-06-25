@@ -47,34 +47,20 @@ public:
 
 	
 	UINT	GetBackBufferWidth();
-	
 	UINT	GetBackBufferHeight();
-	
 	D3DFORMAT	GetBackBufferFormat();
-	
 	UINT	GetBackBufferCount();
-	
 	D3DMULTISAMPLE_TYPE	GetMultiSampleType();
-	
 	DWORD	GetMultiSampleQuality();
-	
 	D3DSWAPEFFECT	GetSwapEffect();
-	
 	HWND	GetHwnd();
-	
 	BOOL	GetWindowed();
-	
 	BOOL	GetEnalbeAutoDepthStencil();
-	
 	D3DFORMAT	GetAutoDepthStencilFormat();
-	
 	DWORD	GetFlags();
-	
 	UINT	GetFullScreenRefreshRateInHz();
-	
 	UINT	GetPresentationInterval();
 
-	
 	const LPDIRECT3DDEVICE9	GetDevice();
 };
 
