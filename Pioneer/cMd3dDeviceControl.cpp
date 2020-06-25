@@ -240,61 +240,114 @@ UINT cMd3dDeviceControl::GetBackBufferHeight()
 	return m_d3dpp.BackBufferHeight;
 }
 
+/**
+* @brief	Get device back buffer format
+* @return	return device back buffer format to D3DFORMAT
+* @see		SetBackBufferFormat()
+*/
 D3DFORMAT cMd3dDeviceControl::GetBackBufferFormat()
 {
 	return m_d3dpp.BackBufferFormat;
 }
 
+/**
+* @brief	Get device back buffer count
+* @return	return device back buffer count to UINT
+*/
 UINT cMd3dDeviceControl::GetBackBufferCount()
 {
 	return m_d3dpp.BackBufferCount;
 }
 
+/**
+* @brief	Get device multi sample type
+* @return	return device multi sample type to D3DMULTISAMPLE_TYPE
+* @see		SetMultiSampleType()
+*/
 D3DMULTISAMPLE_TYPE cMd3dDeviceControl::GetMultiSampleType()
 {
 	return m_d3dpp.MultiSampleType;
 }
 
+/**
+* @brief	Get device multi sample quality
+* @return	return device multi sample quality to DWORD
+* @see		SetMultiSampleQuality()
+*/
 DWORD cMd3dDeviceControl::GetMultiSampleQuality()
 {
 	return m_d3dpp.MultiSampleQuality;
 }
 
+/**
+* @brief	Get device swap effect
+* @return	return device swap effect to D3DSWAPEFFECT
+* @see		SetMultiSampleQuality()
+*/
 D3DSWAPEFFECT cMd3dDeviceControl::GetSwapEffect()
 {
 	return m_d3dpp.SwapEffect;
 }
 
+/**
+* @brief	Get device window handle
+* @return	return device window handle to HWND
+*/
 HWND cMd3dDeviceControl::GetHwnd()
 {
 	return m_d3dpp.hDeviceWindow;
 }
 
+/**
+* @brief	Get device windowed mode
+* @return	return device windowed mode width to UINT
+*/
 BOOL cMd3dDeviceControl::GetWindowed()
 {
 	return m_d3dpp.Windowed;
 }
 
+/**
+* @brief	Get device auto depth stencil mode enabled
+* @return	return device auto depth stencil mode is enable to BOOL
+*/
 BOOL cMd3dDeviceControl::GetEnalbeAutoDepthStencil()
 {
 	return m_d3dpp.EnableAutoDepthStencil;
 }
 
+/**
+* @brief	Get device auto depth stencil format
+* @return	return device auto depth stencil format to D3DFORMAT
+* @see		https://docs.microsoft.com/en-us/windows/win32/direct3d9/d3dformat
+*/
 D3DFORMAT cMd3dDeviceControl::GetAutoDepthStencilFormat()
 {
 	return m_d3dpp.AutoDepthStencilFormat;
 }
 
+/**
+* @brief	Get device flags
+* @return	return device flags to D3DFORMAT
+*/
 DWORD cMd3dDeviceControl::GetFlags()
 {
 	return m_d3dpp.Flags;
 }
 
+/**
+* @brief	Get device full screen refresh rate in Hz
+* @return	return device full screen refresh rate in Hz to UINT
+*/
 UINT cMd3dDeviceControl::GetFullScreenRefreshRateInHz()
 {
 	return m_uFullScreenRefreshRateInHz;
 }
 
+/**
+* @brief	Get device presentation interval
+* @return	return device presentation interval UINT
+*/
 UINT cMd3dDeviceControl::GetPresentationInterval()
 {
 	return m_d3dpp.PresentationInterval;
