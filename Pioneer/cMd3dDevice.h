@@ -26,6 +26,8 @@ public:
 	bool	CreateDevice();
 	bool	DestroyDevice();
 
+	////
+
 	void	SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 	void	GetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 
