@@ -30,19 +30,25 @@
     <ClInclude Include="cMd3dDeviceControl.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="cMVector3.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Mmath.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMRect.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Mdefines.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="MEngine.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dParameters.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMmathRect.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMmathVector3.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMioXmlSerializer.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -66,6 +72,12 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="cMRect.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMd3dParameters.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMioXmlSerializer.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

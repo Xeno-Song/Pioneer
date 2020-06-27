@@ -1,6 +1,8 @@
 #include "cMSystemManager.h"
 #include "Mdefines.h"
 
+cMSystemManager*		cMSystemManager::m_pStaticPtr;
+
 cMSystemManager::cMSystemManager()
 {
 	m_pD3dManager = nullptr;
@@ -9,6 +11,19 @@ cMSystemManager::cMSystemManager()
 cMSystemManager::~cMSystemManager()
 {
 	Cleanup();
+}
+
+bool cMSystemManager::InitEngine()
+{
+	m_pD3dManager = new cMd3dManager();
+	
+	m_pD3dManager->Initialize();
+
+	return false;
+}
+
+void cMSystemManager::StartEngine()
+{
 }
 
 cMSystemManager * cMSystemManager::GetManager()

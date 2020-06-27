@@ -3,7 +3,7 @@
 #ifndef __C_M_RECT_H__
 #define __C_M_RECT_H__
 
-typedef class cMRect
+typedef class cMmathRect
 {
 public:
 	int	left;
@@ -12,11 +12,11 @@ public:
 	int	bottom;
 
 public:
-	cMRect();
-	cMRect(int _left, int _top, int _right, int _bottom);
-	cMRect(cMRect* _rect);
+	cMmathRect();
+	cMmathRect(int _left, int _top, int _right, int _bottom);
+	cMmathRect(cMmathRect* _rect);
 
-	virtual ~cMRect();
+	virtual ~cMmathRect();
 
 	int	GetHeight();
 	int	GetWidth();
@@ -28,8 +28,8 @@ public:
 	void	MoveToY(int _delta);
 	void	MoveToXY(int _x, int _y);
 
-	bool	IsOverlapped(cMRect _rect);
-	bool	IsOverlapped(cMRect* _pRect);
+	bool	IsOverlapped(cMmathRect _rect);
+	bool	IsOverlapped(cMmathRect* _pRect);
 
 	RECT	GetRect();
 } MRect;

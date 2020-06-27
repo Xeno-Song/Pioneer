@@ -21,6 +21,9 @@ protected:
 	cMSystemManager();
 	virtual ~cMSystemManager();
 
+	bool	InitEngine();
+	void	StartEngine();
+
 	void	Cleanup();
 
 public:
