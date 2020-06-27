@@ -32,7 +32,7 @@ public:
 
 	void	SetBackBufferWidth(UINT _uValue);
 	void	SetBackBufferHeight(UINT _uValue);
-	void	GetBackBufferFormat(D3DFORMAT _format);
+	void	SetBackBufferFormat(D3DFORMAT _format);
 	void	SetBackBufferCount(UINT _uValue);
 	void	SetMultiSampleType(D3DMULTISAMPLE_TYPE _sampleType);
 	void	SetMultiSampleQuality(DWORD _dwQuality);
@@ -46,20 +46,20 @@ public:
 	void	SetPresentationInterval(UINT _value);
 
 	
-	UINT	GetBackBufferWidth();
-	UINT	GetBackBufferHeight();
-	D3DFORMAT	GetBackBufferFormat();
-	UINT	GetBackBufferCount();
+	UINT				GetBackBufferWidth();
+	UINT				GetBackBufferHeight();
+	D3DFORMAT			GetBackBufferFormat();
+	UINT				GetBackBufferCount();
 	D3DMULTISAMPLE_TYPE	GetMultiSampleType();
-	DWORD	GetMultiSampleQuality();
-	D3DSWAPEFFECT	GetSwapEffect();
-	HWND	GetHwnd();
-	BOOL	GetWindowed();
-	BOOL	GetEnalbeAutoDepthStencil();
-	D3DFORMAT	GetAutoDepthStencilFormat();
-	DWORD	GetFlags();
-	UINT	GetFullScreenRefreshRateInHz();
-	UINT	GetPresentationInterval();
+	DWORD				GetMultiSampleQuality();
+	D3DSWAPEFFECT		GetSwapEffect();
+	HWND				GetHwnd();
+	BOOL				GetWindowed();
+	BOOL				GetEnalbeAutoDepthStencil();
+	D3DFORMAT			GetAutoDepthStencilFormat();
+	DWORD				GetFlags();
+	UINT				GetFullScreenRefreshRateInHz();
+	UINT				GetPresentationInterval();
 
 	const LPDIRECT3DDEVICE9	GetDevice();
 };

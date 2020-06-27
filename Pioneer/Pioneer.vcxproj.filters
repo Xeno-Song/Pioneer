@@ -13,24 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header\Mio">
+      <UniqueIdentifier>{b80136c2-9d12-4633-8c07-68f599574e9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Md3d">
+      <UniqueIdentifier>{38502106-92c0-4079-8998-953808e7d299}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header\Mmath">
+      <UniqueIdentifier>{711c8b68-39c6-4ada-8a8c-9062ca7051f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Mio">
+      <UniqueIdentifier>{61c3ffa0-ef79-4e1f-a96a-ae33f9fb2166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Md3d">
+      <UniqueIdentifier>{c50edcb0-eac5-481b-a27a-029665638c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Mmath">
+      <UniqueIdentifier>{088aa7b2-8be7-457e-877f-9cf8e25db2a8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cMd3dManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="ErrorCodes.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="cMSystemManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dSprite.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDeviceControl.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Mmath.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Mdefines.h">
@@ -39,45 +45,66 @@
     <ClInclude Include="MEngine.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="cMd3dParameters.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="cMmathVector3.h">
+      <Filter>Header\Mmath</Filter>
     </ClInclude>
     <ClInclude Include="cMmathRect.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Mmath</Filter>
     </ClInclude>
-    <ClInclude Include="cMmathVector3.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="cMd3dDeviceControl.h">
+      <Filter>Header\Md3d</Filter>
     </ClInclude>
     <ClInclude Include="cMioXmlSerializer.h">
+      <Filter>Header\Mio</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dManager.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dParameters.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dSprite.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Mmath.h">
+      <Filter>Header\Mmath</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dDatas.h">
       <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Mio.h">
+      <Filter>Header\Mio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="cMSystemManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dSprite.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="cMd3dDeviceControl.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMVector3.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="cMRect.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="cMd3dManager.cpp">
+      <Filter>Source\Md3d</Filter>
     </ClCompile>
     <ClCompile Include="cMd3dParameters.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Md3d</Filter>
+    </ClCompile>
+    <ClCompile Include="cMd3dSprite.cpp">
+      <Filter>Source\Md3d</Filter>
     </ClCompile>
     <ClCompile Include="cMioXmlSerializer.cpp">
+      <Filter>Source\Mio</Filter>
+    </ClCompile>
+    <ClCompile Include="cMVector3.cpp">
+      <Filter>Source\Mmath</Filter>
+    </ClCompile>
+    <ClCompile Include="cMRect.cpp">
+      <Filter>Source\Mmath</Filter>
+    </ClCompile>
+    <ClCompile Include="cMd3dDatas.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

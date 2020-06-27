@@ -4,6 +4,12 @@
 #include <cctype>
 #include <cstdarg>
 
+cMioXmlSerializer::cMioXmlSerializer()
+{
+	m_stream = new cMiolXml_Stream(L"");
+	m_root = new cMioXml_Element(0);
+}
+
 cMioXmlSerializer::cMioXmlSerializer(std::wstring _fileName, std::wstring _tag)
 {
 	m_stream = new cMiolXml_Stream(_fileName);
@@ -13,21 +19,27 @@ cMioXmlSerializer::cMioXmlSerializer(std::wstring _fileName, std::wstring _tag)
 
 cMioXmlSerializer::~cMioXmlSerializer()
 {
-	Cleanup();
+	XmlCleanup();
 }
 
-void cMioXmlSerializer::Cleanup()
+void cMioXmlSerializer::XmlInitialize(std::wstring _fileName, std::wstring _tag)
+{
+	m_stream->SetTargetFilePath(_fileName);
+	m_root->SetTag(_tag);
+}
+
+void cMioXmlSerializer::XmlCleanup()
 {
 	delete m_root;
 	m_root = nullptr;
 }
 
-void cMioXmlSerializer::SetFilePath(std::wstring _path)
+void cMioXmlSerializer::XmlSetFilePath(std::wstring _path)
 {
 	m_stream->SetTargetFilePath(_path);
 }
 
-void cMioXmlSerializer::WriteXml()
+void cMioXmlSerializer::XmlWrite()
 {
 	if (m_stream->WriteStart() == false)
 	{
@@ -39,7 +51,7 @@ void cMioXmlSerializer::WriteXml()
 	m_stream->WriteEnd();
 }
 
-void cMioXmlSerializer::ReadXml()
+void cMioXmlSerializer::XmlRead()
 {
 	m_stream->ReadStart();
 	m_stream->ReadToNextSyntaxOpen();
@@ -49,7 +61,7 @@ void cMioXmlSerializer::ReadXml()
 	m_stream->ReadEnd();
 }
 
-cMioXml_Element * cMioXmlSerializer::GetRootElement()
+cMioXml_Element * cMioXmlSerializer::XmlGetRootElement()
 {
 	return m_root;
 }

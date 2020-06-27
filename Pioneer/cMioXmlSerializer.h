@@ -3,6 +3,9 @@
 #include <vector>
 #include <fstream>
 
+#ifndef __C_MIO_XML_SERIALIZER_H__
+#define __C_MIO_XML_SERIALIZER_H__
+
 #define _MIO_XML_SERIALIZER_MAX_STRING_LEN	256
 
 class cMiolXml_Stream
@@ -147,15 +150,18 @@ protected:
 	cMioXml_Element*	m_root;
 
 public:
+	cMioXmlSerializer();
 	cMioXmlSerializer(std::wstring _fileName, std::wstring _tag);
 	virtual ~cMioXmlSerializer();
 	
-	void	Cleanup();
-	void	SetFilePath(std::wstring _path);
+	void	XmlInitialize(std::wstring _fileName, std::wstring _tag);
+	void	XmlCleanup();
+	void	XmlSetFilePath(std::wstring _path);
 
-	void	WriteXml();
-	void	ReadXml();
+	void	XmlWrite();
+	void	XmlRead();
 
-	cMioXml_Element*	GetRootElement();
+	cMioXml_Element*	XmlGetRootElement();
 };
 
+#endif

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cMd3dDatas.h" />
     <ClInclude Include="cMd3dDeviceControl.h" />
     <ClInclude Include="cMd3dManager.h" />
     <ClInclude Include="cMd3dParameters.h" />
@@ -138,9 +139,11 @@
     <ClInclude Include="Mdefines.h" />
     <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
+    <ClInclude Include="Mio.h" />
     <ClInclude Include="Mmath.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cMd3dDatas.cpp" />
     <ClCompile Include="cMd3dDeviceControl.cpp" />
     <ClCompile Include="cMd3dManager.cpp" />
     <ClCompile Include="cMd3dParameters.cpp" />

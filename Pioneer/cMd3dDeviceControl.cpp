@@ -108,7 +108,7 @@ void cMd3dDeviceControl::SetBackBufferHeight(UINT _uValue)
 * @param	D3DFORMAT _format Buffer format to change
 * @see		https://docs.microsoft.com/en-us/windows/win32/direct3d9/d3dformat
 */
-void cMd3dDeviceControl::GetBackBufferFormat(D3DFORMAT _format)
+void cMd3dDeviceControl::SetBackBufferFormat(D3DFORMAT _format)
 {
 	m_d3dpp.BackBufferFormat = _format;
 }
