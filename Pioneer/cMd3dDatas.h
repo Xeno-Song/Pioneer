@@ -1,10 +1,15 @@
 #pragma once
+#include <d3d9.h>
+#include <d3dx9.h>
+
 #include "Mio.h"
-#include "cMd3dDeviceControl.h"
 
 class cMd3dDatas_Device
 {
 public:
+	int		m_initialized;
+	int		m_monitorNum;
+
 	UINT				m_backBufferWidth;
 	UINT				m_backBufferHeight;
 	D3DFORMAT			m_backBufferFormat;
@@ -25,9 +30,6 @@ public:
 
 	void	LoadFromXmlElement(cMioXml_Element* _element);
 	void	SaveToXmlElement(cMioXml_Element* _element);
-
-	void	SetParameters(cMd3dDeviceControl* _pDeviceControl);
-	void	GetParameters(cMd3dDeviceControl* _pDeviceControl);
 };
 
 class cMd3dDatas : public cMioXmlSerializer
@@ -44,5 +46,8 @@ public:
 
 	void	LoadDeviceData();
 	void	SaveDeviceData();
+
+	void				SetDeviceData(cMd3dDatas_Device* _data);
+	cMd3dDatas_Device*	GetDeviceData();
 };
 

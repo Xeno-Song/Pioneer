@@ -49,6 +49,15 @@ void cMd3dDatas::SaveDeviceData()
 	m_deviceData->SaveToXmlElement(deviceElement);
 }
 
+void cMd3dDatas::SetDeviceData(cMd3dDatas_Device * _data)
+{
+}
+
+cMd3dDatas_Device * cMd3dDatas::GetDeviceData()
+{
+	return nullptr;
+}
+
 cMd3dDatas_Device::cMd3dDatas_Device()
 {
 	m_backBufferWidth = NULL;
@@ -85,6 +94,9 @@ cMd3dDatas_Device::~cMd3dDatas_Device()
 
 void cMd3dDatas_Device::LoadFromXmlElement(cMioXml_Element * _element)
 {
+	m_initialized				= _element->GetSubElementNode(L"initalized", true)->GetValueToInt();
+	m_monitorNum				= _element->GetSubElementNode(L"monitorNum", true)->GetValueToInt();
+
 	m_backBufferWidth			= _element->GetSubElementNode(L"backBufferWidth", true)->GetValueToInt();
 	m_backBufferHeight			= _element->GetSubElementNode(L"backBufferHeight", true)->GetValueToInt();
 	m_backBufferFormat			= (D3DFORMAT)_element->GetSubElementNode(L"backBufferFormat", true)->GetValueToInt();
@@ -104,6 +116,9 @@ void cMd3dDatas_Device::LoadFromXmlElement(cMioXml_Element * _element)
 
 void cMd3dDatas_Device::SaveToXmlElement(cMioXml_Element * _element)
 {
+	_element->GetSubElementNode(L"initalized", true)->SetValue(m_initialized);
+	_element->GetSubElementNode(L"monitorNum", true)->SetValue(m_monitorNum);
+
 	_element->GetSubElementNode(L"backBufferWidth", true)->SetValue((int)m_backBufferWidth);
 	_element->GetSubElementNode(L"backBufferHeight", true)->SetValue((int)m_backBufferHeight);
 	_element->GetSubElementNode(L"backBufferFormat", true)->SetValue((int)m_backBufferFormat);
@@ -117,38 +132,4 @@ void cMd3dDatas_Device::SaveToXmlElement(cMioXml_Element * _element)
 	_element->GetSubElementNode(L"flags", true)->SetValue((int)m_flags);
 	_element->GetSubElementNode(L"fullScreenRefreshRateInHz", true)->SetValue((int)m_fullScreenRefreshRateInHz);
 	_element->GetSubElementNode(L"presentationInterval", true)->SetValue((int)m_presentationInterval);
-}
-
-void cMd3dDatas_Device::SetParameters(cMd3dDeviceControl* _pDeviceControl)
-{
-	_pDeviceControl->SetBackBufferWidth(m_backBufferWidth);
-	_pDeviceControl->SetBackBufferHeight(m_backBufferHeight);
-	_pDeviceControl->SetBackBufferFormat(m_backBufferFormat);
-	_pDeviceControl->SetBackBufferCount(m_backBufferCount);
-	_pDeviceControl->SetMultiSampleType(m_multiSampleType);
-	_pDeviceControl->SetMultiSampleQuality(m_multiSampleQuality);
-	_pDeviceControl->SetSwapEffect(m_swapEffect);
-	_pDeviceControl->SetWindowed(m_windowed);
-	_pDeviceControl->SetEnableAutoDepthStencil(m_enableAutoDepthStencil);
-	_pDeviceControl->SetAutoDepthStencilFormat(m_autoDepthStencilFormat);
-	_pDeviceControl->SetFlags(m_flags);
-	_pDeviceControl->SetFullScreenRefreshRateInHz(m_fullScreenRefreshRateInHz);
-	_pDeviceControl->SetPresentationInterval(m_presentationInterval);
-}
-
-void cMd3dDatas_Device::GetParameters(cMd3dDeviceControl * _pDeviceControl)
-{
-	m_backBufferWidth			= _pDeviceControl->GetBackBufferWidth();
-	m_backBufferHeight			= _pDeviceControl->GetBackBufferHeight();
-	m_backBufferFormat			= _pDeviceControl->GetBackBufferFormat();
-	m_backBufferCount			= _pDeviceControl->GetBackBufferCount();
-	m_multiSampleType			= _pDeviceControl->GetMultiSampleType();
-	m_multiSampleQuality		= _pDeviceControl->GetMultiSampleQuality();
-	m_swapEffect				= _pDeviceControl->GetSwapEffect();
-	m_windowed					= _pDeviceControl->GetWindowed();
-	m_enableAutoDepthStencil	= _pDeviceControl->GetEnalbeAutoDepthStencil();
-	m_autoDepthStencilFormat	= _pDeviceControl->GetAutoDepthStencilFormat();
-	m_flags						= _pDeviceControl->GetFlags();
-	m_fullScreenRefreshRateInHz = _pDeviceControl->GetFullScreenRefreshRateInHz();
-	m_presentationInterval		= _pDeviceControl->GetPresentationInterval();
 }

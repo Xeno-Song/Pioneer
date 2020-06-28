@@ -134,8 +134,10 @@
     <ClInclude Include="cMd3dSprite.h" />
     <ClInclude Include="cMioXmlSerializer.h" />
     <ClInclude Include="cMmathRect.h" />
+    <ClInclude Include="cMseqBase.h" />
     <ClInclude Include="cMSystemManager.h" />
     <ClInclude Include="cMmathVector3.h" />
+    <ClInclude Include="cMsysWindowManager.h" />
     <ClInclude Include="Mdefines.h" />
     <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
@@ -150,9 +152,14 @@
     <ClCompile Include="cMd3dSprite.cpp" />
     <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="cMRect.cpp" />
+    <ClCompile Include="cMseqBase.cpp" />
     <ClCompile Include="cMSystemManager.cpp" />
+    <ClCompile Include="cMsysWindowManager.cpp" />
     <ClCompile Include="cMVector3.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

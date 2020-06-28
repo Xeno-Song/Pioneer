@@ -33,6 +33,7 @@ bool cMd3dManager::CreateDevice()
 {
 	m_pDeviceControl = new cMd3dDeviceControl();
 	//TODO. Device parameter set
+	m_pDeviceControl->CreateDevice();
 
 	return true;
 }

@@ -75,6 +75,12 @@
     <ClInclude Include="Mio.h">
       <Filter>Header\Mio</Filter>
     </ClInclude>
+    <ClInclude Include="cMsysWindowManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMseqBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,5 +113,14 @@
     <ClCompile Include="cMd3dDatas.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="cMsysWindowManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMseqBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

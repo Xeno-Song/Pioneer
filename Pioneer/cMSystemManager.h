@@ -7,6 +7,7 @@
 
 #include "Mdefines.h"
 
+#include "cMsysWindowManager.h"
 #include "cMd3dManager.h"
 
 class cMSystemManager
@@ -15,21 +16,22 @@ protected:
 	static cMSystemManager*		m_pStaticPtr;
 
 private:
-	cMd3dManager*	m_pD3dManager;
+	cMsysWindowManager*	m_winManager;
+	cMd3dManager*		m_pD3dManager;
 
-protected:
+public:
 	cMSystemManager();
 	virtual ~cMSystemManager();
 
-	bool	InitEngine();
+	bool	InitEngine(HINSTANCE _hInstance);
 	void	StartEngine();
-
 	void	Cleanup();
 
 public:
 	static cMSystemManager*	GetManager();
 
-	cMd3dManager*	GetD3dManager();
+	cMd3dManager*		GetD3dManager();
+	cMsysWindowManager*	GetWindowManager();
 };
 
 #endif
