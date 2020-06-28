@@ -1,7 +1,7 @@
 #include "cMd3dDeviceControl.h"
 #include "cMSystemManager.h"
 #include "cMd3dManager.h"
-//#include "defines.h"
+#include "Mdefines.h"
 
 cMd3dDeviceControl::cMd3dDeviceControl()
 {
@@ -13,6 +13,7 @@ cMd3dDeviceControl::cMd3dDeviceControl()
 
 cMd3dDeviceControl::~cMd3dDeviceControl()
 {
+	Cleanup();
 }
 
 /**
@@ -36,6 +37,8 @@ bool cMd3dDeviceControl::Cleanup()
 */
 bool cMd3dDeviceControl::CreateDevice()
 {
+	HRESULT hResult = S_OK;
+
 	m_pD3d = Direct3DCreate9(D3D_SDK_VERSION);
 	if (m_pD3d == NULL)
 	{
@@ -43,9 +46,48 @@ bool cMd3dDeviceControl::CreateDevice()
 		return FALSE;
 	}
 
+	if (GetAdapterList() == FALSE)
+	{
+		MGetSystem()->GetD3dManager()->SetLastError(D3DERR_DEVICE_CANNOT_LOAD_ADAPTER_LIST, NULL);
+		return FALSE;
+	}
 	
-	
-	return false;
+	if (m_initalized == FALSE)
+	{
+		SetDefaultParameter();
+	}
+
+	HWND	hwnd = NULL;
+	hwnd = MGetSystem()->GetWindowManager()->GetWindowHandle();
+	if (hwnd == NULL)
+	{
+		MGetSystem()->GetD3dManager()->SetLastError(D3DERR_DEVICE_WINDOW_IS_NOT_CREATED, NULL);
+		return FALSE;
+	}
+
+	m_d3dpp.hDeviceWindow = hwnd;
+
+	hResult = m_pD3d->CreateDevice(
+		m_monitorNum,
+		D3DDEVTYPE_HAL,
+		hwnd,
+		D3DCREATE_MIXED_VERTEXPROCESSING,
+		&m_d3dpp,
+		&m_pDevice
+	);
+	if (FAILED(hResult))
+	{
+		MGetSystem()->GetD3dManager()->SetLastError(D3DERR_DEVICE_CREATE_FAILED, NULL);
+		return FALSE;
+	}
+
+	hResult = m_pDevice->Clear(0, NULL, D3DCLEAR_TARGET, 0xFFFF0000, 0.0f, NULL);
+	hResult = m_pDevice->Present(NULL, NULL, NULL, NULL);
+	m_pDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+	m_pDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCCOLOR);
+	m_pDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCCOLOR);
+
+	return true;
 }
 
 /**
@@ -62,6 +104,101 @@ bool cMd3dDeviceControl::DestroyDevice()
 	m_pDevice = nullptr;
 
 	return true;
+}
+
+bool cMd3dDeviceControl::GetAdapterList()
+{
+	UINT adapterNum = 0;
+	D3DADAPTER_IDENTIFIER9	adapterIdentifierList;
+	D3DDISPLAYMODE	displayMode;
+
+	ZeroMemory(&adapterIdentifierList, sizeof(D3DADAPTER_IDENTIFIER9));
+	ZeroMemory(&displayMode, sizeof(D3DDISPLAYMODE));
+
+	if (m_pD3d == NULL)
+	{
+		return false;
+	}
+
+	adapterNum = m_pD3d->GetAdapterCount();
+
+	for (UINT i = 0; i < adapterNum; i++)
+	{
+		m_pD3d->GetAdapterIdentifier(i, NULL, &adapterIdentifierList);
+		m_pD3d->GetAdapterDisplayMode(i, &displayMode);
+
+		std::string	gpuName;
+		gpuName.clear();
+		gpuName.assign(adapterIdentifierList.DeviceName);
+
+		bool	isAlreadyAdded = false;
+		for (auto i : m_gpuList)
+		{
+			if (i.compare(gpuName.data()) == 0)
+			{
+				isAlreadyAdded = true;
+				break;
+			}
+		}
+
+		if (isAlreadyAdded == false)
+		{
+			m_gpuList.emplace_back(gpuName);
+		}
+
+		m_monitorList.emplace_back(displayMode);
+	}
+
+	return true;
+}
+
+void cMd3dDeviceControl::SetDefaultParameter()
+{
+	m_d3dpp.BackBufferCount = 1;
+	m_d3dpp.BackBufferFormat = D3DFMT_X8R8G8B8;
+	m_d3dpp.BackBufferHeight = 1080;
+	m_d3dpp.BackBufferWidth = 1920;
+	m_d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
+}
+
+void cMd3dDeviceControl::LoadData(cMd3dDatas_Device * _datas)
+{
+	m_initalized = (bool)_datas->m_initialized;
+	m_monitorNum = _datas->m_monitorNum;
+
+	SetBackBufferWidth(_datas->m_backBufferWidth);
+	SetBackBufferHeight(_datas->m_backBufferHeight);
+	SetBackBufferFormat(_datas->m_backBufferFormat);
+	SetBackBufferCount(_datas->m_backBufferCount);
+	SetMultiSampleType(_datas->m_multiSampleType);
+	SetMultiSampleQuality(_datas->m_multiSampleQuality);
+	SetSwapEffect(_datas->m_swapEffect);
+	SetWindowed(_datas->m_windowed);
+	SetEnableAutoDepthStencil(_datas->m_enableAutoDepthStencil);
+	SetAutoDepthStencilFormat(_datas->m_autoDepthStencilFormat);
+	SetFlags(_datas->m_flags);
+	SetFullScreenRefreshRateInHz(_datas->m_fullScreenRefreshRateInHz);
+	SetPresentationInterval(_datas->m_presentationInterval);
+}
+
+void cMd3dDeviceControl::SaveData(cMd3dDatas_Device * _datas)
+{
+	_datas->m_initialized = (int)m_initalized;
+	_datas->m_monitorNum = (int)m_monitorNum;
+
+	_datas->m_backBufferWidth = GetBackBufferWidth();
+	_datas->m_backBufferHeight = GetBackBufferHeight();
+	_datas->m_backBufferFormat = GetBackBufferFormat();
+	_datas->m_backBufferCount = GetBackBufferCount();
+	_datas->m_multiSampleType = GetMultiSampleType();
+	_datas->m_multiSampleQuality = GetMultiSampleQuality();
+	_datas->m_swapEffect = GetSwapEffect();
+	_datas->m_windowed = GetWindowed();
+	_datas->m_enableAutoDepthStencil = GetEnalbeAutoDepthStencil();
+	_datas->m_autoDepthStencilFormat = GetAutoDepthStencilFormat();
+	_datas->m_flags = GetFlags();
+	_datas->m_fullScreenRefreshRateInHz = GetFullScreenRefreshRateInHz();
+	_datas->m_presentationInterval = GetPresentationInterval();
 }
 
 /**
@@ -108,7 +245,7 @@ void cMd3dDeviceControl::SetBackBufferHeight(UINT _uValue)
 * @param	D3DFORMAT _format Buffer format to change
 * @see		https://docs.microsoft.com/en-us/windows/win32/direct3d9/d3dformat
 */
-void cMd3dDeviceControl::GetBackBufferFormat(D3DFORMAT _format)
+void cMd3dDeviceControl::SetBackBufferFormat(D3DFORMAT _format)
 {
 	m_d3dpp.BackBufferFormat = _format;
 }

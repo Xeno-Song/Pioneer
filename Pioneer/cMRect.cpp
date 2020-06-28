@@ -1,6 +1,6 @@
 #include "Mmath.h"
 
-cMRect::cMRect()
+cMmathRect::cMmathRect()
 {
 	left = 0;
 	right = 0;
@@ -8,7 +8,7 @@ cMRect::cMRect()
 	bottom = 0;
 }
 
-cMRect::cMRect(int _left, int _top, int _right, int _bottom)
+cMmathRect::cMmathRect(int _left, int _top, int _right, int _bottom)
 {
 	left = min(_left, _right);
 	right = _right;
@@ -16,7 +16,7 @@ cMRect::cMRect(int _left, int _top, int _right, int _bottom)
 	bottom = _bottom;
 }
 
-cMRect::cMRect(cMRect * _rect)
+cMmathRect::cMmathRect(cMmathRect * _rect)
 {
 	left = (*_rect).left;
 	top = (*_rect).top;
@@ -24,7 +24,7 @@ cMRect::cMRect(cMRect * _rect)
 	bottom = (*_rect).bottom;
 }
 
-cMRect::~cMRect()
+cMmathRect::~cMmathRect()
 {
 	left = 0;
 	top = 0;
@@ -32,17 +32,17 @@ cMRect::~cMRect()
 	bottom = 0;
 }
 
-int cMRect::GetHeight()
+int cMmathRect::GetHeight()
 {
 	return bottom - top;
 }
 
-int cMRect::GetWidth()
+int cMmathRect::GetWidth()
 {
 	return right - left;
 }
 
-void cMRect::DeflateRect(int _left, int _top, int _right, int _bottom)
+void cMmathRect::DeflateRect(int _left, int _top, int _right, int _bottom)
 {
 	left += _left;
 	top += _top;
@@ -50,7 +50,7 @@ void cMRect::DeflateRect(int _left, int _top, int _right, int _bottom)
 	bottom -= _bottom;
 }
 
-void cMRect::InflateRect(int _left, int _top, int _right, int _bottom)
+void cMmathRect::InflateRect(int _left, int _top, int _right, int _bottom)
 {
 	left -= _left;
 	top -= _top;
@@ -58,19 +58,19 @@ void cMRect::InflateRect(int _left, int _top, int _right, int _bottom)
 	bottom += _bottom;
 }
 
-void cMRect::MoveToX(int _delta)
+void cMmathRect::MoveToX(int _delta)
 {
 	left += _delta;
 	right += _delta;
 }
 
-void cMRect::MoveToY(int _delta)
+void cMmathRect::MoveToY(int _delta)
 {
 	top += _delta;
 	bottom += _delta;
 }
 
-void cMRect::MoveToXY(int _x, int _y)
+void cMmathRect::MoveToXY(int _x, int _y)
 {
 	left += _x;
 	right += _x;
@@ -78,7 +78,7 @@ void cMRect::MoveToXY(int _x, int _y)
 	bottom += _y;
 }
 
-bool cMRect::IsOverlapped(cMRect _rect)
+bool cMmathRect::IsOverlapped(cMmathRect _rect)
 {
 	if (left < _rect.right &&
 		right > _rect.left &&
@@ -89,7 +89,7 @@ bool cMRect::IsOverlapped(cMRect _rect)
 	return false;
 }
 
-bool cMRect::IsOverlapped(cMRect * _pRect)
+bool cMmathRect::IsOverlapped(cMmathRect * _pRect)
 {
 	if (left < _pRect->right &&
 		right > _pRect->left &&
@@ -100,7 +100,7 @@ bool cMRect::IsOverlapped(cMRect * _pRect)
 	return false;
 }
 
-RECT cMRect::GetRect()
+RECT cMmathRect::GetRect()
 {
 	RECT rc;
 	rc.left = left;

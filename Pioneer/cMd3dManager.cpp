@@ -9,10 +9,31 @@ cMd3dManager::~cMd3dManager()
 
 }
 
+bool cMd3dManager::Initialize()
+{
+	if (LoadD3dParameters() == FALSE)	return false;
+
+	if (CreateDevice() == FALSE)	return false;
+	if (CreateSprite() == FALSE)	return false;
+
+	return true;
+}
+
+bool cMd3dManager::LoadD3dParameters()
+{
+	return false;
+}
+
+bool cMd3dManager::SaveD3dDtaas()
+{
+	return false;
+}
+
 bool cMd3dManager::CreateDevice()
 {
 	m_pDeviceControl = new cMd3dDeviceControl();
 	//TODO. Device parameter set
+	m_pDeviceControl->CreateDevice();
 
 	return true;
 }

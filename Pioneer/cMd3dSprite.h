@@ -23,5 +23,8 @@ public:
 	bool	Draw(LPDIRECT3DTEXTURE9 _pTex, MRect* _pRect, MVector3* _pCenter, MVector3* _pPosition, D3DCOLOR _color);
 
 	const LPD3DXSPRITE	GetSprite();
+
+private:
+	bool	CheckSpriteCreated();
 };
 

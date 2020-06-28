@@ -23,6 +23,11 @@ private:
 	HRESULT			m_hLastError;
 
 public:
+	bool	Initialize();
+
+	bool	LoadD3dParameters();
+	bool	SaveD3dDtaas();
+
 	bool					CreateDevice();
 	cMd3dDeviceControl*		GetDeviceControl();
 	const LPDIRECT3DDEVICE9	GetDevice();

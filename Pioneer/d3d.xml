@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DirectX>
+	<deviceControl>
+		<backBufferWidth>0</backBufferWidth>
+		<backBufferHeight>0</backBufferHeight>
+		<backBufferFormat>0</backBufferFormat>
+		<backBufferCount>0</backBufferCount>
+		<multiSampleType>0</multiSampleType>
+		<multiSampleQuality>0</multiSampleQuality>
+		<swapEffect>0</swapEffect>
+		<windowed>0</windowed>
+		<enableAutoDepthStencil>0</enableAutoDepthStencil>
+		<autoDepthStencilFormat>0</autoDepthStencilFormat>
+		<flags>0</flags>
+		<fullScreenRefreshRateInHz>0</fullScreenRefreshRateInHz>
+		<presentationInterval>0</presentationInterval>
+	</deviceControl>
+</DirectX>

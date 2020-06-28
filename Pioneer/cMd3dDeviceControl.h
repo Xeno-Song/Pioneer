@@ -8,12 +8,20 @@
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
 
+#include "cMd3dDatas.h"
+
 class cMd3dDeviceControl
 {
 protected:
 	LPDIRECT3D9				m_pD3d;
 	LPDIRECT3DDEVICE9		m_pDevice;
 	D3DPRESENT_PARAMETERS	m_d3dpp;
+
+	std::vector<std::string>		m_gpuList;
+	std::vector<D3DDISPLAYMODE>	m_monitorList;
+
+	bool	m_initalized;
+	int		m_monitorNum;
 
 private:
 	UINT	m_uFullScreenRefreshRateInHz;
@@ -22,17 +30,21 @@ public:
 	cMd3dDeviceControl();
 	virtual ~cMd3dDeviceControl();
 
-
 	bool	Cleanup();
 	bool	CreateDevice();
 	bool	DestroyDevice();
 
+	bool	GetAdapterList();
+	void	SetDefaultParameter();
+
+	void	LoadData(cMd3dDatas_Device* _datas);
+	void	SaveData(cMd3dDatas_Device* _datas);
 	void	SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 	void	GetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 
 	void	SetBackBufferWidth(UINT _uValue);
 	void	SetBackBufferHeight(UINT _uValue);
-	void	GetBackBufferFormat(D3DFORMAT _format);
+	void	SetBackBufferFormat(D3DFORMAT _format);
 	void	SetBackBufferCount(UINT _uValue);
 	void	SetMultiSampleType(D3DMULTISAMPLE_TYPE _sampleType);
 	void	SetMultiSampleQuality(DWORD _dwQuality);
@@ -46,35 +58,21 @@ public:
 	void	SetPresentationInterval(UINT _value);
 
 	
-	UINT	GetBackBufferWidth();
-	
-	UINT	GetBackBufferHeight();
-	
-	D3DFORMAT	GetBackBufferFormat();
-	
-	UINT	GetBackBufferCount();
-	
+	UINT				GetBackBufferWidth();
+	UINT				GetBackBufferHeight();
+	D3DFORMAT			GetBackBufferFormat();
+	UINT				GetBackBufferCount();
 	D3DMULTISAMPLE_TYPE	GetMultiSampleType();
-	
-	DWORD	GetMultiSampleQuality();
-	
-	D3DSWAPEFFECT	GetSwapEffect();
-	
-	HWND	GetHwnd();
-	
-	BOOL	GetWindowed();
-	
-	BOOL	GetEnalbeAutoDepthStencil();
-	
-	D3DFORMAT	GetAutoDepthStencilFormat();
-	
-	DWORD	GetFlags();
-	
-	UINT	GetFullScreenRefreshRateInHz();
-	
-	UINT	GetPresentationInterval();
+	DWORD				GetMultiSampleQuality();
+	D3DSWAPEFFECT		GetSwapEffect();
+	HWND				GetHwnd();
+	BOOL				GetWindowed();
+	BOOL				GetEnalbeAutoDepthStencil();
+	D3DFORMAT			GetAutoDepthStencilFormat();
+	DWORD				GetFlags();
+	UINT				GetFullScreenRefreshRateInHz();
+	UINT				GetPresentationInterval();
 
-	
 	const LPDIRECT3DDEVICE9	GetDevice();
 };
 

@@ -1,30 +1,30 @@
 #include "Mmath.h"
 
-cMVector3::cMVector3()
+cMmathVector3::cMmathVector3()
 {
 	x = 0;
 	y = 0;
 	z = 0;
 }
 
-cMVector3::cMVector3(double _x, double _y, double _z)
+cMmathVector3::cMmathVector3(double _x, double _y, double _z)
 {
 	x = _x;
 	y = _y;
 	z = _z;
 }
 
-cMVector3::~cMVector3()
+cMmathVector3::~cMmathVector3()
 {
 	x = 0;
 	y = 0;
 	z = 0;
 }
 
-cMVector3 cMVector3::GetUnitVector()
+cMmathVector3 cMmathVector3::GetUnitVector()
 {
 	double	dLength = GetLength();
-	cMVector3 unitVector(x, y, z);
+	cMmathVector3 unitVector(x, y, z);
 	
 	unitVector.x /= dLength;
 	unitVector.y /= dLength;
@@ -33,7 +33,7 @@ cMVector3 cMVector3::GetUnitVector()
 	return unitVector;
 }
 
-double cMVector3::GetLength()
+double cMmathVector3::GetLength()
 {
 	double	dLength = 0;
 
@@ -43,14 +43,14 @@ double cMVector3::GetLength()
 	return dLength;
 }
 
-D3DXVECTOR3 cMVector3::GetDxVector3()
+D3DXVECTOR3 cMmathVector3::GetDxVector3()
 {
 	return D3DXVECTOR3(x, y, z);
 }
 
-cMVector3 cMVector3::operator+(cMVector3 _operand)
+cMmathVector3 cMmathVector3::operator+(cMmathVector3 _operand)
 {
-	cMVector3 resultVector(x, y, z);
+	cMmathVector3 resultVector(x, y, z);
 
 	resultVector.x += _operand.x;
 	resultVector.y += _operand.y;
@@ -59,9 +59,9 @@ cMVector3 cMVector3::operator+(cMVector3 _operand)
 	return resultVector;
 }
 
-cMVector3 cMVector3::operator-(cMVector3 _operand)
+cMmathVector3 cMmathVector3::operator-(cMmathVector3 _operand)
 {
-	cMVector3 resultVector(x, y, z);
+	cMmathVector3 resultVector(x, y, z);
 
 	resultVector.x -= _operand.x;
 	resultVector.y -= _operand.y;
@@ -70,9 +70,9 @@ cMVector3 cMVector3::operator-(cMVector3 _operand)
 	return resultVector;
 }
 
-cMVector3 cMVector3::operator*(double _operand)
+cMmathVector3 cMmathVector3::operator*(double _operand)
 {
-	cMVector3 resultVector(x, y, z);
+	cMmathVector3 resultVector(x, y, z);
 
 	resultVector.x *= _operand;
 	resultVector.y *= _operand;
@@ -81,9 +81,9 @@ cMVector3 cMVector3::operator*(double _operand)
 	return resultVector;
 }
 
-cMVector3 cMVector3::operator/(double _operand)
+cMmathVector3 cMmathVector3::operator/(double _operand)
 {
-	cMVector3 resultVector(x, y, z);
+	cMmathVector3 resultVector(x, y, z);
 
 	resultVector.x /= _operand;
 	resultVector.y /= _operand;

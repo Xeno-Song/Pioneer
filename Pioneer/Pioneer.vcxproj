@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(DXSDK_PATH)/include;C:\Program Files %28x86%29\Microsoft DirectX SDK %28June 2010%29\Include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(DXSDK_PATH)/Lib/x64;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(DXSDK_DIR)/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(DXSDK_DIR)/Lib/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -90,6 +90,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <BasicRuntimeChecks>StackFrameRuntimeCheck</BasicRuntimeChecks>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -126,25 +127,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cMd3dDatas.h" />
     <ClInclude Include="cMd3dDeviceControl.h" />
     <ClInclude Include="cMd3dManager.h" />
+    <ClInclude Include="cMd3dParameters.h" />
     <ClInclude Include="cMd3dSprite.h" />
-    <ClInclude Include="cMRect.h" />
+    <ClInclude Include="cMioXmlSerializer.h" />
+    <ClInclude Include="cMmathRect.h" />
+    <ClInclude Include="cMseqBase.h" />
     <ClInclude Include="cMSystemManager.h" />
-    <ClInclude Include="cMVector3.h" />
+    <ClInclude Include="cMmathVector3.h" />
+    <ClInclude Include="cMsysWindowManager.h" />
     <ClInclude Include="Mdefines.h" />
     <ClInclude Include="ErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
+    <ClInclude Include="Mio.h" />
     <ClInclude Include="Mmath.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cMd3dDatas.cpp" />
     <ClCompile Include="cMd3dDeviceControl.cpp" />
     <ClCompile Include="cMd3dManager.cpp" />
+    <ClCompile Include="cMd3dParameters.cpp" />
     <ClCompile Include="cMd3dSprite.cpp" />
+    <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="cMRect.cpp" />
+    <ClCompile Include="cMseqBase.cpp" />
     <ClCompile Include="cMSystemManager.cpp" />
+    <ClCompile Include="cMsysWindowManager.cpp" />
     <ClCompile Include="cMVector3.cpp" />
     <ClCompile Include="main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
