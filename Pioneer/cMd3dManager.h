@@ -6,7 +6,7 @@
 #include "cMd3dDeviceControl.h"
 #include "cMd3dSprite.h"
 
-#include "ErrorCodes.h"
+#include "MErrorCodes.h"
 
 class cMd3dManager
 {

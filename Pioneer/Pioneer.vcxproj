@@ -141,7 +141,7 @@
     <ClInclude Include="cMsysThreadManager.h" />
     <ClInclude Include="cMsysWindowManager.h" />
     <ClInclude Include="Mdefines.h" />
-    <ClInclude Include="ErrorCodes.h" />
+    <ClInclude Include="MErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
     <ClInclude Include="Mio.h" />
     <ClInclude Include="Mmath.h" />

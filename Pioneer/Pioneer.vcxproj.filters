@@ -39,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ErrorCodes.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Mdefines.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -72,25 +69,28 @@
     <ClInclude Include="Mmath.h">
       <Filter>Header\Mmath</Filter>
     </ClInclude>
-    <ClInclude Include="cMd3dDatas.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Mio.h">
       <Filter>Header\Mio</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysWindowManager.h">
-      <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="cMseqBase.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="cMsysThreadManager.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="cMsysWindowManager.h">
+      <Filter>Header\Msys</Filter>
     </ClInclude>
-    <ClInclude Include="cMsysThread.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="cMsysThreadManager.h">
+      <Filter>Header\Msys</Filter>
     </ClInclude>
     <ClInclude Include="cMsysManager.h">
+      <Filter>Header\Msys</Filter>
+    </ClInclude>
+    <ClInclude Include="cMsysThread.h">
+      <Filter>Header\Msys</Filter>
+    </ClInclude>
+    <ClInclude Include="cMd3dDatas.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="MErrorCodes.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -119,23 +119,23 @@
     <ClCompile Include="cMRect.cpp">
       <Filter>Source\Mmath</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dDatas.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="cMsysWindowManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="cMseqBase.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysThreadManager.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="cMsysManager.cpp">
+      <Filter>Source\Msys</Filter>
     </ClCompile>
     <ClCompile Include="cMsysThread.cpp">
-      <Filter>Source</Filter>
+      <Filter>Source\Msys</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysManager.cpp">
-      <Filter>Source</Filter>
+    <ClCompile Include="cMsysThreadManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="cMsysWindowManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="cMd3dDatas.cpp">
+      <Filter>Source\Md3d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
