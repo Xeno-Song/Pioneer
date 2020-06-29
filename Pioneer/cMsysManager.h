@@ -8,8 +8,10 @@
 #include "Mdefines.h"
 
 #include "cMsysWindowManager.h"
+#include "cMsysThreadManager.h"
 #include "cMseqBase.h"
 #include "cMd3dManager.h"
+#include "cMutilTimerManager.h"
 
 class cMsysManager
 {
@@ -18,8 +20,10 @@ protected:
 
 private:
 	cMsysWindowManager*	m_winManager;
-	cMd3dManager*		m_pD3dManager;
-
+	cMd3dManager*		m_d3dManager;
+	cMsysThreadManager*	m_threadManager;
+	cMutilTimerManager*	m_timerManager;
+		
 	cMseqBase*			m_pCurrSeq;
 
 public:
@@ -37,6 +41,8 @@ public:
 
 	cMd3dManager*		GetD3dManager();
 	cMsysWindowManager*	GetWindowManager();
+	cMsysThreadManager*	GetThreadManager();
+	cMutilTimerManager*	GetTimerManager();
 };
 
 #endif

@@ -140,6 +140,8 @@
     <ClInclude Include="cMsysThread.h" />
     <ClInclude Include="cMsysThreadManager.h" />
     <ClInclude Include="cMsysWindowManager.h" />
+    <ClInclude Include="cMutilTimer.h" />
+    <ClInclude Include="cMutilTimerManager.h" />
     <ClInclude Include="Mdefines.h" />
     <ClInclude Include="MErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
@@ -159,6 +161,8 @@
     <ClCompile Include="cMsysThread.cpp" />
     <ClCompile Include="cMsysThreadManager.cpp" />
     <ClCompile Include="cMsysWindowManager.cpp" />
+    <ClCompile Include="cMutilTimer.cpp" />
+    <ClCompile Include="cMutilTimerManager.cpp" />
     <ClCompile Include="cMVector3.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

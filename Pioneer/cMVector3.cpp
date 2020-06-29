@@ -91,3 +91,31 @@ cMmathVector3 cMmathVector3::operator/(double _operand)
 
 	return resultVector;
 }
+
+void cMmathVector3::operator+=(cMmathVector3 _operand)
+{
+	x += _operand.x;
+	y += _operand.y;
+	z += _operand.z;
+}
+
+void cMmathVector3::operator-=(cMmathVector3 _operand)
+{
+	x -= _operand.x;
+	y -= _operand.y;
+	z -= _operand.z;
+}
+
+void cMmathVector3::operator*=(double _operand)
+{
+	x *= _operand;
+	y *= _operand;
+	z *= _operand;
+}
+
+void cMmathVector3::operator/=(double _operand)
+{
+	x /= _operand;
+	y /= _operand;
+	z /= _operand;
+}

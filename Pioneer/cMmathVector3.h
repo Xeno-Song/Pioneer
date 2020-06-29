@@ -23,10 +23,14 @@ public:
 
 	D3DXVECTOR3	GetDxVector3();
 
-	cMmathVector3 operator +(cMmathVector3 _operand);
-	cMmathVector3 operator -(cMmathVector3 _operand);
-	cMmathVector3 operator *(double _operand);
-	cMmathVector3 operator /(double _operand);
+	cMmathVector3	operator +(cMmathVector3 _operand);
+	cMmathVector3	operator -(cMmathVector3 _operand);
+	cMmathVector3	operator *(double _operand);
+	cMmathVector3	operator /(double _operand);
+	void			operator +=(cMmathVector3 _operand);
+	void			operator -=(cMmathVector3 _operand);
+	void			operator *=(double _operand);
+	void			operator /=(double _operand);
 } MVector3;
 
 #endif

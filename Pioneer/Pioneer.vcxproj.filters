@@ -37,6 +37,9 @@
     <Filter Include="Source\Msys">
       <UniqueIdentifier>{90956bb9-6d53-43b0-8da0-59fb40153542}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Msys\Thread">
+      <UniqueIdentifier>{88fa33c0-3a4d-422c-8cbf-9e6060df13e5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mdefines.h">
@@ -84,13 +87,19 @@
     <ClInclude Include="cMsysManager.h">
       <Filter>Header\Msys</Filter>
     </ClInclude>
-    <ClInclude Include="cMsysThread.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
     <ClInclude Include="cMd3dDatas.h">
       <Filter>Header\Md3d</Filter>
     </ClInclude>
     <ClInclude Include="MErrorCodes.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMsysThread.h">
+      <Filter>Header\Msys\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="cMutilTimer.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMutilTimerManager.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -136,6 +145,12 @@
     </ClCompile>
     <ClCompile Include="cMd3dDatas.cpp">
       <Filter>Source\Md3d</Filter>
+    </ClCompile>
+    <ClCompile Include="cMutilTimer.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMutilTimerManager.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

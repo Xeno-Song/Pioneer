@@ -1,13 +1,19 @@
 #include "cMsysThread.h"
+#include "cMsysManager.h"
 #include <Windows.h>
 #include <chrono>
 
-cMsysThread::cMsysThread()
+cMsysThread::cMsysThread(long long int _threadNum)
 {
+	m_threadNum = _threadNum;
+	m_waitThread = false;
+	m_stopThread = false;
+	m_dead = false;
 }
 
 cMsysThread::~cMsysThread()
 {
+	StopThread(true, 100);
 }
 
 void cMsysThread::ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void *), void * _arg)
@@ -24,11 +30,13 @@ void cMsysThread::ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void *), vo
 		_threadFunc(_arg);
 
 	}
-	return;
+
+	_mothod->m_dead = true;
 }
 
 void cMsysThread::CreateThread(void(_threadFunc)(void *), void * _arg)
 {
+	m_thread = std::thread(ThreadMain, this, _threadFunc, _arg);
 }
 
 void cMsysThread::StopThread(bool _waitForStop, int _timeout)
@@ -48,6 +56,7 @@ bool cMsysThread::WaitForThreadStop(int _timeout)
 
 	if (status == std::cv_status::timeout)
 	{
+		std::terminate_handler(m_thread.native_handle());
 		return false;
 	}
 
@@ -67,6 +76,11 @@ bool cMsysThread::WaitForThreadWait(int _timeout)
 	return true;
 }
 
+bool cMsysThread::GetDead()
+{
+	return m_dead;
+}
+
 void cMsysThread::WaitThread(bool _waitForThreadWait, int _timeout)
 {
 	m_waitThread = true;
@@ -77,12 +91,12 @@ void cMsysThread::WaitThread(bool _waitForThreadWait, int _timeout)
 	}
 }
 
-void cMsysThread::RunThread()
+void cMsysThread::ResumeThread()
 {
 	m_waitThread = false;
 }
 
-const int cMsysThread::GetThreadNum()
+const long long int cMsysThread::GetThreadNum()
 {
-	return 0;
+	return m_threadNum;
 }

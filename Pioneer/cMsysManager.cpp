@@ -5,7 +5,7 @@ cMsysManager*		cMsysManager::m_pStaticPtr;
 
 cMsysManager::cMsysManager()
 {
-	m_pD3dManager = nullptr;
+	m_d3dManager = nullptr;
 }
 
 cMsysManager::~cMsysManager()
@@ -16,13 +16,15 @@ cMsysManager::~cMsysManager()
 bool cMsysManager::InitEngine(HINSTANCE _hInstance)
 {
 	m_winManager = new cMsysWindowManager();
-	m_pD3dManager = new cMd3dManager();
+	m_d3dManager = new cMd3dManager();
+	m_threadManager = new cMsysThreadManager();
+	m_timerManager = new cMutilTimerManager();
 	
 	m_winManager->Create(_hInstance);
-	m_pD3dManager->Initialize();
-	m_pD3dManager->CreateDevice();
+	m_d3dManager->Initialize();
+	m_d3dManager->CreateDevice();
 
-	return false;
+	return true;
 }
 
 void cMsysManager::StartEngine(cMseqBase* _initSeq)
@@ -47,15 +49,25 @@ void cMsysManager::ChangeSequence(cMseqBase * _seq)
 
 void cMsysManager::Cleanup()
 {
-	SAFE_DELETE(m_pD3dManager);
+	SAFE_DELETE(m_d3dManager);
 }
 
 cMd3dManager * cMsysManager::GetD3dManager()
 {
-	return m_pD3dManager;
+	return m_d3dManager;
 }
 
 cMsysWindowManager * cMsysManager::GetWindowManager()
 {
 	return m_winManager;
+}
+
+cMsysThreadManager * cMsysManager::GetThreadManager()
+{
+	return m_threadManager;
+}
+
+cMutilTimerManager * cMsysManager::GetTimerManager()
+{
+	return m_timerManager;
 }

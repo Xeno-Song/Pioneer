@@ -6,11 +6,12 @@
 class cMsysThread
 {
 private:
-	int				m_threadNum;
+	long long int				m_threadNum;
 
 	std::thread		m_thread;
 	bool			m_waitThread;
 	bool			m_stopThread;
+	bool			m_dead;
 
 	std::mutex						m_waitCheckMutex;
 	std::unique_lock<std::mutex>	m_waitCheckuniquelock;
@@ -21,21 +22,23 @@ private:
 	std::condition_variable			m_stopCheckCondition;
 
 protected:
-	void ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void*), void* _arg);
+	static void ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void*), void* _arg);
 	
 public:
-	cMsysThread();
+	cMsysThread(long long int _threadNum);
 	virtual ~cMsysThread();
 
 	void	CreateThread(void(_threadFunc)(void*), void* _arg);
 	void	StopThread(bool _waitForStop = false, int _timeout = 100);
 	
 	void	WaitThread(bool _waitForThreadWait = false, int _timeout = 100);
-	void	RunThread();
+	void	ResumeThread();
 
 	bool	WaitForThreadStop(int _timeout = 100);
 	bool	WaitForThreadWait(int _timeout = 100);
 
-	const int		GetThreadNum();
+	bool	GetDead();
+
+	const long long int	GetThreadNum();
 };
 
