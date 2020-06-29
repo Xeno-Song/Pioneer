@@ -81,6 +81,15 @@
     <ClInclude Include="cMseqBase.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="cMPhysics.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMCrashProc.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="cMGravity.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -117,6 +126,15 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="cMseqBase.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMPhysics.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMCrashProc.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cMGravity.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

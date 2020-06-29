@@ -127,13 +127,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cMCrashProc.h" />
     <ClInclude Include="cMd3dDatas.h" />
     <ClInclude Include="cMd3dDeviceControl.h" />
     <ClInclude Include="cMd3dManager.h" />
     <ClInclude Include="cMd3dParameters.h" />
     <ClInclude Include="cMd3dSprite.h" />
+    <ClInclude Include="cMGravity.h" />
     <ClInclude Include="cMioXmlSerializer.h" />
     <ClInclude Include="cMmathRect.h" />
+    <ClInclude Include="cMPhysics.h" />
     <ClInclude Include="cMseqBase.h" />
     <ClInclude Include="cMSystemManager.h" />
     <ClInclude Include="cMmathVector3.h" />
@@ -145,12 +148,15 @@
     <ClInclude Include="Mmath.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cMCrashProc.cpp" />
     <ClCompile Include="cMd3dDatas.cpp" />
     <ClCompile Include="cMd3dDeviceControl.cpp" />
     <ClCompile Include="cMd3dManager.cpp" />
     <ClCompile Include="cMd3dParameters.cpp" />
     <ClCompile Include="cMd3dSprite.cpp" />
+    <ClCompile Include="cMGravity.cpp" />
     <ClCompile Include="cMioXmlSerializer.cpp" />
+    <ClCompile Include="cMPhysics.cpp" />
     <ClCompile Include="cMRect.cpp" />
     <ClCompile Include="cMseqBase.cpp" />
     <ClCompile Include="cMSystemManager.cpp" />
