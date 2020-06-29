@@ -5,6 +5,6 @@
 int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 {
 	MGetSystem()->InitEngine(hInstance);
-	MGetSystem()->StartEngine();
+	//MGetSystem()->StartEngine();
 	MGetSystem()->GetWindowManager()->Destroy();
 }

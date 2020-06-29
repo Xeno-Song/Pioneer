@@ -1,7 +1,7 @@
 #pragma once
 
-#define	min(_n, _m)	((_n > _m)? _m : _n)
-#define	max(_n, _m)	((_n > _m)? _n : _m)
+//#define	min(_n, _m)	((_n > _m)? _m : _n)
+//#define	max(_n, _m)	((_n > _m)? _n : _m)
 
 #include <math.h>
 

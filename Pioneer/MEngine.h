@@ -1,14 +1,14 @@
 #pragma once
 
-#include "cMSystemManager.h"
+#include "cMsysManager.h"
 
 //Get M-Engine main system manager
-#define MGetSystem()	cMSystemManager::GetManager()
+#define MGetSystem()	cMsysManager::GetManager()
 
 //DxControls
 
 //Get M-Engine DirectX Maanger
-#define MDxGetManager()			cMSystemManager::GetD3dManager()
+#define MDxGetManager()			cMsysManager::GetD3dManager()
 
 //Get DirectX device control
 #define MDxGetDeviceControl()	MDxGetManager()->GetDeviceControl()

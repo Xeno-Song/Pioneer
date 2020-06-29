@@ -1,6 +1,5 @@
 #include "cMd3dDeviceControl.h"
-#include "cMSystemManager.h"
-#include "cMd3dManager.h"
+#include "cMsysManager.h"
 #include "Mdefines.h"
 
 cMd3dDeviceControl::cMd3dDeviceControl()

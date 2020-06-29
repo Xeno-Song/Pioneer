@@ -1,5 +1,5 @@
 #include "cMd3dSprite.h"
-#include "cMSystemManager.h"
+#include "cMsysManager.h"
 
 cMd3dSprite::cMd3dSprite()
 {

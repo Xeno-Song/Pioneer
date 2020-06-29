@@ -45,7 +45,7 @@ double cMmathVector3::GetLength()
 
 D3DXVECTOR3 cMmathVector3::GetDxVector3()
 {
-	return D3DXVECTOR3(x, y, z);
+	return D3DXVECTOR3((float)x, (float)y, (float)z);
 }
 
 cMmathVector3 cMmathVector3::operator+(cMmathVector3 _operand)

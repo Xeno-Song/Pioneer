@@ -135,8 +135,10 @@
     <ClInclude Include="cMioXmlSerializer.h" />
     <ClInclude Include="cMmathRect.h" />
     <ClInclude Include="cMseqBase.h" />
-    <ClInclude Include="cMSystemManager.h" />
+    <ClInclude Include="cMsysManager.h" />
     <ClInclude Include="cMmathVector3.h" />
+    <ClInclude Include="cMsysThread.h" />
+    <ClInclude Include="cMsysThreadManager.h" />
     <ClInclude Include="cMsysWindowManager.h" />
     <ClInclude Include="Mdefines.h" />
     <ClInclude Include="ErrorCodes.h" />
@@ -153,7 +155,9 @@
     <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="cMRect.cpp" />
     <ClCompile Include="cMseqBase.cpp" />
-    <ClCompile Include="cMSystemManager.cpp" />
+    <ClCompile Include="cMsysManager.cpp" />
+    <ClCompile Include="cMsysThread.cpp" />
+    <ClCompile Include="cMsysThreadManager.cpp" />
     <ClCompile Include="cMsysWindowManager.cpp" />
     <ClCompile Include="cMVector3.cpp" />
     <ClCompile Include="main.cpp" />

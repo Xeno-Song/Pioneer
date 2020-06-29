@@ -3,32 +3,37 @@
 #ifndef __M_C_SYSTEM_MANAGER_H__
 #define __M_C_SYSTEM_MANAGER_H__
 
-#define MGetSystem()		cMSystemManager::GetManager()
+#define MGetSystem()		cMsysManager::GetManager()
 
 #include "Mdefines.h"
 
 #include "cMsysWindowManager.h"
+#include "cMseqBase.h"
 #include "cMd3dManager.h"
 
-class cMSystemManager
+class cMsysManager
 {
 protected:
-	static cMSystemManager*		m_pStaticPtr;
+	static cMsysManager*		m_pStaticPtr;
 
 private:
 	cMsysWindowManager*	m_winManager;
 	cMd3dManager*		m_pD3dManager;
 
+	cMseqBase*			m_pCurrSeq;
+
 public:
-	cMSystemManager();
-	virtual ~cMSystemManager();
+	cMsysManager();
+	virtual ~cMsysManager();
 
 	bool	InitEngine(HINSTANCE _hInstance);
-	void	StartEngine();
+	void	StartEngine(cMseqBase*	_initSeq);
 	void	Cleanup();
 
 public:
-	static cMSystemManager*	GetManager();
+	static cMsysManager*	GetManager();
+
+	void	ChangeSequence(cMseqBase* _seq);
 
 	cMd3dManager*		GetD3dManager();
 	cMsysWindowManager*	GetWindowManager();
