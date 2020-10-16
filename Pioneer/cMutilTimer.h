@@ -39,6 +39,7 @@ public:
 
 	void	Cleanup();
 
+	void	Start();
 	void	Start(MutilTimerActivateMode _mode);
 	void	Stop(bool _reset = true);
 
@@ -49,7 +50,7 @@ public:
 	void	SetTimerTime(unsigned int _time);
 	void	SetTimerRepeatMode(E_TIMER_REPEAT_MODE _mode);
 
-	unsigned int	GetRemainingTime();
+	int	GetRemainingTime();
 	unsigned int	GetElapsedTime();
 
 	void	SetStopEventHandler(void(_eventHandler)(unsigned int));

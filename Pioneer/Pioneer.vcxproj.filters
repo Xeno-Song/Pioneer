@@ -40,6 +40,12 @@
     <Filter Include="Header\Msys\Thread">
       <UniqueIdentifier>{88fa33c0-3a4d-422c-8cbf-9e6060df13e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header\Mutil">
+      <UniqueIdentifier>{ced011ce-1a3d-4ff1-b38a-a350db2690d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source\Mutil">
+      <UniqueIdentifier>{ab2fb337-ca0a-4b6c-b4fe-ebfbc0642bb9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mdefines.h">
@@ -97,10 +103,13 @@
       <Filter>Header\Msys\Thread</Filter>
     </ClInclude>
     <ClInclude Include="cMutilTimer.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Mutil</Filter>
     </ClInclude>
     <ClInclude Include="cMutilTimerManager.h">
-      <Filter>Header</Filter>
+      <Filter>Header\Mutil</Filter>
+    </ClInclude>
+    <ClInclude Include="cMioArchiveFile.h">
+      <Filter>Header\Mio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -146,10 +155,13 @@
     <ClCompile Include="cMd3dDatas.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMutilTimer.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="cMutilTimerManager.cpp">
+      <Filter>Source\Mutil</Filter>
+    </ClCompile>
+    <ClCompile Include="cMutilTimer.cpp">
+      <Filter>Source\Mutil</Filter>
+    </ClCompile>
+    <ClCompile Include="cMioArchiveFile.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

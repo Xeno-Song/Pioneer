@@ -49,7 +49,7 @@ cMsysThread * cMsysThreadManager::CreateThread()
 
 	UnlockAccessMutex();
 
-	return nullptr;
+	return thread;
 }
 
 cMsysThread * cMsysThreadManager::CreateThread(void(_threadFunc)(void *), void * _arg)

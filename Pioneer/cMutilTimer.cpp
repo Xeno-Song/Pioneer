@@ -28,10 +28,17 @@ void cMutilTimer::Cleanup()
 	m_totalElapsedTime = 0;
 }
 
+void cMutilTimer::Start()
+{
+	m_startTime = GetTickCount();
+	m_status = MUTIL_TIMER_STATUS_RUN;
+}
+
 void cMutilTimer::Start(MutilTimerActivateMode _mode)
 {
 	m_startTime = GetTickCount();
 	m_activateMode = _mode;
+	m_status = MUTIL_TIMER_STATUS_RUN;
 }
 
 void cMutilTimer::Stop(bool _reset)
@@ -77,9 +84,11 @@ void cMutilTimer::SetTimerRepeatMode(E_TIMER_REPEAT_MODE _mode)
 	m_repeatMode = _mode;
 }
 
-unsigned int cMutilTimer::GetRemainingTime()
+int cMutilTimer::GetRemainingTime()
 {
-	unsigned int	remainingTime = 0;
+	if (m_status != MUTIL_TIMER_STATUS_RUN)	return 1;
+
+	int	remainingTime = 0;
 	remainingTime = m_timerTime - GetElapsedTime();
 
 	return remainingTime;
@@ -90,7 +99,7 @@ unsigned int cMutilTimer::GetElapsedTime()
 	unsigned int currentTime = 0;
 	currentTime = GetTickCount();
 
-	return m_totalElapsedTime + (currentTime + m_startTime);
+	return m_totalElapsedTime + (currentTime - m_startTime);
 }
 
 void cMutilTimer::SetStopEventHandler(void(_eventHandler)(unsigned int))
@@ -101,4 +110,9 @@ void cMutilTimer::SetStopEventHandler(void(_eventHandler)(unsigned int))
 void cMutilTimer::CallEventHandler()
 {
 	m_eventHandler(m_timerNum);
+
+	if (m_repeatMode == FALSE)
+	{
+		Stop(false);
+	}
 }

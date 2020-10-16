@@ -23,6 +23,7 @@ bool cMsysManager::InitEngine(HINSTANCE _hInstance)
 	m_winManager->Create(_hInstance);
 	m_d3dManager->Initialize();
 	m_d3dManager->CreateDevice();
+	m_timerManager->InitializeTimerManager();
 
 	return true;
 }

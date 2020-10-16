@@ -146,6 +146,7 @@
     <ClInclude Include="MErrorCodes.h" />
     <ClInclude Include="MEngine.h" />
     <ClInclude Include="Mio.h" />
+    <ClInclude Include="cMioArchiveFile.h" />
     <ClInclude Include="Mmath.h" />
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +155,7 @@
     <ClCompile Include="cMd3dManager.cpp" />
     <ClCompile Include="cMd3dParameters.cpp" />
     <ClCompile Include="cMd3dSprite.cpp" />
+    <ClCompile Include="cMioArchiveFile.cpp" />
     <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="cMRect.cpp" />
     <ClCompile Include="cMseqBase.cpp" />
