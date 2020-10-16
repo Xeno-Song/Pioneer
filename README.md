@@ -1,7 +1,7 @@
 # Project - Pioneer
 
 ### Develop plan
-- Goto [Document ReadMe](./Doc/README.md)
+- Goto [Document ReadMe](./Doc/)
 
 ### Member of project
 Game develop project.
