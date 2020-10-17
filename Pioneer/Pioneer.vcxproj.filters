@@ -13,159 +13,30 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header\Mio">
-      <UniqueIdentifier>{b80136c2-9d12-4633-8c07-68f599574e9c}</UniqueIdentifier>
+    <Filter Include="Source\Engine">
+      <UniqueIdentifier>{5b28aaed-75c4-43b4-9baa-463839e8cf50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header\Md3d">
-      <UniqueIdentifier>{38502106-92c0-4079-8998-953808e7d299}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Mmath">
-      <UniqueIdentifier>{711c8b68-39c6-4ada-8a8c-9062ca7051f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Mio">
-      <UniqueIdentifier>{61c3ffa0-ef79-4e1f-a96a-ae33f9fb2166}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Md3d">
-      <UniqueIdentifier>{c50edcb0-eac5-481b-a27a-029665638c7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Mmath">
-      <UniqueIdentifier>{088aa7b2-8be7-457e-877f-9cf8e25db2a8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Msys">
-      <UniqueIdentifier>{b9ea351a-24cb-4200-8a9e-a29e2a3ae6fd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Msys">
-      <UniqueIdentifier>{90956bb9-6d53-43b0-8da0-59fb40153542}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Msys\Thread">
-      <UniqueIdentifier>{88fa33c0-3a4d-422c-8cbf-9e6060df13e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header\Mutil">
-      <UniqueIdentifier>{ced011ce-1a3d-4ff1-b38a-a350db2690d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Mutil">
-      <UniqueIdentifier>{ab2fb337-ca0a-4b6c-b4fe-ebfbc0642bb9}</UniqueIdentifier>
+    <Filter Include="Source\Engine\dx11">
+      <UniqueIdentifier>{52cb2099-9b0c-4066-a856-760927fdf40a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Mdefines.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="SystemResource.h">
+      <Filter>Source\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="MEngine.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMmathVector3.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="cMmathRect.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDeviceControl.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMioXmlSerializer.h">
-      <Filter>Header\Mio</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dManager.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dParameters.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dSprite.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="Mmath.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="Mio.h">
-      <Filter>Header\Mio</Filter>
-    </ClInclude>
-    <ClInclude Include="cMseqBase.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysWindowManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysThreadManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDatas.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="MErrorCodes.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysThread.h">
-      <Filter>Header\Msys\Thread</Filter>
-    </ClInclude>
-    <ClInclude Include="cMutilTimer.h">
-      <Filter>Header\Mutil</Filter>
-    </ClInclude>
-    <ClInclude Include="cMutilTimerManager.h">
-      <Filter>Header\Mutil</Filter>
-    </ClInclude>
-    <ClInclude Include="cMioArchiveFile.h">
-      <Filter>Header\Mio</Filter>
+    <ClInclude Include="pnDx11Controller.h">
+      <Filter>Source\Engine\dx11</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SystemResource.cpp">
+      <Filter>Source\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="pnDx11Controller.cpp">
+      <Filter>Source\Engine\dx11</Filter>
+    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dDeviceControl.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="cMd3dManager.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="cMd3dParameters.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="cMd3dSprite.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="cMioXmlSerializer.cpp">
-      <Filter>Source\Mio</Filter>
-    </ClCompile>
-    <ClCompile Include="cMVector3.cpp">
-      <Filter>Source\Mmath</Filter>
-    </ClCompile>
-    <ClCompile Include="cMRect.cpp">
-      <Filter>Source\Mmath</Filter>
-    </ClCompile>
-    <ClCompile Include="cMseqBase.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="cMsysManager.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="cMsysThread.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="cMsysThreadManager.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="cMsysWindowManager.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="cMd3dDatas.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="cMutilTimerManager.cpp">
-      <Filter>Source\Mutil</Filter>
-    </ClCompile>
-    <ClCompile Include="cMutilTimer.cpp">
-      <Filter>Source\Mutil</Filter>
-    </ClCompile>
-    <ClCompile Include="cMioArchiveFile.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

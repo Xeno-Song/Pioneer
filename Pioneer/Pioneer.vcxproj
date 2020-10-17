@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pnDx11Controller.h" />
+    <ClInclude Include="SystemResource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="pnDx11Controller.cpp" />
+    <ClCompile Include="SystemResource.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{638E32D9-1513-40FA-B7F3-7E86A0DE69C8}</ProjectGuid>
@@ -126,51 +135,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="cMd3dDatas.h" />
-    <ClInclude Include="cMd3dDeviceControl.h" />
-    <ClInclude Include="cMd3dManager.h" />
-    <ClInclude Include="cMd3dParameters.h" />
-    <ClInclude Include="cMd3dSprite.h" />
-    <ClInclude Include="cMioXmlSerializer.h" />
-    <ClInclude Include="cMmathRect.h" />
-    <ClInclude Include="cMseqBase.h" />
-    <ClInclude Include="cMsysManager.h" />
-    <ClInclude Include="cMmathVector3.h" />
-    <ClInclude Include="cMsysThread.h" />
-    <ClInclude Include="cMsysThreadManager.h" />
-    <ClInclude Include="cMsysWindowManager.h" />
-    <ClInclude Include="cMutilTimer.h" />
-    <ClInclude Include="cMutilTimerManager.h" />
-    <ClInclude Include="Mdefines.h" />
-    <ClInclude Include="MErrorCodes.h" />
-    <ClInclude Include="MEngine.h" />
-    <ClInclude Include="Mio.h" />
-    <ClInclude Include="cMioArchiveFile.h" />
-    <ClInclude Include="Mmath.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="cMd3dDatas.cpp" />
-    <ClCompile Include="cMd3dDeviceControl.cpp" />
-    <ClCompile Include="cMd3dManager.cpp" />
-    <ClCompile Include="cMd3dParameters.cpp" />
-    <ClCompile Include="cMd3dSprite.cpp" />
-    <ClCompile Include="cMioArchiveFile.cpp" />
-    <ClCompile Include="cMioXmlSerializer.cpp" />
-    <ClCompile Include="cMRect.cpp" />
-    <ClCompile Include="cMseqBase.cpp" />
-    <ClCompile Include="cMsysManager.cpp" />
-    <ClCompile Include="cMsysThread.cpp" />
-    <ClCompile Include="cMsysThreadManager.cpp" />
-    <ClCompile Include="cMsysWindowManager.cpp" />
-    <ClCompile Include="cMutilTimer.cpp" />
-    <ClCompile Include="cMutilTimerManager.cpp" />
-    <ClCompile Include="cMVector3.cpp" />
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="cpp.hint" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
