@@ -24,7 +24,10 @@
     <ClInclude Include="SystemResource.h">
       <Filter>Source\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="pnDx11Controller.h">
+    <ClInclude Include="cDx11Device.h">
+      <Filter>Source\Engine\dx11</Filter>
+    </ClInclude>
+    <ClInclude Include="cDx11Controller.h">
       <Filter>Source\Engine\dx11</Filter>
     </ClInclude>
   </ItemGroup>
@@ -32,11 +35,14 @@
     <ClCompile Include="SystemResource.cpp">
       <Filter>Source\Engine</Filter>
     </ClCompile>
-    <ClCompile Include="pnDx11Controller.cpp">
-      <Filter>Source\Engine\dx11</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="cDx11Controller.cpp">
+      <Filter>Source\Engine\dx11</Filter>
+    </ClCompile>
+    <ClCompile Include="cDx11Device.cpp">
+      <Filter>Source\Engine\dx11</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

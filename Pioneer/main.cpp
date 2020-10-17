@@ -6,7 +6,8 @@ int WINAPI wWinMain(HINSTANCE, HINSTANCE, PWSTR, int)
 {
 	cSystemResource* systemResource = new cSystemResource();
 	systemResource->Initialize();
+	systemResource->Run();
 	Sleep(5000);
-	systemResource->Shutdown();
+	systemResource->Cleanup();
 	return 0;
 }

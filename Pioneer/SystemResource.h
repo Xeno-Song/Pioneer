@@ -7,7 +7,7 @@
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
-#include "pnDx11Controller.h"
+#include "cDx11Controller.h"
 
 namespace pioEngine
 {
@@ -19,7 +19,7 @@ namespace pioEngine
 		~cSystemResource();
 
 		bool Initialize();
-		void Shutdown();
+		void Cleanup();
 		void Run();
 
 		static LRESULT CALLBACK WinMsgHandler(HWND hwnd, UINT, WPARAM wParam, LPARAM lParam);
@@ -34,7 +34,7 @@ namespace pioEngine
 		HINSTANCE	m_hinstance;
 		HWND		m_hwnd;
 
-		pnDx11Controller* m_dx11Control;
+		cDx11Controller* m_dx11Control;
 	};
 }
 

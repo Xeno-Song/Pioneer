@@ -24,17 +24,18 @@ namespace pioEngine
 		screenWidth = screenHeight = 0;
 		InitializeWindow(L"TEST APPLICATION", screenWidth, screenHeight, false);
 
-		m_dx11Control = new pnDx11Controller();
+		m_dx11Control = new cDx11Controller();
 		result = m_dx11Control->Initialize(screenWidth, screenHeight, m_hwnd);
 		if (!result) { return false; }
 
 		return false;
 	}
 
-	void cSystemResource::Shutdown()
+	void cSystemResource::Cleanup()
 	{
 		if (m_dx11Control != nullptr)
 		{
+			m_dx11Control->Cleanup();
 			delete m_dx11Control;
 			m_dx11Control = nullptr;
 		}
@@ -42,6 +43,7 @@ namespace pioEngine
 
 	void cSystemResource::Run()
 	{
+		m_dx11Control->Frame();
 	}
 
 	LRESULT cSystemResource::WinMsgHandler(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)

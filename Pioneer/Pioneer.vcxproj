@@ -19,12 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pnDx11Controller.h" />
+    <ClInclude Include="cDx11Device.h" />
+    <ClInclude Include="cDx11Controller.h" />
     <ClInclude Include="SystemResource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cDx11Device.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="pnDx11Controller.cpp" />
+    <ClCompile Include="cDx11Controller.cpp" />
     <ClCompile Include="SystemResource.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
