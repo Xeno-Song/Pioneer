@@ -1,4 +1,4 @@
-#include "SystemResource.h"
+#include "cSystemResource.h"
 
 namespace pioEngine
 {
@@ -22,6 +22,11 @@ namespace pioEngine
 		bool result;
 
 		screenWidth = screenHeight = 0;
+
+		m_inputManager = new cInputManager();
+		//KeyStateChangeEventHandler = m_inputManager->SetKeyState;
+		//CursorMoveEventHandler = m_inputManager->SetCursorPosition;
+
 		InitializeWindow(L"TEST APPLICATION", screenWidth, screenHeight, false);
 
 		m_dx11Control = new cDx11Controller();
@@ -58,6 +63,26 @@ namespace pioEngine
 		case WM_CLOSE:
 		{
 			PostQuitMessage(0);
+			return 0;
+		}
+		case WM_KEYDOWN:
+		{
+			systemResource->GetInputManager()->SetKeyState(wParam, true);
+			return 0;
+		}
+		case WM_KEYUP:
+		{
+			systemResource->GetInputManager()->SetKeyState(wParam, false);
+			return 0;
+		}
+		case WM_MOUSEMOVE:
+		{
+			POINT cursor;
+			cursor.x = LOWORD(lParam);
+			cursor.y = HIWORD(lParam);
+
+			systemResource->GetInputManager()->SetCursorPosition(cursor);
+
 			return 0;
 		}
 		}
@@ -150,6 +175,16 @@ namespace pioEngine
 		UnregisterClassW(m_applicationName, m_hinstance);
 
 		return;
+	}
+
+	cDx11Controller * cSystemResource::GetDx11Controller()
+	{
+		return m_dx11Control;
+	}
+		
+	cInputManager * cSystemResource::GetInputManager()
+	{
+		return m_inputManager;
 	}
 
 }

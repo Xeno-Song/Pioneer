@@ -1,4 +1,4 @@
-#include "InputManager.h"
+#include "cInputManager.h"
 
 namespace pioEngine
 {
@@ -52,12 +52,12 @@ namespace pioEngine
 
 	POINT cInputManager::GetCursorPositionAsync()
 	{
-		LPPOINT point;
+		POINT cursor;
 		
-		if (GetCursorPos(point) == false)
+		if (GetCursorPos(&cursor) == false)
 			return POINT{ 0, 0 };
 
-		return *point;
+		return cursor;
 	}
 
 }

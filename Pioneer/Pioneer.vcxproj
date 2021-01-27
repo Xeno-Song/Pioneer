@@ -19,15 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cDx11Device.h" />
-    <ClInclude Include="cDx11Controller.h" />
-    <ClInclude Include="SystemResource.h" />
+    <ClInclude Include="Engine\dx\cDx11Device.h" />
+    <ClInclude Include="Engine\dx\cDx11Controller.h" />
+    <ClInclude Include="Engine\Input\cInputManager.h" />
+    <ClInclude Include="Engine\system\cSystemResource.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cDx11Device.cpp" />
+    <ClCompile Include="Engine\dx\cDx11Device.cpp" />
+    <ClCompile Include="Engine\Input\cInputManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="cDx11Controller.cpp" />
-    <ClCompile Include="SystemResource.cpp" />
+    <ClCompile Include="Engine\dx\cDx11Controller.cpp" />
+    <ClCompile Include="Engine\system\cSystemResource.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
