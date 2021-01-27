@@ -42,7 +42,6 @@ namespace pioEngine
 	private:
 		bool LoadGraphicCardInfo();
 		bool FindRefreshFrequency(int screenWidth, int screenHeight, unsigned int& numerator, unsigned int& denominator);
-		bool CreateSwapChain(int screenWidth, int screenHeight, int numerator, int denominator, HWND hwnd);
 
 	private:
 		bool	m_vsyncEnable;

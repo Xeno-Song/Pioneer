@@ -335,12 +335,11 @@ namespace pioEngine
         error = wcstombs_s(&stringLength, m_videoCardDescription, 128, adapterDesc.Description, 128);
 
         adapterOutput->Release();
-        adapterOutput = nullptr;
-
         adapter->Release();
-        adapter = nullptr;
-
         factory->Release();
+
+        adapterOutput = nullptr;
+        adapter = nullptr;
         factory = 0;
 
         return true;
@@ -370,12 +369,6 @@ namespace pioEngine
                 }
             }
         }
-
-        return false;
-    }
-    bool cDx11Device::CreateSwapChain(int screenWidth, int screenHeight, int numerator, int denominator, HWND hwnd)
-    {
-        
 
         return false;
     }
