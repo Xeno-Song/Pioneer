@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -127,49 +127,58 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="cMd3dDatas.h" />
-    <ClInclude Include="cMd3dDeviceControl.h" />
-    <ClInclude Include="cMd3dManager.h" />
-    <ClInclude Include="cMd3dParameters.h" />
-    <ClInclude Include="cMd3dSprite.h" />
-    <ClInclude Include="cMioXmlSerializer.h" />
-    <ClInclude Include="cMmathRect.h" />
-    <ClInclude Include="cMseqBase.h" />
-    <ClInclude Include="cMsysManager.h" />
-    <ClInclude Include="cMmathVector3.h" />
-    <ClInclude Include="cMsysThread.h" />
-    <ClInclude Include="cMsysThreadManager.h" />
-    <ClInclude Include="cMsysWindowManager.h" />
-    <ClInclude Include="cMutilTimer.h" />
-    <ClInclude Include="cMutilTimerManager.h" />
-    <ClInclude Include="Mdefines.h" />
-    <ClInclude Include="MErrorCodes.h" />
-    <ClInclude Include="MEngine.h" />
-    <ClInclude Include="Mio.h" />
-    <ClInclude Include="cMioArchiveFile.h" />
-    <ClInclude Include="Mmath.h" />
+    <ClInclude Include="Engine\dx\cMd3dDatas.h" />
+    <ClInclude Include="Engine\dx\cMd3dDeviceControl.h" />
+    <ClInclude Include="Engine\dx\cMd3dManager.h" />
+    <ClInclude Include="Engine\dx\cMd3dParameters.h" />
+    <ClInclude Include="Engine\Object\MObjectManager.h" />
+    <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h" />
+    <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h" />
+    <ClInclude Include="Engine\io\xml\cMioXmlSerializer.h" />
+    <ClInclude Include="Engine\util\math\cMmathRect.h" />
+    <ClInclude Include="Engine\seq\cMseqBase.h" />
+    <ClInclude Include="Engine\sys\cMsysManager.h" />
+    <ClInclude Include="Engine\util\math\cMmathVector3.h" />
+    <ClInclude Include="Engine\sys\thd\cMsysThread.h" />
+    <ClInclude Include="Engine\sys\thd\cMsysThreadManager.h" />
+    <ClInclude Include="Engine\sys\wnd\cMsysWindowManager.h" />
+    <ClInclude Include="Engine\util\timer\cMutilTimer.h" />
+    <ClInclude Include="Engine\util\timer\cMutilTimerManager.h" />
+    <ClInclude Include="Engine\Mdefines.h" />
+    <ClInclude Include="Engine\MErrorCodes.h" />
+    <ClInclude Include="Engine\MEngine.h" />
+    <ClInclude Include="Engine\io\Mio.h" />
+    <ClInclude Include="Engine\io\archive\cMioArchiveFile.h" />
+    <ClInclude Include="Engine\util\math\Mmath.h" />
+    <ClInclude Include="Engine\Object\MObject.h" />
+    <ClInclude Include="Engine\ResourceList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cMd3dDatas.cpp" />
-    <ClCompile Include="cMd3dDeviceControl.cpp" />
-    <ClCompile Include="cMd3dManager.cpp" />
-    <ClCompile Include="cMd3dParameters.cpp" />
-    <ClCompile Include="cMd3dSprite.cpp" />
-    <ClCompile Include="cMioArchiveFile.cpp" />
-    <ClCompile Include="cMioXmlSerializer.cpp" />
-    <ClCompile Include="cMRect.cpp" />
-    <ClCompile Include="cMseqBase.cpp" />
-    <ClCompile Include="cMsysManager.cpp" />
-    <ClCompile Include="cMsysThread.cpp" />
-    <ClCompile Include="cMsysThreadManager.cpp" />
-    <ClCompile Include="cMsysWindowManager.cpp" />
-    <ClCompile Include="cMutilTimer.cpp" />
-    <ClCompile Include="cMutilTimerManager.cpp" />
-    <ClCompile Include="cMVector3.cpp" />
+    <ClCompile Include="Engine\dx\cMd3dDatas.cpp" />
+    <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp" />
+    <ClCompile Include="Engine\dx\cMd3dManager.cpp" />
+    <ClCompile Include="Engine\dx\cMd3dParameters.cpp" />
+    <ClCompile Include="Engine\Object\MObjectManager.cpp" />
+    <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp" />
+    <ClCompile Include="Engine\physics\Collision\MCollisionCheckerAABB.cpp" />
+    <ClCompile Include="Engine\physics\Collision\MCollisionCheckerCircle.cpp" />
+    <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp" />
+    <ClCompile Include="Engine\io\archive\cMioArchiveFile.cpp" />
+    <ClCompile Include="Engine\io\xml\cMioXmlSerializer.cpp" />
+    <ClCompile Include="Engine\util\math\cMRect.cpp" />
+    <ClCompile Include="Engine\seq\cMseqBase.cpp" />
+    <ClCompile Include="Engine\sys\cMsysManager.cpp" />
+    <ClCompile Include="Engine\sys\thd\cMsysThread.cpp" />
+    <ClCompile Include="Engine\sys\thd\cMsysThreadManager.cpp" />
+    <ClCompile Include="Engine\sys\wnd\cMsysWindowManager.cpp" />
+    <ClCompile Include="Engine\util\timer\cMutilTimer.cpp" />
+    <ClCompile Include="Engine\util\timer\cMutilTimerManager.cpp" />
+    <ClCompile Include="Engine\util\math\cMVector3.cpp" />
+    <ClCompile Include="Engine\Object\MObject.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
+    <None Include="Engine\cpp.hint" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

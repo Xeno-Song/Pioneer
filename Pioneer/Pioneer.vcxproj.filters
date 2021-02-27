@@ -48,124 +48,151 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Mdefines.h">
+    <ClInclude Include="Engine\Mdefines.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="MEngine.h">
+    <ClInclude Include="Engine\MEngine.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="cMmathVector3.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="cMmathRect.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDeviceControl.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMioXmlSerializer.h">
-      <Filter>Header\Mio</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dManager.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dParameters.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dSprite.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="Mmath.h">
-      <Filter>Header\Mmath</Filter>
-    </ClInclude>
-    <ClInclude Include="Mio.h">
-      <Filter>Header\Mio</Filter>
-    </ClInclude>
-    <ClInclude Include="cMseqBase.h">
+    <ClInclude Include="Engine\MErrorCodes.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="cMsysWindowManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysThreadManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMsysManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="cMd3dDatas.h">
+    <ClInclude Include="Engine\dx\cMd3dDatas.h">
       <Filter>Header\Md3d</Filter>
     </ClInclude>
-    <ClInclude Include="MErrorCodes.h">
-      <Filter>Header</Filter>
+    <ClInclude Include="Engine\dx\cMd3dDeviceControl.h">
+      <Filter>Header\Md3d</Filter>
     </ClInclude>
-    <ClInclude Include="cMsysThread.h">
+    <ClInclude Include="Engine\dx\cMd3dManager.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\cMd3dParameters.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sys\thd\cMsysThread.h">
       <Filter>Header\Msys\Thread</Filter>
     </ClInclude>
-    <ClInclude Include="cMutilTimer.h">
-      <Filter>Header\Mutil</Filter>
+    <ClInclude Include="Engine\sys\cMsysManager.h">
+      <Filter>Header\Msys</Filter>
     </ClInclude>
-    <ClInclude Include="cMutilTimerManager.h">
-      <Filter>Header\Mutil</Filter>
+    <ClInclude Include="Engine\sys\thd\cMsysThreadManager.h">
+      <Filter>Header\Msys</Filter>
     </ClInclude>
-    <ClInclude Include="cMioArchiveFile.h">
+    <ClInclude Include="Engine\sys\wnd\cMsysWindowManager.h">
+      <Filter>Header\Msys</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\io\xml\cMioXmlSerializer.h">
       <Filter>Header\Mio</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\io\archive\cMioArchiveFile.h">
+      <Filter>Header\Mio</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\seq\cMseqBase.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\timer\cMutilTimer.h">
+      <Filter>Header\Mutil</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\timer\cMutilTimerManager.h">
+      <Filter>Header\Mutil</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\io\Mio.h">
+      <Filter>Header\Mio</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\math\cMmathRect.h">
+      <Filter>Header\Mmath</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\math\cMmathVector3.h">
+      <Filter>Header\Mmath</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\util\math\Mmath.h">
+      <Filter>Header\Mmath</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ResourceList.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Object\MObject.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Object\MObjectManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h">
+      <Filter>Header\Md3d</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dDeviceControl.cpp">
+    <ClCompile Include="Engine\dx\cMd3dDatas.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dManager.cpp">
+    <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dParameters.cpp">
+    <ClCompile Include="Engine\dx\cMd3dManager.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dSprite.cpp">
+    <ClCompile Include="Engine\dx\cMd3dParameters.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMioXmlSerializer.cpp">
+    <ClCompile Include="Engine\sys\thd\cMsysThread.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\cMsysManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\thd\cMsysThreadManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\wnd\cMsysWindowManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\io\xml\cMioXmlSerializer.cpp">
       <Filter>Source\Mio</Filter>
     </ClCompile>
-    <ClCompile Include="cMVector3.cpp">
-      <Filter>Source\Mmath</Filter>
-    </ClCompile>
-    <ClCompile Include="cMRect.cpp">
-      <Filter>Source\Mmath</Filter>
-    </ClCompile>
-    <ClCompile Include="cMseqBase.cpp">
+    <ClCompile Include="Engine\io\archive\cMioArchiveFile.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysManager.cpp">
-      <Filter>Source\Msys</Filter>
+    <ClCompile Include="Engine\seq\cMseqBase.cpp">
+      <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysThread.cpp">
-      <Filter>Source\Msys</Filter>
+    <ClCompile Include="Engine\util\timer\cMutilTimer.cpp">
+      <Filter>Source\Mutil</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysThreadManager.cpp">
-      <Filter>Source\Msys</Filter>
+    <ClCompile Include="Engine\util\timer\cMutilTimerManager.cpp">
+      <Filter>Source\Mutil</Filter>
     </ClCompile>
-    <ClCompile Include="cMsysWindowManager.cpp">
-      <Filter>Source\Msys</Filter>
+    <ClCompile Include="Engine\util\math\cMRect.cpp">
+      <Filter>Source\Mmath</Filter>
     </ClCompile>
-    <ClCompile Include="cMd3dDatas.cpp">
+    <ClCompile Include="Engine\util\math\cMVector3.cpp">
+      <Filter>Source\Mmath</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Object\MObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Collision\MCollisionCheckerAABB.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Collision\MCollisionCheckerCircle.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="cMutilTimerManager.cpp">
-      <Filter>Source\Mutil</Filter>
-    </ClCompile>
-    <ClCompile Include="cMutilTimer.cpp">
-      <Filter>Source\Mutil</Filter>
-    </ClCompile>
-    <ClCompile Include="cMioArchiveFile.cpp">
+    <ClCompile Include="Engine\Object\MObjectManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="cpp.hint" />
+    <None Include="Engine\cpp.hint" />
   </ItemGroup>
 </Project>
