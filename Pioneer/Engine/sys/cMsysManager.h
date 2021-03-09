@@ -12,7 +12,7 @@
 #include "../seq/cMseqBase.h"
 #include "../dx/cMd3dManager.h"
 #include "../util/timer/cMutilTimerManager.h"
-#include "../Object/MObjectManager.h"
+#include "../physics/MphysicsManager.h"
 
 class MsysManager
 {
@@ -27,7 +27,7 @@ private:
 	MutilTimerManager*	m_timerManager;
 
 	// Game Resource
-	MObjectManager* m_objectManager;
+	MphysicsManager*	m_physicsManager;
 
 	cMseqBase*			m_pCurrSeq;
 

@@ -19,7 +19,7 @@ bool MsysManager::InitEngine(HINSTANCE _hInstance)
 	m_d3dManager = new Md3dManager();
 	m_threadManager = new MsysThreadManager();
 	m_timerManager = new MutilTimerManager();
-	m_objectManager = new MObjectManager();
+	m_physicsManager = new MphysicsManager();
 	
 	m_winManager->Create(_hInstance);
 	m_d3dManager->Initialize();
@@ -55,7 +55,7 @@ void MsysManager::Cleanup()
 	SAFE_DELETE(m_winManager);
 	SAFE_DELETE(m_threadManager);
 	SAFE_DELETE(m_timerManager);
-	SAFE_DELETE(m_objectManager);
+	SAFE_DELETE(m_physicsManager);
 }
 
 Md3dManager * MsysManager::GetD3dManager()
