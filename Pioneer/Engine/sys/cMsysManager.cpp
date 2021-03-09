@@ -52,6 +52,10 @@ void MsysManager::ChangeSequence(cMseqBase * _seq)
 void MsysManager::Cleanup()
 {
 	SAFE_DELETE(m_d3dManager);
+	SAFE_DELETE(m_winManager);
+	SAFE_DELETE(m_threadManager);
+	SAFE_DELETE(m_timerManager);
+	SAFE_DELETE(m_objectManager);
 }
 
 Md3dManager * MsysManager::GetD3dManager()
