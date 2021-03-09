@@ -14,12 +14,18 @@ public:
 	virtual ~MObjectManager();
 
 public:
-	void RegisterNewObject(MObject* obj, int uid);
-	void UnregisterObject(int uid);
+	void RegisterNewObject(MObject* obj, UID uid);
+	void UnregisterObject(UID uid);
 	unsigned int CreateNewUID();
+	void Cleanup();
+
+	std::map<UID, MObject*>::iterator GetBeginIterator();
+
+	void LockDelMutex();
+	void UnlockDelMutex();
 
 private:
-	std::map<unsigned int, MObject*>	m_objectMap;
+	std::map<UID, MObject*>	m_objectMap;
 	unsigned int	m_uidCount;
 
 	std::mutex	m_uidCountMutex;

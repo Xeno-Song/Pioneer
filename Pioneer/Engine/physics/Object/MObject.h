@@ -3,8 +3,9 @@
 #ifndef __M_OBJECT_H__
 #define __M_OBJECT_H__
 
-#include "../util/math/Mmath.h"
-#include "../ResourceList.h"
+#include "../../util/math/Mmath.h"
+#include "../../ResourceList.h"
+#include "../../Mtypes.h"
 
 class MObject
 {
@@ -43,7 +44,7 @@ private:
 	void Initialize(ResourceNumber::ImageResourceNumber imageNumber, MVector3 position, bool visible);
 
 private:
-	unsigned int	m_uid;
+	UID			m_uid;
 
 	ResourceNumber::ImageResourceNumber	m_imageNumber;
 	bool		m_visible;
