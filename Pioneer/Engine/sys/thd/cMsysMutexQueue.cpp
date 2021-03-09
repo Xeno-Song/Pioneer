@@ -25,13 +25,13 @@ inline int MsysMutexQueue<dataType>::Push(dataType data)
 template<class dataType>
 inline bool MsysMutexQueue<dataType>::Pop(dataType* out)
 {
-	dataType* data = null;
+	dataType* data = nullptr;
 
 	LockMutex();
 	data = queue.pop();
 	UnlockMutex();
 
-	if (data == null)
+	if (data == nullptr)
 		return false;
 
 	return true;
