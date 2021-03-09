@@ -114,14 +114,20 @@
     <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\Object\MObject.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\Object\MObjectManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h">
       <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sys\thd\cMsysMutexQueue.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Mtypes.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\Object\MObject.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\physics\Object\MObjectManager.h">
+      <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +179,6 @@
     <ClCompile Include="Engine\util\math\cMVector3.cpp">
       <Filter>Source\Mmath</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Object\MObject.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -188,7 +191,13 @@
     <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\Object\MObjectManager.cpp">
+    <ClCompile Include="Engine\sys\thd\cMsysMutexQueue.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Object\MObject.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\Object\MObjectManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

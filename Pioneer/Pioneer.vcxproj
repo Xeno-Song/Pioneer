@@ -131,10 +131,12 @@
     <ClInclude Include="Engine\dx\cMd3dDeviceControl.h" />
     <ClInclude Include="Engine\dx\cMd3dManager.h" />
     <ClInclude Include="Engine\dx\cMd3dParameters.h" />
-    <ClInclude Include="Engine\Object\MObjectManager.h" />
+    <ClInclude Include="Engine\Mtypes.h" />
+    <ClInclude Include="Engine\physics\Object\MObjectManager.h" />
     <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h" />
     <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h" />
     <ClInclude Include="Engine\io\xml\cMioXmlSerializer.h" />
+    <ClInclude Include="Engine\sys\thd\cMsysMutexQueue.h" />
     <ClInclude Include="Engine\util\math\cMmathRect.h" />
     <ClInclude Include="Engine\seq\cMseqBase.h" />
     <ClInclude Include="Engine\sys\cMsysManager.h" />
@@ -150,7 +152,7 @@
     <ClInclude Include="Engine\io\Mio.h" />
     <ClInclude Include="Engine\io\archive\cMioArchiveFile.h" />
     <ClInclude Include="Engine\util\math\Mmath.h" />
-    <ClInclude Include="Engine\Object\MObject.h" />
+    <ClInclude Include="Engine\physics\Object\MObject.h" />
     <ClInclude Include="Engine\ResourceList.h" />
   </ItemGroup>
   <ItemGroup>
@@ -158,13 +160,14 @@
     <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp" />
     <ClCompile Include="Engine\dx\cMd3dManager.cpp" />
     <ClCompile Include="Engine\dx\cMd3dParameters.cpp" />
-    <ClCompile Include="Engine\Object\MObjectManager.cpp" />
+    <ClCompile Include="Engine\physics\Object\MObjectManager.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerAABB.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerCircle.cpp" />
     <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp" />
     <ClCompile Include="Engine\io\archive\cMioArchiveFile.cpp" />
     <ClCompile Include="Engine\io\xml\cMioXmlSerializer.cpp" />
+    <ClCompile Include="Engine\sys\thd\cMsysMutexQueue.cpp" />
     <ClCompile Include="Engine\util\math\cMRect.cpp" />
     <ClCompile Include="Engine\seq\cMseqBase.cpp" />
     <ClCompile Include="Engine\sys\cMsysManager.cpp" />
@@ -174,7 +177,7 @@
     <ClCompile Include="Engine\util\timer\cMutilTimer.cpp" />
     <ClCompile Include="Engine\util\timer\cMutilTimerManager.cpp" />
     <ClCompile Include="Engine\util\math\cMVector3.cpp" />
-    <ClCompile Include="Engine\Object\MObject.cpp" />
+    <ClCompile Include="Engine\physics\Object\MObject.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
