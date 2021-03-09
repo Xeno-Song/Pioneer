@@ -129,6 +129,9 @@
     <ClInclude Include="Engine\physics\Object\MObjectManager.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\physics\MphysicsManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -198,6 +201,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\Object\MObjectManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\physics\MphysicsManager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

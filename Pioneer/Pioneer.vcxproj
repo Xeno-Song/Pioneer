@@ -132,6 +132,7 @@
     <ClInclude Include="Engine\dx\cMd3dManager.h" />
     <ClInclude Include="Engine\dx\cMd3dParameters.h" />
     <ClInclude Include="Engine\Mtypes.h" />
+    <ClInclude Include="Engine\physics\MphysicsManager.h" />
     <ClInclude Include="Engine\physics\Object\MObjectManager.h" />
     <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h" />
     <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h" />
@@ -160,6 +161,7 @@
     <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp" />
     <ClCompile Include="Engine\dx\cMd3dManager.cpp" />
     <ClCompile Include="Engine\dx\cMd3dParameters.cpp" />
+    <ClCompile Include="Engine\physics\MphysicsManager.cpp" />
     <ClCompile Include="Engine\physics\Object\MObjectManager.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerAABB.cpp" />
