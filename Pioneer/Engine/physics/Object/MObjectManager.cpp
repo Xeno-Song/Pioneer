@@ -44,9 +44,15 @@ void MObjectManager::Cleanup()
     m_objectMap.clear();
 }
 
-std::map<UID, MObject*>::iterator MObjectManager::GetBeginIterator()
+std::vector<UID>* MObjectManager::GetUidVector()
 {
-    return m_objectMap.begin();
+    std::vector<UID>* uidVector = new std::vector<UID>();
+    uidVector->clear();
+
+    for (auto iter : m_objectMap)
+        uidVector->emplace_back(iter.first);
+
+    return uidVector;
 }
 
 void MObjectManager::LockDelMutex()

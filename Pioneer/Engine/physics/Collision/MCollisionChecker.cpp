@@ -1,4 +1,5 @@
 #include "MCollisionChecker.h"
+#include "../../MEngine.h"
 
 MCollisionCheckerManager::MCollisionCheckerManager()
 {
@@ -22,11 +23,4 @@ void MCollisionCheckerManager::StartCollisionCheck()
 
 void MCollisionCheckerManager::SuspendCollisionCheck()
 {
-}
-
-std::vector<UID> MCollisionCheckerManager::CreateObjectKeyVector()
-{
-	
-
-	return std::vector<UID>();
 }

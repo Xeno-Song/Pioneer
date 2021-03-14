@@ -52,9 +52,6 @@ public:
 public:
 	void StartCollisionCheck();
 	void SuspendCollisionCheck();
-
-private:
-	std::vector<UID> CreateObjectKeyVector();
 };
 
 #endif

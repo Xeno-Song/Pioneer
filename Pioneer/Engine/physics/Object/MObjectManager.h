@@ -4,6 +4,7 @@
 #define __M_OBJECT_MANAGER_H__
 
 #include <map>
+#include <vector>
 #include <mutex>
 #include "MObject.h"
 
@@ -19,7 +20,7 @@ public:
 	unsigned int CreateNewUID();
 	void Cleanup();
 
-	std::map<UID, MObject*>::iterator GetBeginIterator();
+	std::vector<UID>* GetUidVector();
 
 	void LockDelMutex();
 	void UnlockDelMutex();

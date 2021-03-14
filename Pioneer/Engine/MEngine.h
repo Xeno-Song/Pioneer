@@ -46,4 +46,4 @@
 
 
 // Game Resources
-#define MObjGetManager()		MGetSystem()->GetObjectManager()
+#define MPhysicsManager()		MGetSystem()->GetPhysicsManager()
