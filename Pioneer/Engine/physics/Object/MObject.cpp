@@ -76,8 +76,8 @@ void MObject::Render()
 
 void MObject::Initialize(ResourceNumber::ImageResourceNumber imageNumber, MVector3 position, bool visible)
 {
-	m_uid = MObjGetManager()->CreateNewUID();
-	MObjGetManager()->RegisterNewObject(this, m_uid);
+	m_uid = MObjectManager()->CreateNewUID();
+	MObjectManager()->RegisterNewObject(this, m_uid);
 
 	m_imageNumber = imageNumber;
 	m_position = position;
