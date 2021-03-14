@@ -1,5 +1,5 @@
 #pragma once
-#include "cMsysThread.h"
+#include "MsysThread.h"
 #include <map>
 
 class MsysThreadManager
@@ -8,11 +8,11 @@ private:
 	long long int		m_lastThreadNum;
 	int					m_threadCleanupInterval;
 
-	std::map<long long int, cMsysThread*>	m_threadMap;
+	std::map<long long int, MsysThread*>	m_threadMap;
 	std::mutex								m_accessMutex;
 
 private:
-	cMsysThread*	m_cleanThread;
+	MsysThread*	m_cleanThread;
 
 public:
 	MsysThreadManager();
@@ -21,10 +21,10 @@ public:
 	void	Initialize();
 	void	Cleanup();
 
-	cMsysThread*	CreateThread();
-	cMsysThread*	CreateThread(void(_threadFunc)(void*), void* _arg);
+	MsysThread*	CreateThread();
+	MsysThread*	CreateThread(void(_threadFunc)(void*), void* _arg);
 
-	cMsysThread*	GetThread(int _threadNum);
+	MsysThread*	GetThread(int _threadNum);
 
 	void			CleanThreads();
 	static void		ThreadJob(void* _arg);

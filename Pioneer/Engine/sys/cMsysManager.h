@@ -8,7 +8,7 @@
 #include "../Mdefines.h"
 
 #include "../sys/wnd/cMsysWindowManager.h"
-#include "../sys/thd/cMsysThreadManager.h"
+#include "../sys/thd/MsysThreadManager.h"
 #include "../seq/cMseqBase.h"
 #include "../dx/cMd3dManager.h"
 #include "../util/timer/cMutilTimerManager.h"

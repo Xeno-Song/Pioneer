@@ -69,13 +69,7 @@
     <ClInclude Include="Engine\dx\cMd3dParameters.h">
       <Filter>Header\Md3d</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sys\thd\cMsysThread.h">
-      <Filter>Header\Msys\Thread</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\sys\cMsysManager.h">
-      <Filter>Header\Msys</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\sys\thd\cMsysThreadManager.h">
       <Filter>Header\Msys</Filter>
     </ClInclude>
     <ClInclude Include="Engine\sys\wnd\cMsysWindowManager.h">
@@ -117,9 +111,6 @@
     <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h">
       <Filter>Header\Md3d</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\sys\thd\cMsysMutexQueue.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\Mtypes.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -130,6 +121,15 @@
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Engine\physics\MphysicsManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sys\thd\MsysThread.h">
+      <Filter>Header\Msys\Thread</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sys\thd\MsysThreadManager.h">
+      <Filter>Header\Msys</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\sys\thd\MsysMutexQueue.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -149,13 +149,7 @@
     <ClCompile Include="Engine\dx\cMd3dParameters.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sys\thd\cMsysThread.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\sys\cMsysManager.cpp">
-      <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\sys\thd\cMsysThreadManager.cpp">
       <Filter>Source\Msys</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sys\wnd\cMsysWindowManager.cpp">
@@ -194,9 +188,6 @@
     <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\sys\thd\cMsysMutexQueue.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\physics\Object\MObject.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -204,6 +195,15 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\physics\MphysicsManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\thd\MsysThreadManager.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\thd\MsysThread.cpp">
+      <Filter>Source\Msys</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\sys\thd\MsysMutexQueue.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,7 +3,7 @@
 #include <mutex>
 #include <condition_variable>
 
-class cMsysThread
+class MsysThread
 {
 private:
 	long long int				m_threadNum;
@@ -22,11 +22,11 @@ private:
 	std::condition_variable			m_stopCheckCondition;
 
 protected:
-	static void ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void*), void* _arg);
+	static void ThreadMain(MsysThread* _mothod, void(_threadFunc)(void*), void* _arg);
 	
 public:
-	cMsysThread(long long int _threadNum);
-	virtual ~cMsysThread();
+	MsysThread(long long int _threadNum);
+	virtual ~MsysThread();
 
 	void	CreateThread(void(_threadFunc)(void*), void* _arg);
 	void	StopThread(bool _waitForStop = false, int _timeout = 100);

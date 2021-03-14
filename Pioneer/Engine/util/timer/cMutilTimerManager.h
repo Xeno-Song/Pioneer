@@ -1,6 +1,6 @@
 #pragma once
 #include "cMutilTimer.h"
-#include "../../sys/thd/cMsysThread.h"
+#include "../../sys/thd/MsysThread.h"
 #include <map>
 #include <mutex>
 
@@ -11,7 +11,7 @@ public:
 	std::map<int, cMutilTimer*>	m_timerList;
 
 	std::mutex		m_accessMutex;
-	cMsysThread*	m_timerThread;
+	MsysThread*	m_timerThread;
 
 public:
 	MutilTimerManager();

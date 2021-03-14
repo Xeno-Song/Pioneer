@@ -1,4 +1,4 @@
-#include "cMsysMutexQueue.h"
+#include "MsysMutexQueue.h"
 
 template<class dataType>
 inline MsysMutexQueue<dataType>::MsysMutexQueue()

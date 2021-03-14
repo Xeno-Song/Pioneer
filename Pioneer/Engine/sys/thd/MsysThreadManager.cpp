@@ -1,4 +1,4 @@
-#include "cMsysThreadManager.h"
+#include "MsysThreadManager.h"
 #include "../../Mdefines.h"
 #include <vector>
 #include <Windows.h>
@@ -38,12 +38,12 @@ void MsysThreadManager::Cleanup()
 	m_threadMap.clear();
 }
 
-cMsysThread * MsysThreadManager::CreateThread()
+MsysThread * MsysThreadManager::CreateThread()
 {
 	LockAccessMutex();
 
-	cMsysThread* thread = nullptr;
-	thread = new cMsysThread(m_lastThreadNum);
+	MsysThread* thread = nullptr;
+	thread = new MsysThread(m_lastThreadNum);
 	m_threadMap.insert(std::make_pair(m_lastThreadNum, thread));
 	m_lastThreadNum++;
 
@@ -52,12 +52,12 @@ cMsysThread * MsysThreadManager::CreateThread()
 	return thread;
 }
 
-cMsysThread * MsysThreadManager::CreateThread(void(_threadFunc)(void *), void * _arg)
+MsysThread * MsysThreadManager::CreateThread(void(_threadFunc)(void *), void * _arg)
 {
 	LockAccessMutex();
 
-	cMsysThread* thread = nullptr;
-	thread = new cMsysThread(m_lastThreadNum);
+	MsysThread* thread = nullptr;
+	thread = new MsysThread(m_lastThreadNum);
 
 	thread->CreateThread(_threadFunc, _arg);
 	m_threadMap.insert(std::make_pair(m_lastThreadNum, thread));
@@ -68,7 +68,7 @@ cMsysThread * MsysThreadManager::CreateThread(void(_threadFunc)(void *), void * 
 	return thread;
 }
 
-cMsysThread * MsysThreadManager::GetThread(int _threadNum)
+MsysThread * MsysThreadManager::GetThread(int _threadNum)
 {
 	auto result = m_threadMap.find(_threadNum);
 	if (result == m_threadMap.end())

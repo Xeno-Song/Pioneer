@@ -1,9 +1,9 @@
-#include "cMsysThread.h"
+#include "MsysThread.h"
 #include "../../sys/cMsysManager.h"
 #include <Windows.h>
 #include <chrono>
 
-cMsysThread::cMsysThread(long long int _threadNum)
+MsysThread::MsysThread(long long int _threadNum)
 {
 	m_threadNum = _threadNum;
 	m_waitThread = false;
@@ -11,12 +11,12 @@ cMsysThread::cMsysThread(long long int _threadNum)
 	m_dead = false;
 }
 
-cMsysThread::~cMsysThread()
+MsysThread::~MsysThread()
 {
 	StopThread(true, 100);
 }
 
-void cMsysThread::ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void *), void * _arg)
+void MsysThread::ThreadMain(MsysThread* _mothod, void(_threadFunc)(void *), void * _arg)
 {
 	while (true)
 	{
@@ -34,12 +34,12 @@ void cMsysThread::ThreadMain(cMsysThread* _mothod, void(_threadFunc)(void *), vo
 	_mothod->m_dead = true;
 }
 
-void cMsysThread::CreateThread(void(_threadFunc)(void *), void * _arg)
+void MsysThread::CreateThread(void(_threadFunc)(void *), void * _arg)
 {
 	m_thread = std::thread(ThreadMain, this, _threadFunc, _arg);
 }
 
-void cMsysThread::StopThread(bool _waitForStop, int _timeout)
+void MsysThread::StopThread(bool _waitForStop, int _timeout)
 {
 	m_stopThread = true;
 
@@ -49,7 +49,7 @@ void cMsysThread::StopThread(bool _waitForStop, int _timeout)
 	}
 }
 
-bool cMsysThread::WaitForThreadStop(int _timeout)
+bool MsysThread::WaitForThreadStop(int _timeout)
 {
 	std::cv_status status = std::cv_status::no_timeout;
 	status = m_stopCheckCondition.wait_for(m_stopCheckuniquelock, std::chrono::milliseconds(1) * _timeout);
@@ -63,7 +63,7 @@ bool cMsysThread::WaitForThreadStop(int _timeout)
 	return true;
 }
 
-bool cMsysThread::WaitForThreadWait(int _timeout)
+bool MsysThread::WaitForThreadWait(int _timeout)
 {
 	std::cv_status status = std::cv_status::no_timeout;
 	status = m_waitCheckCondition.wait_for(m_waitCheckuniquelock, std::chrono::milliseconds(1) * _timeout);
@@ -76,12 +76,12 @@ bool cMsysThread::WaitForThreadWait(int _timeout)
 	return true;
 }
 
-bool cMsysThread::GetDead()
+bool MsysThread::GetDead()
 {
 	return m_dead;
 }
 
-void cMsysThread::WaitThread(bool _waitForThreadWait, int _timeout)
+void MsysThread::WaitThread(bool _waitForThreadWait, int _timeout)
 {
 	m_waitThread = true;
 
@@ -91,12 +91,12 @@ void cMsysThread::WaitThread(bool _waitForThreadWait, int _timeout)
 	}
 }
 
-void cMsysThread::ResumeThread()
+void MsysThread::ResumeThread()
 {
 	m_waitThread = false;
 }
 
-const long long int cMsysThread::GetThreadNum()
+const long long int MsysThread::GetThreadNum()
 {
 	return m_threadNum;
 }
