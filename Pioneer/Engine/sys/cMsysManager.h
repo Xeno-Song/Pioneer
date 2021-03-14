@@ -48,7 +48,7 @@ public:
 	MsysWindowManager*	GetWindowManager();
 	MsysThreadManager*	GetThreadManager();
 	MutilTimerManager*	GetTimerManager();
-	MObjectManager*		GetObjectManager();
+	MphysicsManager*	GetPhysicsManager();
 };
 
 #endif

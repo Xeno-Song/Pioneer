@@ -78,7 +78,7 @@ MutilTimerManager * MsysManager::GetTimerManager()
 	return m_timerManager;
 }
 
-MObjectManager* MsysManager::GetObjectManager()
+MphysicsManager* MsysManager::GetPhysicsManager()
 {
-	return m_objectManager;
+	return m_physicsManager;
 }
