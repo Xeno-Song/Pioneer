@@ -53,7 +53,7 @@ MRect MObject::GetCollisionArea()
 	return MRect();
 }
 
-double MObject::GetCollSphereDistance()
+double MObject::GetCollisionCircleRadius()
 {
 	return 0.0;
 }

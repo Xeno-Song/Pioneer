@@ -55,6 +55,16 @@ std::vector<UID>* MObjectManager::GetUidVector()
     return uidVector;
 }
 
+MObject* MObjectManager::GetObjectByUID(UID uid)
+{
+    std::map<UID, MObject*>::iterator result = m_objectMap.find(uid);
+
+    if (result == m_objectMap.end())
+        return nullptr;
+
+    return result->second;
+}
+
 void MObjectManager::LockDelMutex()
 {
     m_objMapDelMutex.lock();

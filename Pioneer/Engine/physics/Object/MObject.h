@@ -25,7 +25,7 @@ public:
 	bool GetCollisionCheckStatus();
 	void SetCollisionArea(MRect size);
 	MRect GetCollisionArea();
-	double GetCollSphereDistance();
+	double GetCollisionCircleRadius();
 
 
 public:

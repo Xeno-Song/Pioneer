@@ -21,6 +21,7 @@ public:
 	void Cleanup();
 
 	std::vector<UID>* GetUidVector();
+	MObject* GetObjectByUID(UID uid);
 
 	void LockDelMutex();
 	void UnlockDelMutex();
