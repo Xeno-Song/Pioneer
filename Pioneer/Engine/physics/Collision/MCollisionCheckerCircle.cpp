@@ -1,5 +1,6 @@
 #include "MCollisionChecker.h"
 #include "../Object/MObjectManager.h"
+#include "../../MEngine.h"
 
 MCollisionCheckerCircle::MCollisionCheckerCircle()
 {
@@ -69,7 +70,18 @@ void MCollisionCheckerCircle::CheckThreadJob()
 
 void MCollisionCheckerCircle::CheckCollision(UID first, UID second)
 {
-	
+	MObject* firstObj = MGetObjectManager()->GetObjectByUID(first);
+	MObject* secondObj = MGetObjectManager()->GetObjectByUID(second);
+
+	MVector3 firstPos = firstObj->GetPosition();
+	MVector3 secondPos = secondObj->GetPosition();
+	double firstObjCollRadius = firstObj->GetCollisionCircleRadius();
+	double secondObjCollRadius = secondObj->GetCollisionCircleRadius();
+
+	MVector3 distance = firstPos - secondPos;
+	// Collision detected with Circle collision detection algorithm
+	if (firstObjCollRadius + secondObjCollRadius >= distance.GetLength())
+		resultQueue->Push(std::pair<UID, UID>(first, second));
 }
 
 void MCollisionCheckerCircle::SetResultQueue(MsysMutexQueue<std::pair<unsigned int, unsigned int>>* resultQueue)
@@ -79,4 +91,5 @@ void MCollisionCheckerCircle::SetResultQueue(MsysMutexQueue<std::pair<unsigned i
 
 void MCollisionCheckerCircle::Initialize()
 {
+
 }
