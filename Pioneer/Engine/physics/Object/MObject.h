@@ -23,8 +23,10 @@ public:
 
 	void SetCollisionCheckStatus(bool enable);
 	bool GetCollisionCheckStatus();
+	// Left top is (0, 0)
 	void SetCollisionArea(MRect size);
 	MRect GetCollisionArea();
+	MRect GetCollisionAreaRelativeCenter();
 	double GetCollisionCircleRadius();
 
 
@@ -55,7 +57,7 @@ private:
 
 	bool		m_collisionCheckEnable;
 	MRect		m_collisionArea;
-	MVector3	m_collisionSphere;
+	double		m_collisionCircleRadius;
 };
 
 #endif

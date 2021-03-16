@@ -91,5 +91,5 @@ void MCollisionCheckerCircle::SetResultQueue(MsysMutexQueue<std::pair<unsigned i
 
 void MCollisionCheckerCircle::Initialize()
 {
-
+	threadVector.clear();
 }
