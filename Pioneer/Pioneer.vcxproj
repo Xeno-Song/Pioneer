@@ -137,6 +137,7 @@
     <ClInclude Include="Engine\physics\Collision\MCollisionChecker.h" />
     <ClInclude Include="Engine\ExternalResource\sprite\cMd3dSprite.h" />
     <ClInclude Include="Engine\io\xml\cMioXmlSerializer.h" />
+    <ClInclude Include="Engine\res\datas\MresourceDatas.h" />
     <ClInclude Include="Engine\res\MresourceManager.h" />
     <ClInclude Include="Engine\res\sprite\cMd3dImage.h" />
     <ClInclude Include="Engine\res\sprite\cMd3dSprite.h" />

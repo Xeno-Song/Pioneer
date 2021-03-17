@@ -141,6 +141,9 @@
     <ClInclude Include="Engine\res\sprite\cMd3dImage.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\res\datas\MresourceDatas.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
