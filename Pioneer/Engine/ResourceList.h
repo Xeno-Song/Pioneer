@@ -9,7 +9,9 @@ namespace ResourceNumber
 	{
 		IMG_NONE,
 		IMG_TEST_GROUND,
-		IMG_TEST_CHARACTOR
+		IMG_TEST_CHARACTOR,
+
+		IMG_RES_MAX // DO NOT CHANGE THIS ELEMENT
 	};
 }
 #endif

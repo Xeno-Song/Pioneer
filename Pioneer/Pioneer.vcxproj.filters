@@ -132,6 +132,15 @@
     <ClInclude Include="Engine\sys\thd\MsysMutexQueue.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\res\sprite\cMd3dSprite.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\res\MresourceManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\res\sprite\cMd3dImage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -204,6 +213,15 @@
       <Filter>Source\Msys</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sys\thd\MsysMutexQueue.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\res\MresourceManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
