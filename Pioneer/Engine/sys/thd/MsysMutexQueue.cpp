@@ -18,7 +18,7 @@ inline int MsysMutexQueue<dataType>::Push(const dataType& data)
 	LockMutex();
 	queue.push(data);
 	UnlockMutex();
-
+	 
 	return 0;
 }
 
