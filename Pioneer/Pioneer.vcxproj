@@ -176,7 +176,6 @@
     <ClCompile Include="Engine\res\MresourceManager.cpp" />
     <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp" />
     <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp" />
-    <ClCompile Include="Engine\sys\thd\MsysMutexQueue.cpp" />
     <ClCompile Include="Engine\util\math\cMRect.cpp" />
     <ClCompile Include="Engine\seq\cMseqBase.cpp" />
     <ClCompile Include="Engine\sys\cMsysManager.cpp" />

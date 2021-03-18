@@ -197,9 +197,6 @@
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerCircle.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\physics\Object\MObject.cpp">
       <Filter>Source</Filter>
     </ClCompile>
@@ -214,9 +211,6 @@
     </ClCompile>
     <ClCompile Include="Engine\sys\thd\MsysThread.cpp">
       <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\sys\thd\MsysMutexQueue.cpp">
-      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp">
       <Filter>Source</Filter>

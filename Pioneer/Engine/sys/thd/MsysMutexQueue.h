@@ -10,19 +10,56 @@ template <typename dataType>
 class MsysMutexQueue
 {
 public:
-	MsysMutexQueue();
-	virtual ~MsysMutexQueue();
+	MsysMutexQueue()
+	{
+		Clear();
+	}
+	virtual ~MsysMutexQueue()
+	{
+		Clear();
+	}
 
 public:
-	int Push(const dataType& data);
-	bool Pop(dataType* out);
+	int Push(const dataType& data)
+	{
+		LockMutex();
+		queue.push(data);
+		UnlockMutex();
 
-	int GetCount();
-	void Clear();
+		return 0;
+	}
+	bool Pop(dataType* out)
+	{
+		dataType* data = nullptr;
+
+		LockMutex();
+		data = queue.pop();
+		UnlockMutex();
+
+		if (data == nullptr)
+			return false;
+
+		return true;
+	}
+
+	int GetCount()
+	{
+		int cnt = 0;
+
+		LockMutex();
+		cnt = queue.size();
+		UnlockMutex();
+
+		return cnt;
+	}
+	void Clear()
+	{
+		while (!queue.empty()) queue.pop();
+	}
 	
 protected:
-	void LockMutex();
-	void UnlockMutex();
+	void LockMutex() { accessLock.lock(); }
+	void UnlockMutex() { accessLock.unlock(); }
 
 private:
 	std::mutex accessLock;
