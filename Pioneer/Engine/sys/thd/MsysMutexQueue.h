@@ -6,7 +6,7 @@
 #include <mutex>
 #include <queue>
 
-template <class dataType>
+template <typename dataType>
 class MsysMutexQueue
 {
 public:
@@ -14,7 +14,7 @@ public:
 	virtual ~MsysMutexQueue();
 
 public:
-	int Push(dataType data);
+	int Push(const dataType& data);
 	bool Pop(dataType* out);
 
 	int GetCount();

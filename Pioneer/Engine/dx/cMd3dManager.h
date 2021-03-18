@@ -4,7 +4,7 @@
 #define __M_C_D3DMANAGER_H__
 
 #include "cMd3dDeviceControl.h"
-#include "../ExternalResource/sprite/cMd3dSprite.h"
+#include "../res/sprite/cMd3dSprite.h"
 
 #include "../MErrorCodes.h"
 

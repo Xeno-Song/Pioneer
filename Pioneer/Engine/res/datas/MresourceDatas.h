@@ -4,20 +4,10 @@
 #define __M_RESOURCE_DATAS_H__
 
 #include <vector>
+#include "../../io/xml/cMioXmlSerializer.h"
 
 class MResourceDatas
 {
-private:
-	class MResDataElement
-	{
-	public:
-		MResDataElement();
-		virtual ~MResDataElement();
-
-	public:
-		
-	};
-
 public:
 	MResourceDatas();
 	virtual ~MResourceDatas();
@@ -30,7 +20,7 @@ public:
 	void UnloadDatas();
 
 private:
-	std::vector<MResDataElement*> m_dataList;
+	cMioXmlSerializer* m_dataSerializer;
 };
 
 #endif

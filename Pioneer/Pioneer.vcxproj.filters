@@ -227,6 +227,9 @@
     <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp">
       <Filter>Source</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\res\datas\MresourceDatas.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\cpp.hint" />

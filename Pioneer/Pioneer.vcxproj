@@ -170,9 +170,9 @@
     <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerAABB.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionCheckerCircle.cpp" />
-    <ClCompile Include="Engine\ExternalResource\sprite\cMd3dSprite.cpp" />
     <ClCompile Include="Engine\io\archive\cMioArchiveFile.cpp" />
     <ClCompile Include="Engine\io\xml\cMioXmlSerializer.cpp" />
+    <ClCompile Include="Engine\res\datas\MresourceDatas.cpp" />
     <ClCompile Include="Engine\res\MresourceManager.cpp" />
     <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp" />
     <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp" />

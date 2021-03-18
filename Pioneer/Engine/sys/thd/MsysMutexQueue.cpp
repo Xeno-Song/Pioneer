@@ -1,19 +1,19 @@
 #include "MsysMutexQueue.h"
 
-template<class dataType>
+template<typename dataType>
 inline MsysMutexQueue<dataType>::MsysMutexQueue()
 {
 	Clear();
 }
 
-template<class dataType>
+template<typename dataType>
 inline MsysMutexQueue<dataType>::~MsysMutexQueue()
 {
 	Clear();
 }
 
-template<class dataType>
-inline int MsysMutexQueue<dataType>::Push(dataType data)
+template<typename dataType>
+inline int MsysMutexQueue<dataType>::Push(const dataType& data)
 {
 	LockMutex();
 	queue.push(data);
@@ -22,7 +22,7 @@ inline int MsysMutexQueue<dataType>::Push(dataType data)
 	return 0;
 }
 
-template<class dataType>
+template<typename dataType>
 inline bool MsysMutexQueue<dataType>::Pop(dataType* out)
 {
 	dataType* data = nullptr;
@@ -37,7 +37,7 @@ inline bool MsysMutexQueue<dataType>::Pop(dataType* out)
 	return true;
 }
 
-template<class dataType>
+template<typename dataType>
 inline int MsysMutexQueue<dataType>::GetCount()
 {
 	int cnt = 0;
@@ -49,19 +49,19 @@ inline int MsysMutexQueue<dataType>::GetCount()
 	return cnt;
 }
 
-template<class dataType>
+template<typename dataType>
 inline void MsysMutexQueue<dataType>::Clear()
 {
 	while (!queue.empty()) queue.pop();
 }
 
-template<class dataType>
+template<typename dataType>
 inline void MsysMutexQueue<dataType>::LockMutex()
 {
 	accessLock.lock();
 }
 
-template<class dataType>
+template<typename dataType>
 inline void MsysMutexQueue<dataType>::UnlockMutex()
 {
 	accessLock.unlock();

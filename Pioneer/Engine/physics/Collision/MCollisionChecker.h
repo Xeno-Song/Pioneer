@@ -37,7 +37,7 @@ private:
 	void Initialize();
 
 private:
-	MsysMutexQueue<std::pair<unsigned int, unsigned int>>* resultQueue;
+	MsysMutexQueue<std::pair<UID, UID>>* resultQueue;
 
 	std::vector<std::pair<MsysThread*, HANDLE>> threadVector;
 	//HANDLE threadEndEvent;
