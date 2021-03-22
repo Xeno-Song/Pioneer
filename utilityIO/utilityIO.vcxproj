@@ -78,6 +78,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>../header;$(IncludePath)</IncludePath>
+    <OutDir>$(SolutionDir)lib</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -122,7 +124,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;UTILITYIO_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -151,16 +153,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="cMioArchiveFile.h" />
+    <ClInclude Include="cMioXmlSerializer.h" />
+    <ClInclude Include="DllExport.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="io\archive\cMioArchiveFile.h" />
-    <ClInclude Include="io\Mio.h" />
-    <ClInclude Include="io\xml\cMioXmlSerializer.h" />
+    <ClInclude Include="Mdefines.h" />
+    <ClInclude Include="Mio.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cMioArchiveFile.cpp" />
+    <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="io\archive\cMioArchiveFile.cpp" />
-    <ClCompile Include="io\xml\cMioXmlSerializer.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

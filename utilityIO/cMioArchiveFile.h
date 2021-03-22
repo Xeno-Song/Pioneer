@@ -3,10 +3,11 @@
 #ifndef __M_IO_ARCHIVE_FILE_H__
 #define __M_IO_ARCHIVE_FILE_H__
 
+#include "DllExport.h"
 #include <vector>
 #include <fstream>
 
-class cMioArchieFile_Stream
+class MIO_API cMioArchieFile_Stream
 {
 protected:
 	std::wstring	m_fileName;

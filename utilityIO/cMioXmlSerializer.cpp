@@ -1,5 +1,6 @@
 #include "cMioXmlSerializer.h"
-#include "../../Mdefines.h"
+#include "pch.h"
+#include <MDefines.h> 
 #include <algorithm>
 #include <cctype>
 #include <cstdarg>

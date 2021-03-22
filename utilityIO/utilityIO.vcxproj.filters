@@ -21,14 +21,20 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="io\archive\cMioArchiveFile.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="DllExport.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="io\xml\cMioXmlSerializer.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="Mdefines.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="io\Mio.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="cMioArchiveFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cMioXmlSerializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mio.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -38,10 +44,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="io\archive\cMioArchiveFile.cpp">
+    <ClCompile Include="cMioArchiveFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="io\xml\cMioXmlSerializer.cpp">
+    <ClCompile Include="cMioXmlSerializer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

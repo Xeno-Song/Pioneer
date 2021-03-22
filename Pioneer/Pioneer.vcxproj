@@ -70,7 +70,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(DXSDK_DIR)/include;$(IncludePath)</IncludePath>
+    <IncludePath>$(DXSDK_DIR)/include;../header;$(IncludePath)</IncludePath>
     <LibraryPath>$(DXSDK_DIR)/Lib/x64;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">

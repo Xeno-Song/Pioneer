@@ -1,4 +1,5 @@
 #include "cMioArchiveFile.h"
+#include "pch.h"
 #include <cctype>
 #include <cstdarg>
 
@@ -200,7 +201,7 @@ void cMioArchiveFile_Header::WriteFile(cMioArchieFile_Stream* _stream)
 	int	fileNameLength;
 	char buffer[8] = { 0 };
 
-	fileNameLength = m_fileName.length();
+	fileNameLength = (int)m_fileName.length();
 	memcpy(buffer, &fileNameLength, sizeof(unsigned int));
 	_stream->WriteText(buffer);
 

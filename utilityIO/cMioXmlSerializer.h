@@ -7,8 +7,9 @@
 #define __C_MIO_XML_SERIALIZER_H__
 
 #define _MIO_XML_SERIALIZER_MAX_STRING_LEN	256
+#include "DllExport.h"
 
-class cMiolXml_Stream
+class MIO_API cMiolXml_Stream
 {
 protected:
 	std::wstring		m_fileName;
