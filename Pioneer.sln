@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31019.35
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pioneer", "Pioneer\Pioneer.vcxproj", "{638E32D9-1513-40FA-B7F3-7E86A0DE69C8}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0B7730B5-062E-4B86-AC75-59D158A14732} = {0B7730B5-062E-4B86-AC75-59D158A14732}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ResourceFileLib", "ResourceFileLib\ResourceFileLib.vcxproj", "{EF7C9A69-B98B-4D24-982C-C8AAC2EF7BB4}"
 EndProject
