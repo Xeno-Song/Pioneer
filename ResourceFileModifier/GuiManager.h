@@ -9,20 +9,23 @@ class GuiManager
 {
 public:
 	GuiManager();
-	virtual ~GuiManager();
+	GuiManager(GuiManager&);
+	~GuiManager();
 
-public:
 	void Initialize(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow);
+	void Destroy() const;
 	void StartMainLoop();
-
 
 	static LRESULT __stdcall MainWndProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
-	HWND GetWindowHandle();
+	HWND GetWindowHandle() const;
 
 private:
+	HINSTANCE	m_hInstance;
 	WNDCLASSEXW	m_wndClass;
 	HWND		m_hWnd;
+
+	HMENU		m_hMenu;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #include <mutex>
 #include <queue>
 
-template <typename dataType>
+template <typename DataType>
 class MsysMutexQueue
 {
 public:
@@ -20,7 +20,7 @@ public:
 	}
 
 public:
-	int Push(const dataType& data)
+	int Push(const DataType& data)
 	{
 		LockMutex();
 		queue.push(data);
@@ -28,9 +28,9 @@ public:
 
 		return 0;
 	}
-	bool Pop(dataType* out)
+	bool Pop(DataType* out)
 	{
-		dataType* data = nullptr;
+		DataType* data = nullptr;
 
 		LockMutex();
 		data = queue.pop();
@@ -63,7 +63,7 @@ protected:
 
 private:
 	std::mutex accessLock;
-	std::queue<dataType> queue;
+	std::queue<DataType> queue;
 };
 
 #endif
