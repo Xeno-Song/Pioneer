@@ -127,10 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Engine\dx\cMd3dDatas.h" />
-    <ClInclude Include="Engine\dx\cMd3dDeviceControl.h" />
+    <ClInclude Include="Engine\dx\Md3dConfig.h" />
+    <ClInclude Include="Engine\dx\cMd3d9DeviceControl.h" />
     <ClInclude Include="Engine\dx\cMd3dManager.h" />
     <ClInclude Include="Engine\dx\cMd3dParameters.h" />
+    <ClInclude Include="Engine\dx\cMd3d11DeviceControl.h" />
     <ClInclude Include="Engine\Mtypes.h" />
     <ClInclude Include="Engine\physics\MphysicsManager.h" />
     <ClInclude Include="Engine\physics\Object\MObjectManager.h" />
@@ -161,8 +162,8 @@
     <ClInclude Include="Engine\ResourceList.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Engine\dx\cMd3dDatas.cpp" />
-    <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp" />
+    <ClCompile Include="Engine\dx\Md3dConfig.cpp" />
+    <ClCompile Include="Engine\dx\cMd3d9DeviceControl.cpp" />
     <ClCompile Include="Engine\dx\cMd3dManager.cpp" />
     <ClCompile Include="Engine\dx\cMd3dParameters.cpp" />
     <ClCompile Include="Engine\physics\MphysicsManager.cpp" />

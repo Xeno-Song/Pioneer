@@ -3,7 +3,7 @@
 #ifndef __M_C_D3DMANAGER_H__
 #define __M_C_D3DMANAGER_H__
 
-#include "cMd3dDeviceControl.h"
+#include "cMd3d9DeviceControl.h"
 #include "../res/sprite/cMd3dSprite.h"
 
 #include "../MErrorCodes.h"

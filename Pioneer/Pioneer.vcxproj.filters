@@ -57,12 +57,6 @@
     <ClInclude Include="Engine\MErrorCodes.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\dx\cMd3dDatas.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\dx\cMd3dDeviceControl.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\dx\cMd3dManager.h">
       <Filter>Header\Md3d</Filter>
     </ClInclude>
@@ -144,16 +138,19 @@
     <ClInclude Include="Engine\res\datas\MresourceDatas.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\dx\cMd3d9DeviceControl.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\cMd3d11DeviceControl.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\Md3dConfig.h">
+      <Filter>Header\Md3d</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\dx\cMd3dDatas.cpp">
-      <Filter>Source\Md3d</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\dx\cMd3dDeviceControl.cpp">
-      <Filter>Source\Md3d</Filter>
     </ClCompile>
     <ClCompile Include="Engine\dx\cMd3dManager.cpp">
       <Filter>Source\Md3d</Filter>
@@ -223,6 +220,12 @@
     </ClCompile>
     <ClCompile Include="Engine\res\datas\MresourceDatas.cpp">
       <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\cMd3d9DeviceControl.cpp">
+      <Filter>Source\Md3d</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\Md3dConfig.cpp">
+      <Filter>Source\Md3d</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

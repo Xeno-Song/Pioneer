@@ -1,4 +1,6 @@
-#include "cMd3dDeviceControl.h"
+#include "cMd3d9DeviceControl.h"
+
+#include "cMd3d9DeviceControl.h"
 #include "../sys/cMsysManager.h"
 #include "../Mdefines.h"
 
@@ -51,7 +53,7 @@ bool Md3dDeviceControl::CreateDevice()
 		return FALSE;
 	}
 	
-	if (m_initalized == FALSE)
+	if (m_initialized == FALSE)
 	{
 		SetDefaultParameter();
 	}
@@ -160,9 +162,9 @@ void Md3dDeviceControl::SetDefaultParameter()
 	m_d3dpp.SwapEffect = D3DSWAPEFFECT_DISCARD;
 }
 
-void Md3dDeviceControl::LoadData(Md3dDeviceDatas * _datas)
+void Md3dDeviceControl::LoadData(Md3dDeviceConfig * _datas)
 {
-	m_initalized = (bool)_datas->m_initialized;
+	m_initialized = (bool)_datas->m_initialized;
 	m_monitorNum = _datas->m_monitorNum;
 
 	SetBackBufferWidth(_datas->m_backBufferWidth);
@@ -180,9 +182,9 @@ void Md3dDeviceControl::LoadData(Md3dDeviceDatas * _datas)
 	SetPresentationInterval(_datas->m_presentationInterval);
 }
 
-void Md3dDeviceControl::SaveData(Md3dDeviceDatas * _datas)
+void Md3dDeviceControl::SaveData(Md3dDeviceConfig * _datas)
 {
-	_datas->m_initialized = (int)m_initalized;
+	_datas->m_initialized = (int)m_initialized;
 	_datas->m_monitorNum = (int)m_monitorNum;
 
 	_datas->m_backBufferWidth = GetBackBufferWidth();
@@ -193,7 +195,7 @@ void Md3dDeviceControl::SaveData(Md3dDeviceDatas * _datas)
 	_datas->m_multiSampleQuality = GetMultiSampleQuality();
 	_datas->m_swapEffect = GetSwapEffect();
 	_datas->m_windowed = GetWindowed();
-	_datas->m_enableAutoDepthStencil = GetEnalbeAutoDepthStencil();
+	_datas->m_enableAutoDepthStencil = GetAutoDepthStencilEnable();
 	_datas->m_autoDepthStencilFormat = GetAutoDepthStencilFormat();
 	_datas->m_flags = GetFlags();
 	_datas->m_fullScreenRefreshRateInHz = GetFullScreenRefreshRateInHz();
@@ -447,7 +449,7 @@ BOOL Md3dDeviceControl::GetWindowed()
 * @brief	Get device auto depth stencil mode enabled
 * @return	return device auto depth stencil mode is enable to BOOL
 */
-BOOL Md3dDeviceControl::GetEnalbeAutoDepthStencil()
+BOOL Md3dDeviceControl::GetAutoDepthStencilEnable()
 {
 	return m_d3dpp.EnableAutoDepthStencil;
 }

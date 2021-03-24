@@ -1,7 +1,7 @@
-#include "cMd3dDatas.h"
+#include "Md3dData.h"
 
 
-cMd3dDatas::cMd3dDatas()
+Md3dData::Md3dData()
 {
 	wchar_t buffer[256] = { 0 };
 	std::wstring	filePath;
@@ -11,29 +11,29 @@ cMd3dDatas::cMd3dDatas()
 	filePath.assign(buffer);
 
 	filePath.append(L"\\d3d.xml");
-	XmlInitialize(filePath.data(), L"DirectX");
+	XmlInitialize(filePath, L"DirectX");
 
-	m_deviceData = new Md3dDeviceDatas();
+	m_deviceData = new Md3dDeviceData();
 }
 
-cMd3dDatas::~cMd3dDatas()
+Md3dData::~Md3dData()
 {
 	delete m_deviceData;
 }
 
-void cMd3dDatas::LoadAll()
+void Md3dData::LoadAll()
 {
 	LoadDeviceData();
 }
 
-void cMd3dDatas::SaveAll()
+void Md3dData::SaveAll()
 {
 	SaveDeviceData();
 
 	XmlWrite();
 }
 
-void cMd3dDatas::LoadDeviceData()
+void Md3dData::LoadDeviceData()
 {
 	cMioXml_Element*	deviceElement = nullptr;
 	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
@@ -41,7 +41,7 @@ void cMd3dDatas::LoadDeviceData()
 	m_deviceData->LoadFromXmlElement(deviceElement);
 }
 
-void cMd3dDatas::SaveDeviceData()
+void Md3dData::SaveDeviceData()
 {
 	cMioXml_Element*	deviceElement = nullptr;
 	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
@@ -49,16 +49,16 @@ void cMd3dDatas::SaveDeviceData()
 	m_deviceData->SaveToXmlElement(deviceElement);
 }
 
-void cMd3dDatas::SetDeviceData(Md3dDeviceDatas * _data)
+void Md3dData::SetDeviceData(Md3dDeviceData * _data)
 {
 }
 
-Md3dDeviceDatas * cMd3dDatas::GetDeviceData()
+Md3dDeviceData * Md3dData::GetDeviceData()
 {
 	return nullptr;
 }
 
-Md3dDeviceDatas::Md3dDeviceDatas()
+Md3dDeviceData::Md3dDeviceData()
 {
 	m_backBufferWidth = NULL;
 	m_backBufferHeight = NULL;
@@ -75,7 +75,7 @@ Md3dDeviceDatas::Md3dDeviceDatas()
 	m_presentationInterval = NULL;
 }
 
-Md3dDeviceDatas::~Md3dDeviceDatas()
+Md3dDeviceData::~Md3dDeviceData()
 {
 	m_backBufferWidth = NULL;
 	m_backBufferHeight = NULL;
@@ -92,9 +92,9 @@ Md3dDeviceDatas::~Md3dDeviceDatas()
 	m_presentationInterval = NULL;
 }
 
-void Md3dDeviceDatas::LoadFromXmlElement(cMioXml_Element * _element)
+void Md3dDeviceData::LoadFromXmlElement(cMioXml_Element * _element)
 {
-	m_initialized				= _element->GetSubElementNode(L"initalized", true)->GetValueToInt();
+	m_initialized				= _element->GetSubElementNode(L"initialized", true)->GetValueToInt();
 	m_monitorNum				= _element->GetSubElementNode(L"monitorNum", true)->GetValueToInt();
 
 	m_backBufferWidth			= _element->GetSubElementNode(L"backBufferWidth", true)->GetValueToInt();
@@ -114,9 +114,9 @@ void Md3dDeviceDatas::LoadFromXmlElement(cMioXml_Element * _element)
 
 }
 
-void Md3dDeviceDatas::SaveToXmlElement(cMioXml_Element * _element)
+void Md3dDeviceData::SaveToXmlElement(cMioXml_Element * _element) const
 {
-	_element->GetSubElementNode(L"initalized", true)->SetValue(m_initialized);
+	_element->GetSubElementNode(L"initialized", true)->SetValue(m_initialized);
 	_element->GetSubElementNode(L"monitorNum", true)->SetValue(m_monitorNum);
 
 	_element->GetSubElementNode(L"backBufferWidth", true)->SetValue((int)m_backBufferWidth);
@@ -132,4 +132,24 @@ void Md3dDeviceDatas::SaveToXmlElement(cMioXml_Element * _element)
 	_element->GetSubElementNode(L"flags", true)->SetValue((int)m_flags);
 	_element->GetSubElementNode(L"fullScreenRefreshRateInHz", true)->SetValue((int)m_fullScreenRefreshRateInHz);
 	_element->GetSubElementNode(L"presentationInterval", true)->SetValue((int)m_presentationInterval);
+}
+
+Md3dGlobalConfig::Md3dGlobalConfig()
+	:m_useDx11(false)
+{
+}
+
+Md3dGlobalConfig::~Md3dGlobalConfig()
+{
+	m_useDx11 = false;
+}
+
+void Md3dGlobalConfig::LoadFromXmlElement(cMioXml_Element* element)
+{
+	m_useDx11 = element->GetSubElementNode(L"useDx11", true)->GetValueToInt();
+}
+
+void Md3dGlobalConfig::SaveToXmlElement(cMioXml_Element* element) const
+{
+	element->GetSubElementNode(L"useDx11", true)->SetValue(m_useDx11);
 }

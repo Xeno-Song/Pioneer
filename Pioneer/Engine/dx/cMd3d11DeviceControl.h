@@ -1,26 +1,40 @@
 #pragma once
 
-#ifndef	__C_M_D3D_MANAGER_H__
-#define	__C_M_D3D_MANAGER_H__
+#define __DX_VERSION_11__
 
-#include <d3d9.h>
-#include <d3dx9.h>
-#pragma comment(lib, "d3d9.lib")
-#pragma comment(lib, "d3dx9.lib")
+#ifdef __DX_VERSION_11__
 
-#include "cMd3dDatas.h"
+#ifndef	__C_M_D3D_DEVICE_IMPLEMENTS_H__
+#define	__C_M_D3D_DEVICE_IMPLEMENTS_H__
+
+#include <dxgi.h>
+#include <d3dcommon.h>
+#include <d3d11.h>
+#include <d3dx10math.h>
+#include <vector>
+#include "Md3dConfig.h"
+#pragma comment(lib, "d3d11.lib")
+#pragma comment(lib, "d3dx11.lib")
 
 class Md3dDeviceControl
 {
 protected:
-	LPDIRECT3D9				m_pD3d;
-	LPDIRECT3DDEVICE9		m_pDevice;
-	D3DPRESENT_PARAMETERS	m_d3dpp;
+	IDXGISwapChain* m_swapChain;
+	ID3D11Device* m_device;
+	ID3D11DeviceContext* m_deviceContext;
+	ID3D11RenderTargetView* m_renderTargetView;
+	ID3D11Texture2D* m_depthStencilBuffer;
+	ID3D11DepthStencilState* m_depthStencilState;
+	ID3D11DepthStencilView* m_depthStencilView;
+	ID3D11RasterizerState* m_rasterState;
+	D3DXMATRIX m_projectionMatrix;
+	D3DXMATRIX m_worldMatrix;
+	D3DXMATRIX m_orthoMatrix;
 
 	std::vector<std::string>		m_gpuList;
 	std::vector<D3DDISPLAYMODE>	m_monitorList;
 
-	bool	m_initalized;
+	bool	m_initialized;
 	int		m_monitorNum;
 
 private:
@@ -37,8 +51,6 @@ public:
 	bool	GetAdapterList();
 	void	SetDefaultParameter();
 
-	void	LoadData(Md3dDeviceDatas* _datas);
-	void	SaveData(Md3dDeviceDatas* _datas);
 	void	SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 	void	GetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
 
@@ -57,7 +69,7 @@ public:
 	void	SetFullScreenRefreshRateInHz(UINT _value);
 	void	SetPresentationInterval(UINT _value);
 
-	
+
 	UINT				GetBackBufferWidth();
 	UINT				GetBackBufferHeight();
 	D3DFORMAT			GetBackBufferFormat();
@@ -67,7 +79,7 @@ public:
 	D3DSWAPEFFECT		GetSwapEffect();
 	HWND				GetHwnd();
 	BOOL				GetWindowed();
-	BOOL				GetEnalbeAutoDepthStencil();
+	BOOL				GetAutoDepthStencilEnable();
 	D3DFORMAT			GetAutoDepthStencilFormat();
 	DWORD				GetFlags();
 	UINT				GetFullScreenRefreshRateInHz();
@@ -75,5 +87,7 @@ public:
 
 	const LPDIRECT3DDEVICE9	GetDevice();
 };
+
+#endif
 
 #endif
