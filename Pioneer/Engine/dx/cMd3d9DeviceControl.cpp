@@ -4,6 +4,8 @@
 #include "../sys/cMsysManager.h"
 #include "../Mdefines.h"
 
+#ifndef __DX_VERSION_11__
+
 Md3dDeviceControl::Md3dDeviceControl()
 {
 	m_pD3d		= NULL;
@@ -499,3 +501,5 @@ const LPDIRECT3DDEVICE9 Md3dDeviceControl::GetDevice()
 {
 	return m_pDevice;
 }
+
+#endif

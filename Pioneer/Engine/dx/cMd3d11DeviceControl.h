@@ -1,45 +1,22 @@
 #pragma once
 
-#define __DX_VERSION_11__
-
-#ifdef __DX_VERSION_11__
 
 #ifndef	__C_M_D3D_DEVICE_IMPLEMENTS_H__
 #define	__C_M_D3D_DEVICE_IMPLEMENTS_H__
 
+#include "Md3dConfig.h"
+
+#ifdef __DX_VERSION_11__
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
 #include <d3dx10math.h>
 #include <vector>
-#include "Md3dConfig.h"
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
 
 class Md3dDeviceControl
 {
-protected:
-	IDXGISwapChain* m_swapChain;
-	ID3D11Device* m_device;
-	ID3D11DeviceContext* m_deviceContext;
-	ID3D11RenderTargetView* m_renderTargetView;
-	ID3D11Texture2D* m_depthStencilBuffer;
-	ID3D11DepthStencilState* m_depthStencilState;
-	ID3D11DepthStencilView* m_depthStencilView;
-	ID3D11RasterizerState* m_rasterState;
-	D3DXMATRIX m_projectionMatrix;
-	D3DXMATRIX m_worldMatrix;
-	D3DXMATRIX m_orthoMatrix;
-
-	std::vector<std::string>		m_gpuList;
-	std::vector<D3DDISPLAYMODE>	m_monitorList;
-
-	bool	m_initialized;
-	int		m_monitorNum;
-
-private:
-	UINT	m_uFullScreenRefreshRateInHz;
-
 public:
 	Md3dDeviceControl();
 	virtual ~Md3dDeviceControl();
@@ -85,7 +62,31 @@ public:
 	UINT				GetFullScreenRefreshRateInHz();
 	UINT				GetPresentationInterval();
 
-	const LPDIRECT3DDEVICE9	GetDevice();
+	const ID3D11Device*	GetDevice();
+
+protected:
+	IDXGISwapChain* m_swapChain;
+	ID3D11Device* m_device;
+	ID3D11DeviceContext* m_deviceContext;
+	ID3D11RenderTargetView* m_renderTargetView;
+	ID3D11Texture2D* m_depthStencilBuffer;
+	ID3D11DepthStencilState* m_depthStencilState;
+	ID3D11DepthStencilView* m_depthStencilView;
+	ID3D11RasterizerState* m_rasterState;
+	D3DXMATRIX m_projectionMatrix;
+	D3DXMATRIX m_worldMatrix;
+	D3DXMATRIX m_orthoMatrix;
+
+	std::vector<std::string>		m_gpuList;
+	std::vector<D3DDISPLAYMODE>	m_monitorList;
+
+	bool	m_initialized;
+	int		m_monitorNum;
+
+private:
+	UINT	m_fullScreenRefreshRateInHz;
+	UINT	m_screenWidth;
+	UINT	m_screenHeight;
 };
 
 #endif

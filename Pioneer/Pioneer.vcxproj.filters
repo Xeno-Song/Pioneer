@@ -227,6 +227,9 @@
     <ClCompile Include="Engine\dx\Md3dConfig.cpp">
       <Filter>Source\Md3d</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\dx\cMd3d11DeviceControl.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Engine\cpp.hint" />

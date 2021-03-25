@@ -3,6 +3,8 @@
 #ifndef __M_DEFINES_H__
 #define __M_DEFINES_H__
 
+#define __DX_VERSION_11__
+
 #define	SAFE_RELEASE(p)		if(p){ p->Release();	delete p;	p = nullptr;	}
 #define SAFE_DELETE(p)		if(p){					delete p;	p = nullptr;	}
 

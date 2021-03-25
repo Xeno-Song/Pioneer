@@ -29,14 +29,14 @@ private:
 	// Game Resource
 	MphysicsManager*	m_physicsManager;
 
-	cMseqBase*			m_pCurrSeq;
+	cMseqBase*			m_currSeq;
 
 public:
 	MsysManager();
 	virtual ~MsysManager();
 
-	bool	InitEngine(HINSTANCE _hInstance);
-	void	StartEngine(cMseqBase*	_initSeq);
+	bool	InitEngine(HINSTANCE hInstance);
+	void	StartEngine(cMseqBase*	initSeq);
 	void	Cleanup();
 
 public:
@@ -44,11 +44,11 @@ public:
 
 	void	ChangeSequence(cMseqBase* _seq);
 
-	Md3dManager*		GetD3dManager();
-	MsysWindowManager*	GetWindowManager();
-	MsysThreadManager*	GetThreadManager();
-	MutilTimerManager*	GetTimerManager();
-	MphysicsManager*	GetPhysicsManager();
+	Md3dManager*		GetD3dManager() const;
+	MsysWindowManager*	GetWindowManager() const;
+	MsysThreadManager*	GetThreadManager() const;
+	MutilTimerManager*	GetTimerManager() const;
+	MphysicsManager*	GetPhysicsManager() const;
 };
 
 #endif

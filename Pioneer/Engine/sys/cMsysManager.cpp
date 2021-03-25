@@ -13,7 +13,7 @@ MsysManager::~MsysManager()
 	Cleanup();
 }
 
-bool MsysManager::InitEngine(HINSTANCE _hInstance)
+bool MsysManager::InitEngine(HINSTANCE hInstance)
 {
 	m_winManager = new MsysWindowManager();
 	m_d3dManager = new Md3dManager();
@@ -21,7 +21,7 @@ bool MsysManager::InitEngine(HINSTANCE _hInstance)
 	m_timerManager = new MutilTimerManager();
 	m_physicsManager = new MphysicsManager();
 	
-	m_winManager->Create(_hInstance);
+	m_winManager->Create(hInstance);
 	m_d3dManager->Initialize();
 	m_d3dManager->CreateDevice();
 	m_timerManager->InitializeTimerManager();
@@ -29,7 +29,7 @@ bool MsysManager::InitEngine(HINSTANCE _hInstance)
 	return true;
 }
 
-void MsysManager::StartEngine(cMseqBase* _initSeq)
+void MsysManager::StartEngine(cMseqBase* initSeq)
 {
 
 
@@ -58,27 +58,27 @@ void MsysManager::Cleanup()
 	SAFE_DELETE(m_physicsManager);
 }
 
-Md3dManager * MsysManager::GetD3dManager()
+Md3dManager * MsysManager::GetD3dManager() const
 {
 	return m_d3dManager;
 }
 
-MsysWindowManager * MsysManager::GetWindowManager()
+MsysWindowManager * MsysManager::GetWindowManager() const
 {
 	return m_winManager;
 }
 
-MsysThreadManager * MsysManager::GetThreadManager()
+MsysThreadManager * MsysManager::GetThreadManager() const
 {
 	return m_threadManager;
 }
 
-MutilTimerManager * MsysManager::GetTimerManager()
+MutilTimerManager * MsysManager::GetTimerManager() const
 {
 	return m_timerManager;
 }
 
-MphysicsManager* MsysManager::GetPhysicsManager()
+MphysicsManager* MsysManager::GetPhysicsManager() const
 {
 	return m_physicsManager;
 }
