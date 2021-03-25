@@ -2,14 +2,21 @@
 #include "../../MEngine.h"
 
 MsysWindowManager::MsysWindowManager()
+	:m_wndClass()
+	, m_hwnd(nullptr)
+	, m_screenWidth(0)
+	, m_screenHeight(0)
+	, m_windowWidth(0)
+	, m_windowHeight(0)
 {
 }
 
 MsysWindowManager::~MsysWindowManager()
 {
+	Destroy();
 }
 
-bool MsysWindowManager::Create(HINSTANCE _hInstance)
+bool MsysWindowManager::Create(HINSTANCE hInstance)
 {
 	ZeroMemory(&m_wndClass, sizeof(m_wndClass));
 
@@ -18,11 +25,14 @@ bool MsysWindowManager::Create(HINSTANCE _hInstance)
 	m_wndClass.lpfnWndProc = MainWndProc;
 	m_wndClass.cbClsExtra = NULL;
 	m_wndClass.cbWndExtra = NULL;
-	m_wndClass.hInstance = _hInstance;
+	m_wndClass.hInstance = hInstance;
 	m_wndClass.hIcon = NULL;
 	m_wndClass.hCursor = LoadCursor(NULL, IDC_ARROW);
 	m_wndClass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	m_wndClass.lpszClassName = L"Pioneer";
+
+	m_screenHeight = GetSystemMetrics(SM_CXSCREEN);
+	m_screenWidth = GetSystemMetrics(SM_CYSCREEN);
 
 	RegisterClassExW(&m_wndClass);
 	m_hwnd = CreateWindowExW(
@@ -32,8 +42,8 @@ bool MsysWindowManager::Create(HINSTANCE _hInstance)
 		WS_POPUP | WS_VISIBLE,
 		0,
 		0,
-		1920,
-		1080,
+		m_screenWidth,
+		m_screenHeight,
 		NULL,
 		NULL,
 		m_wndClass.hInstance,
@@ -67,7 +77,27 @@ LRESULT MsysWindowManager::MainWndProc(HWND hwnd, UINT uMsg, WPARAM wParam, LPAR
 	return 0;
 }
 
-HWND MsysWindowManager::GetWindowHandle()
+HWND MsysWindowManager::GetWindowHandle() const
 {
 	return m_hwnd;
+}
+
+UINT MsysWindowManager::GetScreenWidth() const
+{
+	return m_screenWidth;
+}
+
+UINT MsysWindowManager::GetScreenHeight() const
+{
+	return m_screenHeight;
+}
+
+UINT MsysWindowManager::GetWindowWidth() const
+{
+	return m_windowWidth;
+}
+
+UINT MsysWindowManager::GetWindowHeight() const
+{
+	return m_windowHeight;
 }
