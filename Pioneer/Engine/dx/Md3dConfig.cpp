@@ -1,7 +1,7 @@
-#include "Md3dData.h"
+#include "Md3dConfig.h"
 
 
-Md3dData::Md3dData()
+Md3dConfig::Md3dConfig()
 {
 	wchar_t buffer[256] = { 0 };
 	std::wstring	filePath;
@@ -13,52 +13,75 @@ Md3dData::Md3dData()
 	filePath.append(L"\\d3d.xml");
 	XmlInitialize(filePath, L"DirectX");
 
-	m_deviceData = new Md3dDeviceData();
+	m_deviceConfig = new Md3dDeviceConfig();
 }
 
-Md3dData::~Md3dData()
+Md3dConfig::~Md3dConfig()
 {
-	delete m_deviceData;
+	delete m_deviceConfig;
 }
 
-void Md3dData::LoadAll()
+void Md3dConfig::LoadAll()
 {
 	LoadDeviceData();
 }
 
-void Md3dData::SaveAll()
+void Md3dConfig::SaveAll()
 {
 	SaveDeviceData();
 
 	XmlWrite();
 }
 
-void Md3dData::LoadDeviceData()
+void Md3dConfig::LoadDeviceData()
 {
 	cMioXml_Element*	deviceElement = nullptr;
 	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
 
-	m_deviceData->LoadFromXmlElement(deviceElement);
+	m_deviceConfig->LoadFromXmlElement(deviceElement);
 }
 
-void Md3dData::SaveDeviceData()
+void Md3dConfig::SaveDeviceData()
 {
 	cMioXml_Element*	deviceElement = nullptr;
 	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
 
-	m_deviceData->SaveToXmlElement(deviceElement);
+	m_deviceConfig->SaveToXmlElement(deviceElement);
 }
 
-void Md3dData::SetDeviceData(Md3dDeviceData * _data)
+void Md3dConfig::SetDeviceConfig(Md3dDeviceConfig * config)
 {
+	m_deviceConfig = config;
 }
 
-Md3dDeviceData * Md3dData::GetDeviceData()
+Md3dDeviceConfig * Md3dConfig::GetDeviceConfig() const
 {
-	return nullptr;
+	return m_deviceConfig;
 }
 
-Md3dDeviceData::Md3dDeviceData()
+Md3dDeviceConfig::Md3dDeviceConfig()
+{
+	m_initialized = false;
+
+	m_monitorNum = 0;
+	m_backBufferWidth = NULL;
+	m_backBufferHeight = NULL;
+	m_backBufferFormat = D3DFORMAT();
+	m_backBufferCount = NULL;
+	m_multiSampleType = D3DMULTISAMPLE_TYPE();
+	m_multiSampleQuality = NULL;
+	m_swapEffect = D3DSWAPEFFECT();
+	m_windowed = NULL;
+	m_enableAutoDepthStencil = NULL;
+	m_autoDepthStencilFormat = D3DFORMAT();
+	m_flags = NULL;
+	m_vSync = NULL;
+	m_fullScreenRefreshRateInHz = NULL;
+	m_fullScreen = NULL;
+	m_presentationInterval = NULL;
+}
+
+Md3dDeviceConfig::~Md3dDeviceConfig()
 {
 	m_backBufferWidth = NULL;
 	m_backBufferHeight = NULL;
@@ -75,24 +98,7 @@ Md3dDeviceData::Md3dDeviceData()
 	m_presentationInterval = NULL;
 }
 
-Md3dDeviceData::~Md3dDeviceData()
-{
-	m_backBufferWidth = NULL;
-	m_backBufferHeight = NULL;
-	m_backBufferFormat = D3DFORMAT();
-	m_backBufferCount = NULL;
-	m_multiSampleType = D3DMULTISAMPLE_TYPE();
-	m_multiSampleQuality = NULL;
-	m_swapEffect = D3DSWAPEFFECT();
-	m_windowed = NULL;
-	m_enableAutoDepthStencil = NULL;
-	m_autoDepthStencilFormat = D3DFORMAT();
-	m_flags = NULL;
-	m_fullScreenRefreshRateInHz = NULL;
-	m_presentationInterval = NULL;
-}
-
-void Md3dDeviceData::LoadFromXmlElement(cMioXml_Element * _element)
+void Md3dDeviceConfig::LoadFromXmlElement(cMioXml_Element * _element)
 {
 	m_initialized				= _element->GetSubElementNode(L"initialized", true)->GetValueToInt();
 	m_monitorNum				= _element->GetSubElementNode(L"monitorNum", true)->GetValueToInt();
@@ -114,7 +120,7 @@ void Md3dDeviceData::LoadFromXmlElement(cMioXml_Element * _element)
 
 }
 
-void Md3dDeviceData::SaveToXmlElement(cMioXml_Element * _element) const
+void Md3dDeviceConfig::SaveToXmlElement(cMioXml_Element * _element) const
 {
 	_element->GetSubElementNode(L"initialized", true)->SetValue(m_initialized);
 	_element->GetSubElementNode(L"monitorNum", true)->SetValue(m_monitorNum);

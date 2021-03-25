@@ -21,6 +21,8 @@ public:
 	BOOL				m_enableAutoDepthStencil;
 	D3DFORMAT			m_autoDepthStencilFormat;
 	DWORD				m_flags;
+	UINT				m_vSync;
+	UINT				m_fullScreen;
 	UINT				m_fullScreenRefreshRateInHz;
 	UINT				m_presentationInterval;
 
@@ -64,7 +66,7 @@ public:
 	void	SetDeviceConfig(Md3dDeviceConfig* config);
 	void	SetGlobalConfig(Md3dGlobalConfig* config);
 	
-	Md3dGlobalConfig*   GetGlobalConfig();
-	Md3dDeviceConfig*	GetDeviceConfig();
+	Md3dGlobalConfig*   GetGlobalConfig() const;
+	Md3dDeviceConfig*	GetDeviceConfig() const;
 };
 

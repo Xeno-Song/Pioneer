@@ -15,7 +15,7 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
 
-class Md3dDeviceControl
+class Md3dDeviceControl final
 {
 public:
 	Md3dDeviceControl();
@@ -28,8 +28,8 @@ public:
 	bool	GetAdapterList();
 	void	SetDefaultParameter();
 
-	void	SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
-	void	GetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp);
+	void	LoadData(Md3dDeviceConfig* config);
+	void	SaveData(Md3dDeviceConfig* config) const;
 
 	void	SetBackBufferWidth(UINT _uValue);
 	void	SetBackBufferHeight(UINT _uValue);
@@ -64,7 +64,11 @@ public:
 
 	const ID3D11Device*	GetDevice();
 
-protected:
+private:
+	Md3dDeviceConfig*	m_config;
+	bool				m_vSync;
+	bool				m_fullScreen;
+	
 	IDXGISwapChain* m_swapChain;
 	ID3D11Device* m_device;
 	ID3D11DeviceContext* m_deviceContext;
@@ -77,14 +81,15 @@ protected:
 	D3DXMATRIX m_worldMatrix;
 	D3DXMATRIX m_orthoMatrix;
 
-	std::vector<std::string>		m_gpuList;
+	std::vector<std::wstring>	m_gpuList;
 	std::vector<D3DDISPLAYMODE>	m_monitorList;
 
 	bool	m_initialized;
 	int		m_monitorNum;
-
-private:
 	UINT	m_fullScreenRefreshRateInHz;
+	int		m_numerator;
+	int		m_denominator;
+	UINT	m_videoCardMemory;
 	UINT	m_screenWidth;
 	UINT	m_screenHeight;
 };

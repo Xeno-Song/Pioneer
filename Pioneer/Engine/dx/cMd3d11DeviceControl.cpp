@@ -15,10 +15,11 @@ bool Md3dDeviceControl::Cleanup()
 
 bool Md3dDeviceControl::CreateDevice()
 {
-	HWND	hwnd = NULL;
-	hwnd = MGetSystem()->GetWindowManager()->GetWindowHandle();
-
-	//m_screenWidth = MGetSystem()->GetWindowManager()->Get
+	auto *windowManager = MGetSystem()->GetWindowManager();
+	auto hwnd = windowManager->GetWindowHandle();
+	
+	m_screenWidth = windowManager->GetScreenWidth();
+	m_screenHeight = windowManager->GetScreenHeight();
 	
 	int error;
 	DXGI_SWAP_CHAIN_DESC swapChainDesc;
@@ -31,6 +32,35 @@ bool Md3dDeviceControl::CreateDevice()
 	D3D11_VIEWPORT viewport;
 	float fieldOfView, screenAspect;
 
+	ZeroMemory(&swapChainDesc, sizeof(swapChainDesc));
+	swapChainDesc.BufferCount = 1;
+	swapChainDesc.BufferDesc.Width = m_screenWidth;
+	swapChainDesc.BufferDesc.Height = m_screenHeight;
+	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+	
+	if () {
+		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
+		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
+	}
+	else {
+		swapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
+		swapChainDesc.BufferDesc.RefreshRate.Denominator = 1;
+	}
+	swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+	swapChainDesc.OutputWindow = hwnd;
+	swapChainDesc.SampleDesc.Count = 1;
+	swapChainDesc.SampleDesc.Quality = 0;
+
+	if (fullscreen) {
+		swapChainDesc.Windowed = false;
+	}
+	else {
+		swapChainDesc.Windowed = true;
+	}
+	swapChainDesc.BufferDesc.ScanlineOrdering = DXGI_MODE_SCANLINE_ORDER_UNSPECIFIED;
+	swapChainDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
+	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+	swapChainDesc.Flags = 0;
 }
 
 bool Md3dDeviceControl::DestroyDevice()
@@ -39,59 +69,71 @@ bool Md3dDeviceControl::DestroyDevice()
 
 bool Md3dDeviceControl::GetAdapterList()
 {
-	HRESULT result;
 	IDXGIFactory* factory;
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
-	unsigned int numModes, i, numerator, denominator, stringLength;
-	DXGI_MODE_DESC* displayModeList;
+	unsigned int numModes, stringLength, numerator, denominator;
 	DXGI_ADAPTER_DESC adapterDesc;
 	
-	result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
-	if (FAILED(result)) {
-		return false;
-	}
+	auto result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
+	if (FAILED(result)) return false;
 
 	result = factory->EnumAdapters(0, &adapter);
-	if (FAILED(result)) {
-		return false;
-	}
+	if (FAILED(result))	return false;
 
 	result = adapter->EnumOutputs(0, &adapterOutput);
-	if (FAILED(result)) {
-		return false;
-	}
+	if (FAILED(result))	return false;
 
 	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, NULL);
-	if (FAILED(result)) {
-		return false;
-	}
+	if (FAILED(result))	return false;
 
-	displayModeList = new DXGI_MODE_DESC[numModes];
-	if (!displayModeList) {
-		return false;
-	}
+	auto *displayModeList = new DXGI_MODE_DESC[numModes];
+	if (!displayModeList) return false;
 
 	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, displayModeList);
 	if (FAILED(result))
-	{
 		return false;
-	}
 
-	for (i = 0; i < numModes; i++) {
-		if (displayModeList[i].Width == (unsigned int)m_screenWidth)
+	for (unsigned int i = 0; i < numModes; i++)
+	{
+		if (displayModeList[i].Width == m_screenWidth)
 		{
-			if (displayModeList[i].Height == (unsigned int)m_screenHeight)
+			if (displayModeList[i].Height == m_screenHeight)
 			{
-				numerator = displayModeList[i].RefreshRate.Numerator;
-				denominator = displayModeList[i].RefreshRate.Denominator;
+				m_numerator = displayModeList[i].RefreshRate.Numerator;
+				m_denominator = displayModeList[i].RefreshRate.Denominator;
 			}
 		}
 	}
+
+	result = adapter->GetDesc(&adapterDesc);
+	if (FAILED(result)) return false;
+	
+	m_videoCardMemory = adapterDesc.DedicatedVideoMemory / 1024 / 1024;
+	m_gpuList.emplace_back(std::wstring(adapterDesc.Description));
+
+	SAFE_DELETE_ARR(displayModeList);
+	SAFE_RELEASE(adapterOutput);
+	SAFE_RELEASE(adapter);
+	SAFE_RELEASE(factory);
+
+	return true;
 }
 
 void Md3dDeviceControl::SetDefaultParameter()
 {
+}
+
+void Md3dDeviceControl::LoadData(Md3dDeviceConfig* config)
+{
+	m_vSync = config->m_vSync;
+	m_fullScreen = config->m_fullScreen;
+}
+
+void Md3dDeviceControl::SaveData(Md3dDeviceConfig* config) const
+{
+	config->m_vSync = m_vSync;
+	config->m_fullScreen = m_fullScreen;
 }
 
 void Md3dDeviceControl::SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp)
