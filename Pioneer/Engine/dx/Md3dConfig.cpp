@@ -14,6 +14,7 @@ Md3dConfig::Md3dConfig()
 	XmlInitialize(filePath, L"DirectX");
 
 	m_deviceConfig = new Md3dDeviceConfig();
+	m_globalConfig = new Md3dGlobalConfig();
 }
 
 Md3dConfig::~Md3dConfig()
@@ -35,17 +36,13 @@ void Md3dConfig::SaveAll()
 
 void Md3dConfig::LoadDeviceData()
 {
-	cMioXml_Element*	deviceElement = nullptr;
-	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
-
+	cMioXml_Element* deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
 	m_deviceConfig->LoadFromXmlElement(deviceElement);
 }
 
 void Md3dConfig::SaveDeviceData()
 {
-	cMioXml_Element*	deviceElement = nullptr;
-	deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
-
+	cMioXml_Element* deviceElement = XmlGetRootElement()->GetElementNode(L"deviceControl", true);
 	m_deviceConfig->SaveToXmlElement(deviceElement);
 }
 
@@ -103,6 +100,8 @@ void Md3dDeviceConfig::LoadFromXmlElement(cMioXml_Element * _element)
 	m_initialized				= _element->GetSubElementNode(L"initialized", true)->GetValueToInt();
 	m_monitorNum				= _element->GetSubElementNode(L"monitorNum", true)->GetValueToInt();
 
+	m_vSync						= _element->GetSubElementNode(L"vSync", true)->GetValueToInt();
+	m_fullScreen				= _element->GetSubElementNode(L"fullScreen", true)->GetValueToInt();
 	m_backBufferWidth			= _element->GetSubElementNode(L"backBufferWidth", true)->GetValueToInt();
 	m_backBufferHeight			= _element->GetSubElementNode(L"backBufferHeight", true)->GetValueToInt();
 	m_backBufferFormat			= (D3DFORMAT)_element->GetSubElementNode(L"backBufferFormat", true)->GetValueToInt();
@@ -136,13 +135,15 @@ void Md3dDeviceConfig::SaveToXmlElement(cMioXml_Element * _element) const
 	_element->GetSubElementNode(L"enableAutoDepthStencil", true)->SetValue((int)m_enableAutoDepthStencil);
 	_element->GetSubElementNode(L"autoDepthStencilFormat", true)->SetValue((int)m_autoDepthStencilFormat);
 	_element->GetSubElementNode(L"flags", true)->SetValue((int)m_flags);
+	_element->GetSubElementNode(L"vSync", true)->SetValue((int)m_vSync);
+	_element->GetSubElementNode(L"fullScreen", true)->SetValue((int)m_fullScreen);
 	_element->GetSubElementNode(L"fullScreenRefreshRateInHz", true)->SetValue((int)m_fullScreenRefreshRateInHz);
 	_element->GetSubElementNode(L"presentationInterval", true)->SetValue((int)m_presentationInterval);
 }
 
 Md3dGlobalConfig::Md3dGlobalConfig()
-	:m_useDx11(false)
 {
+	m_useDx11 = false;
 }
 
 Md3dGlobalConfig::~Md3dGlobalConfig()
