@@ -25,6 +25,8 @@ public:
 	UINT				m_fullScreen;
 	UINT				m_fullScreenRefreshRateInHz;
 	UINT				m_presentationInterval;
+	UINT				m_numerator;
+	UINT				m_denominator;
 
 public:
 	Md3dDeviceConfig();

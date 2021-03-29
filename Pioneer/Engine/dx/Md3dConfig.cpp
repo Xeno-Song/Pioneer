@@ -76,6 +76,8 @@ Md3dDeviceConfig::Md3dDeviceConfig()
 	m_fullScreenRefreshRateInHz = NULL;
 	m_fullScreen = NULL;
 	m_presentationInterval = NULL;
+	m_numerator = 0;
+	m_denominator = 0;
 }
 
 Md3dDeviceConfig::~Md3dDeviceConfig()
@@ -93,6 +95,8 @@ Md3dDeviceConfig::~Md3dDeviceConfig()
 	m_flags = NULL;
 	m_fullScreenRefreshRateInHz = NULL;
 	m_presentationInterval = NULL;
+	m_numerator = 0;
+	m_denominator = 0;
 }
 
 void Md3dDeviceConfig::LoadFromXmlElement(cMioXml_Element * _element)
@@ -115,7 +119,8 @@ void Md3dDeviceConfig::LoadFromXmlElement(cMioXml_Element * _element)
 	m_flags						= _element->GetSubElementNode(L"flags", true)->GetValueToInt();
 	m_fullScreenRefreshRateInHz	= _element->GetSubElementNode(L"fullScreenRefreshRateInHz", true)->GetValueToInt();
 	m_presentationInterval		= _element->GetSubElementNode(L"presentationInterval", true)->GetValueToInt();
-
+	m_numerator					= _element->GetSubElementNode(L"numerator", true)->GetValueToInt();
+	m_denominator				= _element->GetSubElementNode(L"denominator", true)->GetValueToInt();
 
 }
 
@@ -139,6 +144,8 @@ void Md3dDeviceConfig::SaveToXmlElement(cMioXml_Element * _element) const
 	_element->GetSubElementNode(L"fullScreen", true)->SetValue((int)m_fullScreen);
 	_element->GetSubElementNode(L"fullScreenRefreshRateInHz", true)->SetValue((int)m_fullScreenRefreshRateInHz);
 	_element->GetSubElementNode(L"presentationInterval", true)->SetValue((int)m_presentationInterval);
+	_element->GetSubElementNode(L"numerator", true)->SetValue((int)m_numerator);
+	_element->GetSubElementNode(L"denominator", true)->SetValue((int)m_denominator);
 }
 
 Md3dGlobalConfig::Md3dGlobalConfig()
