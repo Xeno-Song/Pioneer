@@ -38,9 +38,9 @@ bool Md3dDeviceControl::CreateDevice()
 	swapChainDesc.BufferDesc.Height = m_screenHeight;
 	swapChainDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	
-	if () {
-		swapChainDesc.BufferDesc.RefreshRate.Numerator = numerator;
-		swapChainDesc.BufferDesc.RefreshRate.Denominator = denominator;
+	if (m_vSync) {
+		swapChainDesc.BufferDesc.RefreshRate.Numerator = m_numerator;
+		swapChainDesc.BufferDesc.RefreshRate.Denominator = m_denominator;
 	}
 	else {
 		swapChainDesc.BufferDesc.RefreshRate.Numerator = 0;
@@ -51,7 +51,7 @@ bool Md3dDeviceControl::CreateDevice()
 	swapChainDesc.SampleDesc.Count = 1;
 	swapChainDesc.SampleDesc.Quality = 0;
 
-	if (fullscreen) {
+	if (m_fullScreen) {
 		swapChainDesc.Windowed = false;
 	}
 	else {
@@ -61,6 +61,88 @@ bool Md3dDeviceControl::CreateDevice()
 	swapChainDesc.BufferDesc.Scaling = DXGI_MODE_SCALING_UNSPECIFIED;
 	swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
 	swapChainDesc.Flags = 0;
+
+	featureLevel = D3D_FEATURE_LEVEL_11_0;
+	auto result = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel, 1, D3D11_SDK_VERSION, &swapChainDesc, &m_swapChain, &m_device, NULL, &m_deviceContext);
+	if (FAILED(result))
+		return false;
+
+	result = m_swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), (LPVOID*)&backBufferPtr);
+	if(FAILED(result))
+		return false;
+
+	result = m_device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView);
+	if(FAILED(result))
+		return false;
+	backBufferPtr->Release();
+	backBufferPtr = nullptr;
+
+	ZeroMemory(&depthBufferDesc, sizeof(depthBufferDesc));
+	depthBufferDesc.Width = m_screenWidth;
+	depthBufferDesc.Height = m_screenHeight;
+	depthBufferDesc.MipLevels = 1;
+	depthBufferDesc.ArraySize = 1;
+	depthBufferDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	depthBufferDesc.SampleDesc.Count = 1;
+	depthBufferDesc.SampleDesc.Quality = 0;
+	depthBufferDesc.Usage = D3D11_USAGE_DEFAULT;
+	depthBufferDesc.BindFlags = D3D11_BIND_DEPTH_STENCIL;
+	depthBufferDesc.CPUAccessFlags = 0;
+	depthBufferDesc.MiscFlags = 0;
+
+	result = m_device->CreateTexture2D(&depthBufferDesc, NULL, &m_depthStencilBuffer);
+	if (FAILED(result))
+		return false;
+
+	ZeroMemory(&depthStencilDesc, sizeof(depthStencilDesc));
+	// Write stencil buffer description
+	depthStencilDesc.DepthEnable = true;
+	depthStencilDesc.DepthWriteMask = D3D11_DEPTH_WRITE_MASK_ALL;
+	depthStencilDesc.DepthFunc = D3D11_COMPARISON_LESS;
+	depthStencilDesc.StencilEnable = true;
+	depthStencilDesc.StencilReadMask = 0xFF;
+	depthStencilDesc.StencilWriteMask = 0xFF;
+
+	// Stencil operations if pixel is front-facing.
+	depthStencilDesc.FrontFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthStencilDesc.FrontFace.StencilDepthFailOp = D3D11_STENCIL_OP_INCR;
+	depthStencilDesc.FrontFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthStencilDesc.FrontFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+	// Stencil operations if pixel is back-facing.
+	depthStencilDesc.BackFace.StencilFailOp = D3D11_STENCIL_OP_KEEP;
+	depthStencilDesc.BackFace.StencilDepthFailOp = D3D11_STENCIL_OP_DECR;
+	depthStencilDesc.BackFace.StencilPassOp = D3D11_STENCIL_OP_KEEP;
+	depthStencilDesc.BackFace.StencilFunc = D3D11_COMPARISON_ALWAYS;
+
+	result = m_device->CreateDepthStencilState(&depthStencilDesc, &m_depthStencilState);
+	if (FAILED(result)) return false;
+
+	m_deviceContext->OMSetDepthStencilState(m_depthStencilState, 1);
+
+	ZeroMemory(&depthStencilViewDesc, sizeof(depthStencilViewDesc));
+	// Write depth-stencil view's description
+	depthStencilViewDesc.Format = DXGI_FORMAT_D24_UNORM_S8_UINT;
+	depthStencilViewDesc.ViewDimension = D3D11_DSV_DIMENSION_TEXTURE2D;
+	depthStencilViewDesc.Texture2D.MipSlice = 0;
+	// Create depth-stencil buffer
+	result = m_device->CreateDepthStencilView(m_depthStencilBuffer, &depthStencilViewDesc, &m_depthStencilView);
+	if (FAILED(result)) return false;
+
+	m_deviceContext->OMSetRenderTargets(1, &m_renderTargetView, m_depthStencilView);
+	rasterDesc.AntialiasedLineEnable = false;
+	rasterDesc.CullMode = D3D11_CULL_BACK;
+	rasterDesc.DepthBias = 0;
+	rasterDesc.DepthBiasClamp = 0.0f;
+	rasterDesc.DepthClipEnable = true;
+	rasterDesc.FillMode = D3D11_FILL_SOLID;
+	rasterDesc.FrontCounterClockwise = false;
+	rasterDesc.MultisampleEnable = false;
+	rasterDesc.ScissorEnable = false;
+	rasterDesc.SlopeScaledDepthBias = 0.0f;
+	result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
+	if (FAILED(result)) return false;
+	m_deviceContext->RSSetState(m_rasterState);
 }
 
 bool Md3dDeviceControl::DestroyDevice()
@@ -128,20 +210,16 @@ void Md3dDeviceControl::LoadData(Md3dDeviceConfig* config)
 {
 	m_vSync = config->m_vSync;
 	m_fullScreen = config->m_fullScreen;
+	m_numerator = config->m_numerator;
+	m_denominator = config->m_denominator;
 }
 
 void Md3dDeviceControl::SaveData(Md3dDeviceConfig* config) const
 {
 	config->m_vSync = m_vSync;
 	config->m_fullScreen = m_fullScreen;
-}
-
-void Md3dDeviceControl::SetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp)
-{
-}
-
-void Md3dDeviceControl::GetDeviceParameter(D3DPRESENT_PARAMETERS* _pD3dpp)
-{
+	config->m_numerator = m_numerator;
+	config->m_denominator = m_denominator;
 }
 
 void Md3dDeviceControl::SetBackBufferWidth(UINT _uValue)
