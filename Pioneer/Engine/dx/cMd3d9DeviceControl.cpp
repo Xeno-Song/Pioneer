@@ -1,10 +1,9 @@
+#include "../Mdefines.h"
+#ifndef __DX_VERSION_11__
 #include "cMd3d9DeviceControl.h"
 
 #include "cMd3d9DeviceControl.h"
 #include "../sys/cMsysManager.h"
-#include "../Mdefines.h"
-
-#ifndef __DX_VERSION_11__
 
 Md3dDeviceControl::Md3dDeviceControl()
 {

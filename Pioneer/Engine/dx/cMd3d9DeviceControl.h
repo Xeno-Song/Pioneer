@@ -4,14 +4,15 @@
 #ifndef	__M_D3D_DEVICE_CONTROL_H__
 #define	__M_D3D_DEVICE_CONTROL_H__
 
+#include "../Mdefines.h"
+#ifndef __DX_VERSION_11__
+
 #include "Md3dConfig.h"
 
-#ifndef __DX_VERSION_11__
 #include <d3d9.h>
 #include <d3dx9.h>
 #pragma comment(lib, "d3d9.lib")
 #pragma comment(lib, "d3dx9.lib")
-
 
 class Md3dDeviceControl
 {
@@ -80,5 +81,4 @@ public:
 };
 
 #endif
-
 #endif

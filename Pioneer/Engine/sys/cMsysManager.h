@@ -10,9 +10,14 @@
 #include "../sys/wnd/cMsysWindowManager.h"
 #include "../sys/thd/MsysThreadManager.h"
 #include "../seq/cMseqBase.h"
-#include "../dx/cMd3dManager.h"
 #include "../util/timer/cMutilTimerManager.h"
 #include "../physics/MphysicsManager.h"
+
+#ifdef __DX_VERSION_11__
+#include "../dx/cMd3d11Manager.h"
+#else
+#include "../dx/cMd3d9Manager.h"
+#endif
 
 class MsysManager
 {

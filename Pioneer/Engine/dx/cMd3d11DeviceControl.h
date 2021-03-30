@@ -1,12 +1,12 @@
 #pragma once
 
-
 #ifndef	__C_M_D3D_DEVICE_IMPLEMENTS_H__
 #define	__C_M_D3D_DEVICE_IMPLEMENTS_H__
 
+#include "../Mdefines.h"
+#ifdef __DX_VERSION_11__
 #include "Md3dConfig.h"
 
-#ifdef __DX_VERSION_11__
 #include <dxgi.h>
 #include <d3dcommon.h>
 #include <d3d11.h>
@@ -95,5 +95,4 @@ private:
 };
 
 #endif
-
 #endif

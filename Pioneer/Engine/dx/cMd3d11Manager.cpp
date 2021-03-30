@@ -1,4 +1,7 @@
-#include "cMd3dManager.h"
+#include "../Mdefines.h"
+#ifdef __DX_VERSION_11__
+
+#include "cMd3d11Manager.h"
 
 Md3dManager::Md3dManager()
 {
@@ -43,7 +46,7 @@ Md3dDeviceControl * Md3dManager::GetDeviceControl()
 	return m_pDeviceControl;
 }
 
-const LPDIRECT3DDEVICE9 Md3dManager::GetDevice()
+const ID3D11Device* Md3dManager::GetDevice()
 {
 	if (m_pDeviceControl == nullptr)
 	{
@@ -107,3 +110,4 @@ void Md3dManager::ClearLastError()
 	m_hLastError = S_OK;
 }
 
+#endif

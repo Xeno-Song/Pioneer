@@ -2,11 +2,12 @@
 
 #ifndef __M_C_D3DMANAGER_H__
 #define __M_C_D3DMANAGER_H__
+#include "../Mdefines.h"
+#ifndef __DX_VERSION_11__
 
-#include "cMd3d9DeviceControl.h"
 #include "../res/sprite/cMd3dSprite.h"
-
 #include "../MErrorCodes.h"
+#include "cMd3d9DeviceControl.h"
 
 class Md3dManager
 {
@@ -41,4 +42,5 @@ public:
 	void	ClearLastError();
 };
 
+#endif
 #endif

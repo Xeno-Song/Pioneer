@@ -1,5 +1,8 @@
-#include "cMd3d11DeviceControl.h"
+#include "../Mdefines.h"
+
+#ifdef __DX_VERSION_11__
 #include "../MEngine.h"
+#include "cMd3d11DeviceControl.h"
 
 Md3dDeviceControl::Md3dDeviceControl()
 {
@@ -11,6 +14,7 @@ Md3dDeviceControl::~Md3dDeviceControl()
 
 bool Md3dDeviceControl::Cleanup()
 {
+	return false;
 }
 
 bool Md3dDeviceControl::CreateDevice()
@@ -147,6 +151,7 @@ bool Md3dDeviceControl::CreateDevice()
 
 bool Md3dDeviceControl::DestroyDevice()
 {
+	return false;
 }
 
 bool Md3dDeviceControl::GetAdapterList()
@@ -280,60 +285,76 @@ void Md3dDeviceControl::SetPresentationInterval(UINT _value)
 
 UINT Md3dDeviceControl::GetBackBufferWidth()
 {
+	return 0;
 }
 
 UINT Md3dDeviceControl::GetBackBufferHeight()
 {
+	return 0;
 }
 
 D3DFORMAT Md3dDeviceControl::GetBackBufferFormat()
 {
+	return D3DFORMAT();
 }
 
 UINT Md3dDeviceControl::GetBackBufferCount()
 {
+	return 0;
 }
 
 D3DMULTISAMPLE_TYPE Md3dDeviceControl::GetMultiSampleType()
 {
+	return D3DMULTISAMPLE_TYPE();
 }
 
 DWORD Md3dDeviceControl::GetMultiSampleQuality()
 {
+	return 0;
 }
 
 D3DSWAPEFFECT Md3dDeviceControl::GetSwapEffect()
 {
+	return D3DSWAPEFFECT();
 }
 
 HWND Md3dDeviceControl::GetHwnd()
 {
+	return 0;
 }
 
 BOOL Md3dDeviceControl::GetWindowed()
 {
+	return 0;
 }
 
 BOOL Md3dDeviceControl::GetAutoDepthStencilEnable()
 {
+	return 0;
 }
 
 D3DFORMAT Md3dDeviceControl::GetAutoDepthStencilFormat()
 {
+	return D3DFORMAT();
 }
 
 DWORD Md3dDeviceControl::GetFlags()
 {
+	return 0;
 }
 
 UINT Md3dDeviceControl::GetFullScreenRefreshRateInHz()
 {
+	return 0;
 }
 
 UINT Md3dDeviceControl::GetPresentationInterval()
 {
+	return 0;
 }
 
-const LPDIRECT3DDEVICE9 Md3dDeviceControl::GetDevice()
-{
-}
+//const LPDIRECT3DDEVICE9 Md3dDeviceControl::GetDevice()
+//{
+//}
+
+#endif
