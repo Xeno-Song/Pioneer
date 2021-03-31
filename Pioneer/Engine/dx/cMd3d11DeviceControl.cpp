@@ -6,15 +6,73 @@
 
 Md3dDeviceControl::Md3dDeviceControl()
 {
+	m_config = nullptr;
+	m_vSync = false;
+	m_fullScreen = false;
+
+	m_swapChain = nullptr;
+	m_device = nullptr;
+	m_deviceContext = nullptr;
+	m_renderTargetView = nullptr;
+	m_depthStencilBuffer = nullptr;
+	m_depthStencilState = nullptr;
+	m_depthStencilView = nullptr;
+	m_rasterState = nullptr;
+	m_projectionMatrix = D3DMATRIX();
+	m_worldMatrix = D3DMATRIX();
+	m_orthoMatrix = D3DMATRIX();
+
+	m_gpuList.clear();
+	m_monitorList.clear();
+
+	m_initialized = false;
+	m_monitorNum = 0;
+	m_fullScreenRefreshRateInHz = 0;
+	m_numerator = 0;
+	m_denominator = 0;
+	m_videoCardMemory = 0;
+	m_screenWidth = 0;
+	m_screenHeight = 0;
 }
 
 Md3dDeviceControl::~Md3dDeviceControl()
 {
+	Cleanup();
 }
 
 bool Md3dDeviceControl::Cleanup()
 {
-	return false;
+	DestroyDevice();
+
+	m_config = nullptr;
+	m_vSync = false;
+	m_fullScreen = false;
+
+	m_swapChain = nullptr;
+	m_device = nullptr;
+	m_deviceContext = nullptr;
+	m_renderTargetView = nullptr;
+	m_depthStencilBuffer = nullptr;
+	m_depthStencilState = nullptr;
+	m_depthStencilView = nullptr;
+	m_rasterState = nullptr;
+	m_projectionMatrix = D3DMATRIX();
+	m_worldMatrix = D3DMATRIX();
+	m_orthoMatrix = D3DMATRIX();
+
+	m_gpuList.clear();
+	m_monitorList.clear();
+
+	m_initialized = false;
+	m_monitorNum = 0;
+	m_fullScreenRefreshRateInHz = 0;
+	m_numerator = 0;
+	m_denominator = 0;
+	m_videoCardMemory = 0;
+	m_screenWidth = 0;
+	m_screenHeight = 0;
+	
+	return true;
 }
 
 bool Md3dDeviceControl::CreateDevice()
@@ -67,7 +125,7 @@ bool Md3dDeviceControl::CreateDevice()
 	swapChainDesc.Flags = 0;
 
 	featureLevel = D3D_FEATURE_LEVEL_11_0;
-	auto result = D3D11CreateDeviceAndSwapChain(NULL, D3D_DRIVER_TYPE_HARDWARE, NULL, 0, &featureLevel, 1, D3D11_SDK_VERSION, &swapChainDesc, &m_swapChain, &m_device, NULL, &m_deviceContext);
+	auto result = D3D11CreateDeviceAndSwapChain(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, 0, &featureLevel, 1, D3D11_SDK_VERSION, &swapChainDesc, &m_swapChain, &m_device, nullptr, &m_deviceContext);
 	if (FAILED(result))
 		return false;
 
@@ -75,7 +133,7 @@ bool Md3dDeviceControl::CreateDevice()
 	if(FAILED(result))
 		return false;
 
-	result = m_device->CreateRenderTargetView(backBufferPtr, NULL, &m_renderTargetView);
+	result = m_device->CreateRenderTargetView(backBufferPtr, nullptr, &m_renderTargetView);
 	if(FAILED(result))
 		return false;
 	backBufferPtr->Release();
@@ -94,7 +152,7 @@ bool Md3dDeviceControl::CreateDevice()
 	depthBufferDesc.CPUAccessFlags = 0;
 	depthBufferDesc.MiscFlags = 0;
 
-	result = m_device->CreateTexture2D(&depthBufferDesc, NULL, &m_depthStencilBuffer);
+	result = m_device->CreateTexture2D(&depthBufferDesc, nullptr, &m_depthStencilBuffer);
 	if (FAILED(result))
 		return false;
 
@@ -168,6 +226,18 @@ bool Md3dDeviceControl::CreateDevice()
 
 bool Md3dDeviceControl::DestroyDevice()
 {
+	if (m_swapChain != nullptr)
+		m_swapChain->SetFullscreenState(false, nullptr);
+	
+	SAFE_RELEASE(m_rasterState);
+	SAFE_RELEASE(m_depthStencilView);
+	SAFE_RELEASE(m_depthStencilState);
+	SAFE_RELEASE(m_depthStencilBuffer);
+	SAFE_RELEASE(m_renderTargetView);
+	SAFE_RELEASE(m_deviceContext);
+	SAFE_RELEASE(m_device);
+	SAFE_RELEASE(m_swapChain);
+	
 	return false;
 }
 
@@ -176,7 +246,7 @@ bool Md3dDeviceControl::GetAdapterList()
 	IDXGIFactory* factory;
 	IDXGIAdapter* adapter;
 	IDXGIOutput* adapterOutput;
-	unsigned int numModes, stringLength, numerator, denominator;
+	unsigned int numModes;
 	DXGI_ADAPTER_DESC adapterDesc;
 	
 	auto result = CreateDXGIFactory(__uuidof(IDXGIFactory), (void**)&factory);
@@ -188,7 +258,7 @@ bool Md3dDeviceControl::GetAdapterList()
 	result = adapter->EnumOutputs(0, &adapterOutput);
 	if (FAILED(result))	return false;
 
-	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, NULL);
+	result = adapterOutput->GetDisplayModeList(DXGI_FORMAT_R8G8B8A8_UNORM, DXGI_ENUM_MODES_INTERLACED, &numModes, nullptr);
 	if (FAILED(result))	return false;
 
 	auto *displayModeList = new DXGI_MODE_DESC[numModes];
@@ -213,7 +283,7 @@ bool Md3dDeviceControl::GetAdapterList()
 	result = adapter->GetDesc(&adapterDesc);
 	if (FAILED(result)) return false;
 	
-	m_videoCardMemory = adapterDesc.DedicatedVideoMemory / 1024 / 1024;
+	m_videoCardMemory = adapterDesc.DedicatedVideoMemory / (1024 * 1024);
 	m_gpuList.emplace_back(std::wstring(adapterDesc.Description));
 
 	SAFE_DELETE_ARR(displayModeList);
