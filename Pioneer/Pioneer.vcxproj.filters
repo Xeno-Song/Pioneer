@@ -57,9 +57,6 @@
     <ClInclude Include="Engine\MErrorCodes.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\dx\cMd3dParameters.h">
-      <Filter>Header\Md3d</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\sys\cMsysManager.h">
       <Filter>Header\Msys</Filter>
     </ClInclude>
@@ -154,9 +151,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\dx\cMd3dParameters.cpp">
-      <Filter>Source\Md3d</Filter>
     </ClCompile>
     <ClCompile Include="Engine\sys\cMsysManager.cpp">
       <Filter>Source\Msys</Filter>

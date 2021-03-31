@@ -15,6 +15,9 @@
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
 
+#define DX_SCREEN_NEAR_CONST	0.1
+#define DX_SCREEN_DEPTH_CONST	1000.0
+
 class Md3dDeviceControl final
 {
 public:

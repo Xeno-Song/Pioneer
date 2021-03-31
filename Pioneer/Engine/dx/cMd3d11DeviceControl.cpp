@@ -147,6 +147,23 @@ bool Md3dDeviceControl::CreateDevice()
 	result = m_device->CreateRasterizerState(&rasterDesc, &m_rasterState);
 	if (FAILED(result)) return false;
 	m_deviceContext->RSSetState(m_rasterState);
+
+	viewport.Width = (float)m_screenWidth;
+	viewport.Height = (float)m_screenHeight;
+	viewport.MinDepth = 0.0f;
+	viewport.MaxDepth = 1.0f;
+	viewport.TopLeftX = 0.0f;
+	viewport.TopLeftY = 0.0f;
+	m_deviceContext->RSSetViewports(1, &viewport);
+
+	fieldOfView = (float)D3DX_PI / 4.0f;
+	screenAspect = (float)m_screenWidth / (float)m_screenHeight;
+	D3DXMatrixPerspectiveFovLH(&m_projectionMatrix, fieldOfView, screenAspect, DX_SCREEN_NEAR_CONST, DX_SCREEN_DEPTH_CONST);
+
+	D3DXMatrixIdentity(&m_worldMatrix);
+	D3DXMatrixOrthoLH(&m_orthoMatrix, (float)m_screenWidth, (float)m_screenHeight, DX_SCREEN_NEAR_CONST, DX_SCREEN_DEPTH_CONST);
+
+	return true;
 }
 
 bool Md3dDeviceControl::DestroyDevice()
