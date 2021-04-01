@@ -1,5 +1,7 @@
-#include "cMd3dSprite.h"
+#include "cMd3d11Sprite.h"
 #include "../../sys/cMsysManager.h"
+
+#ifdef __DX_VERSION_11__
 
 cMd3dSprite::cMd3dSprite()
 {
@@ -18,15 +20,15 @@ cMd3dSprite::~cMd3dSprite()
 bool cMd3dSprite::Create()
 {
 	HRESULT hResult = S_OK;
-	LPDIRECT3DDEVICE9 pDevice;
-	pDevice = MGetSystem()->GetD3dManager()->GetDevice();
+	// pDevice;
+	//pDevice = MGetSystem()->GetD3dManager()->GetDevice();
 
-	hResult = D3DXCreateSprite(pDevice, &m_pSprite);
-	if (FAILED(hResult))
-	{
-		MGetSystem()->GetD3dManager()->SetLastError(E_D3DERR::D3DERR_SPRITE_CREATE_FAILED, hResult);
-		return false;
-	}
+	//hResult = D3DXCreateSprite(pDevice, &m_pSprite);
+	//if (FAILED(hResult))
+	//{
+	//	MGetSystem()->GetD3dManager()->SetLastError(E_D3DERR::D3DERR_SPRITE_CREATE_FAILED, hResult);
+	//	return false;
+	//}
 
 	return true;
 }
@@ -143,3 +145,5 @@ bool cMd3dSprite::CheckSpriteCreated()
 	}
 	return true;
 }
+
+#endif

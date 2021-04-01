@@ -1,4 +1,9 @@
 #pragma once
+
+#include "../../Mdefines.h"
+
+#ifndef __DX_VERSION_11__
+
 #include <d3d9.h>
 #include <d3dx9.h>
 #include "../../util/math/Mmath.h"
@@ -28,3 +33,4 @@ private:
 	bool	CheckSpriteCreated();
 };
 
+#endif

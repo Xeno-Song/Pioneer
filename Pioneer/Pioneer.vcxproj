@@ -132,6 +132,7 @@
     <ClInclude Include="Engine\dx\cMd3d9DeviceControl.h" />
     <ClInclude Include="Engine\dx\cMd3d9Manager.h" />
     <ClInclude Include="Engine\dx\cMd3d11DeviceControl.h" />
+    <ClInclude Include="Engine\dx\sprite\cMd3d11Sprite.h" />
     <ClInclude Include="Engine\Mtypes.h" />
     <ClInclude Include="Engine\physics\MphysicsManager.h" />
     <ClInclude Include="Engine\physics\Object\MObjectManager.h" />
@@ -140,8 +141,8 @@
     <ClInclude Include="Engine\io\xml\cMioXmlSerializer.h" />
     <ClInclude Include="Engine\res\datas\MresourceDatas.h" />
     <ClInclude Include="Engine\res\MresourceManager.h" />
-    <ClInclude Include="Engine\res\sprite\cMd3dImage.h" />
-    <ClInclude Include="Engine\res\sprite\cMd3dSprite.h" />
+    <ClInclude Include="Engine\dx\sprite\cMd3dImage.h" />
+    <ClInclude Include="Engine\dx\sprite\cMd3d9Sprite.h" />
     <ClInclude Include="Engine\sys\thd\MsysMutexQueue.h" />
     <ClInclude Include="Engine\util\math\cMmathRect.h" />
     <ClInclude Include="Engine\seq\cMseqBase.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="Engine\dx\Md3dConfig.cpp" />
     <ClCompile Include="Engine\dx\cMd3d9DeviceControl.cpp" />
     <ClCompile Include="Engine\dx\cMd3d9Manager.cpp" />
+    <ClCompile Include="Engine\dx\sprite\cMd3d11Sprite.cpp" />
     <ClCompile Include="Engine\physics\MphysicsManager.cpp" />
     <ClCompile Include="Engine\physics\Object\MObjectManager.cpp" />
     <ClCompile Include="Engine\physics\Collision\MCollisionChecker.cpp" />
@@ -176,8 +178,8 @@
     <ClCompile Include="Engine\io\xml\cMioXmlSerializer.cpp" />
     <ClCompile Include="Engine\res\datas\MresourceDatas.cpp" />
     <ClCompile Include="Engine\res\MresourceManager.cpp" />
-    <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp" />
-    <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp" />
+    <ClCompile Include="Engine\dx\sprite\cMd3dImage.cpp" />
+    <ClCompile Include="Engine\dx\sprite\cMd3d9Sprite.cpp" />
     <ClCompile Include="Engine\util\math\cMRect.cpp" />
     <ClCompile Include="Engine\seq\cMseqBase.cpp" />
     <ClCompile Include="Engine\sys\cMsysManager.cpp" />

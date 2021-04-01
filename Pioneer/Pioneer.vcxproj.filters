@@ -120,13 +120,7 @@
     <ClInclude Include="Engine\sys\thd\MsysMutexQueue.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\res\sprite\cMd3dSprite.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\res\MresourceManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine\res\sprite\cMd3dImage.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="Engine\res\datas\MresourceDatas.h">
@@ -145,6 +139,15 @@
       <Filter>Header\Md3d</Filter>
     </ClInclude>
     <ClInclude Include="Engine\dx\cMd3d11Manager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\sprite\cMd3dImage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\sprite\cMd3d9Sprite.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\sprite\cMd3d11Sprite.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -203,13 +206,7 @@
     <ClCompile Include="Engine\sys\thd\MsysThread.cpp">
       <Filter>Source\Msys</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\res\sprite\cMd3dSprite.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\res\MresourceManager.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\res\sprite\cMd3dImage.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\res\datas\MresourceDatas.cpp">
@@ -228,6 +225,15 @@
       <Filter>Source\Md3d</Filter>
     </ClCompile>
     <ClCompile Include="Engine\dx\cMd3d11Manager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\sprite\cMd3dImage.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\sprite\cMd3d9Sprite.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\sprite\cMd3d11Sprite.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

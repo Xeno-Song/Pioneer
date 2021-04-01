@@ -6,7 +6,7 @@
 #include "../Mdefines.h"
 #ifdef __DX_VERSION_11__
 
-#include "../res/sprite/cMd3dSprite.h"
+#include "sprite/cMd3d11Sprite.h"
 #include "../MErrorCodes.h"
 #include "cMd3d11DeviceControl.h"
 
