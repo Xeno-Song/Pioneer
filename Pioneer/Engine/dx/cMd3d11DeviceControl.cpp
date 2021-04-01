@@ -33,6 +33,11 @@ Md3dDeviceControl::Md3dDeviceControl()
 	m_videoCardMemory = 0;
 	m_screenWidth = 0;
 	m_screenHeight = 0;
+
+	m_bufferResetColor[0] = 0;
+	m_bufferResetColor[1] = 0;
+	m_bufferResetColor[2] = 0;
+	m_bufferResetColor[3] = 0;
 }
 
 Md3dDeviceControl::~Md3dDeviceControl()
@@ -71,6 +76,11 @@ bool Md3dDeviceControl::Cleanup()
 	m_videoCardMemory = 0;
 	m_screenWidth = 0;
 	m_screenHeight = 0;
+
+	m_bufferResetColor[0] = 0;
+	m_bufferResetColor[1] = 0;
+	m_bufferResetColor[2] = 0;
+	m_bufferResetColor[3] = 0;
 	
 	return true;
 }
@@ -239,6 +249,32 @@ bool Md3dDeviceControl::DestroyDevice()
 	SAFE_RELEASE(m_swapChain);
 	
 	return false;
+}
+
+void Md3dDeviceControl::BeginScene() const
+{
+	m_deviceContext->ClearRenderTargetView(m_renderTargetView, m_bufferResetColor);
+	m_deviceContext->ClearDepthStencilView(m_depthStencilView, D3D11_CLEAR_DEPTH, 1.0f, 0);
+}
+
+void Md3dDeviceControl::EndScene() const
+{
+	if(m_vSync)
+	{
+		m_swapChain->Present(1, 0);
+	}
+	else
+	{
+		m_swapChain->Present(0, 0);
+	}
+}
+
+void Md3dDeviceControl::SetBufferResetColor(float a, float r, float g, float b)
+{
+	m_bufferResetColor[0] = a;
+	m_bufferResetColor[1] = r;
+	m_bufferResetColor[2] = g;
+	m_bufferResetColor[3] = b;
 }
 
 bool Md3dDeviceControl::GetAdapterList()
@@ -438,6 +474,11 @@ UINT Md3dDeviceControl::GetFullScreenRefreshRateInHz()
 UINT Md3dDeviceControl::GetPresentationInterval()
 {
 	return 0;
+}
+
+const ID3D11Device* Md3dDeviceControl::GetDevice()
+{
+	return m_device;
 }
 
 //const LPDIRECT3DDEVICE9 Md3dDeviceControl::GetDevice()

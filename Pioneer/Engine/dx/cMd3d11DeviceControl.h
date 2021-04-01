@@ -28,6 +28,10 @@ public:
 	bool	CreateDevice();
 	bool	DestroyDevice();
 
+	void	BeginScene() const;
+	void	EndScene() const;
+	void	SetBufferResetColor(float a, float r, float g, float b);
+
 	bool	GetAdapterList();
 	void	SetDefaultParameter();
 
@@ -48,7 +52,6 @@ public:
 	void	SetFlags(DWORD _value);
 	void	SetFullScreenRefreshRateInHz(UINT _value);
 	void	SetPresentationInterval(UINT _value);
-
 
 	UINT				GetBackBufferWidth();
 	UINT				GetBackBufferHeight();
@@ -95,6 +98,8 @@ private:
 	UINT	m_videoCardMemory;
 	UINT	m_screenWidth;
 	UINT	m_screenHeight;
+
+	float	m_bufferResetColor[4];
 };
 
 #endif

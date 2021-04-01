@@ -120,9 +120,6 @@
     <ClInclude Include="Engine\sys\thd\MsysMutexQueue.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\res\MresourceManager.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\res\datas\MresourceDatas.h">
       <Filter>Header</Filter>
     </ClInclude>
@@ -205,9 +202,6 @@
     </ClCompile>
     <ClCompile Include="Engine\sys\thd\MsysThread.cpp">
       <Filter>Source\Msys</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\res\MresourceManager.cpp">
-      <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\res\datas\MresourceDatas.cpp">
       <Filter>Source</Filter>

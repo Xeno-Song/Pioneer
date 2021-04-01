@@ -4,7 +4,7 @@
 #define __M_RESOURCE_MANAGER_H__
 
 #include <map>
-#include "sprite/cMd3dSprite.h"
+#include "../dx/sprite/cMd3d9Sprite.h"
 #include "sprite/cMd3dImage.h"
 #include "../ResourceList.h"
 
