@@ -269,7 +269,7 @@ void Md3dDeviceControl::EndScene() const
 	}
 }
 
-void Md3dDeviceControl::SetBufferResetColor(float a, float r, float g, float b)
+void Md3dDeviceControl::SetBufferResetColor(const float a, const float r, const float g, const float b)
 {
 	m_bufferResetColor[0] = r;
 	m_bufferResetColor[1] = g;

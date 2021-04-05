@@ -138,13 +138,13 @@
     <ClInclude Include="Engine\dx\cMd3d11Manager.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\dx\sprite\cMd3dImage.h">
-      <Filter>Header</Filter>
-    </ClInclude>
     <ClInclude Include="Engine\dx\sprite\cMd3d9Sprite.h">
       <Filter>Header</Filter>
     </ClInclude>
-    <ClInclude Include="Engine\dx\sprite\cMd3d11Sprite.h">
+    <ClInclude Include="Engine\dx\sprite\cMd3dImage.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\dx\sprite\cMd3d11Texture.h">
       <Filter>Header</Filter>
     </ClInclude>
   </ItemGroup>
@@ -221,13 +221,13 @@
     <ClCompile Include="Engine\dx\cMd3d11Manager.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\dx\sprite\cMd3dImage.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\dx\sprite\cMd3d9Sprite.cpp">
       <Filter>Source</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\dx\sprite\cMd3d11Sprite.cpp">
+    <ClCompile Include="Engine\dx\sprite\cMd3dImage.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\sprite\cMd3d11Texture.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
