@@ -57,6 +57,16 @@ const ID3D11Device* Md3dManager::GetDevice()
 	return m_pDeviceControl->GetDevice();
 }
 
+void Md3dManager::BeginScene() const
+{
+	m_pDeviceControl->BeginScene();
+}
+
+void Md3dManager::EndScene() const
+{
+	m_pDeviceControl->EndScene();
+}
+
 bool Md3dManager::CreateSprite()
 {
 	if (GetDevice() == NULL)

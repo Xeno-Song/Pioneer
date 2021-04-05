@@ -271,10 +271,10 @@ void Md3dDeviceControl::EndScene() const
 
 void Md3dDeviceControl::SetBufferResetColor(float a, float r, float g, float b)
 {
-	m_bufferResetColor[0] = a;
-	m_bufferResetColor[1] = r;
-	m_bufferResetColor[2] = g;
-	m_bufferResetColor[3] = b;
+	m_bufferResetColor[0] = r;
+	m_bufferResetColor[1] = g;
+	m_bufferResetColor[2] = b;
+	m_bufferResetColor[3] = a;
 }
 
 bool Md3dDeviceControl::GetAdapterList()

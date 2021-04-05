@@ -31,8 +31,8 @@ bool MsysWindowManager::Create(HINSTANCE hInstance)
 	m_wndClass.hbrBackground = (HBRUSH)COLOR_WINDOW;
 	m_wndClass.lpszClassName = L"Pioneer";
 
-	m_screenHeight = GetSystemMetrics(SM_CXSCREEN);
-	m_screenWidth = GetSystemMetrics(SM_CYSCREEN);
+	m_screenHeight = GetSystemMetrics(SM_CYSCREEN);
+	m_screenWidth = GetSystemMetrics(SM_CXSCREEN);
 
 	RegisterClassExW(&m_wndClass);
 	m_hwnd = CreateWindowExW(

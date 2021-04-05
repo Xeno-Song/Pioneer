@@ -34,6 +34,9 @@ public:
 	Md3dDeviceControl*		GetDeviceControl();
 	const ID3D11Device*		GetDevice();
 
+	void					BeginScene() const;
+	void					EndScene() const;
+	
 	bool					CreateSprite();
 	cMd3dSprite*			GetSpriteControl();
 	const LPD3DXSPRITE		GetSprite();

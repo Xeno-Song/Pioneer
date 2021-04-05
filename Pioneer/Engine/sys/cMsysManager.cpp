@@ -31,9 +31,13 @@ bool MsysManager::InitEngine(HINSTANCE hInstance)
 
 void MsysManager::StartEngine(cMseqBase* initSeq)
 {
-
-
-	Sleep(10000);
+	if (initSeq == nullptr)
+	{
+		m_d3dManager->GetDeviceControl()->SetBufferResetColor(0.0f, 1.0f, 0.0f, 0.0f);
+		m_d3dManager->BeginScene();
+		m_d3dManager->EndScene();
+		Sleep(10000);
+	}
 }
 
 MsysManager * MsysManager::GetManager()
