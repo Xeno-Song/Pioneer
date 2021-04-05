@@ -234,4 +234,8 @@
   <ItemGroup>
     <None Include="Engine\cpp.hint" />
   </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Engine\dx\shader\vertex\color.hlsl" />
+    <FxCompile Include="Engine\dx\shader\pixel\Color.hlsl" />
+  </ItemGroup>
 </Project>
