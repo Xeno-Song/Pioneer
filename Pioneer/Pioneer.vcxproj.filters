@@ -147,6 +147,9 @@
     <ClInclude Include="Engine\dx\sprite\cMd3d11Texture.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\dx\model\cMd3d11Model.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -228,6 +231,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="Engine\dx\sprite\cMd3d11Texture.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\dx\model\cMd3d11Model.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>

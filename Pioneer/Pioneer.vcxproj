@@ -133,6 +133,7 @@
     <ClInclude Include="Engine\dx\cMd3d9DeviceControl.h" />
     <ClInclude Include="Engine\dx\cMd3d9Manager.h" />
     <ClInclude Include="Engine\dx\cMd3d11DeviceControl.h" />
+    <ClInclude Include="Engine\dx\model\cMd3d11Model.h" />
     <ClInclude Include="Engine\dx\sprite\cMd3d11Texture.h" />
     <ClInclude Include="Engine\Mtypes.h" />
     <ClInclude Include="Engine\physics\MphysicsManager.h" />
@@ -168,6 +169,7 @@
     <ClCompile Include="Engine\dx\Md3dConfig.cpp" />
     <ClCompile Include="Engine\dx\cMd3d9DeviceControl.cpp" />
     <ClCompile Include="Engine\dx\cMd3d9Manager.cpp" />
+    <ClCompile Include="Engine\dx\model\cMd3d11Model.cpp" />
     <ClCompile Include="Engine\dx\sprite\cMd3d11Texture.cpp" />
     <ClCompile Include="Engine\physics\MphysicsManager.cpp" />
     <ClCompile Include="Engine\physics\Object\MObjectManager.cpp" />

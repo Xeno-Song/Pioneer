@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef	__C_M_D3D_DEVICE_IMPLEMENTS_H__
-#define	__C_M_D3D_DEVICE_IMPLEMENTS_H__
+#ifndef	__M_C_D3D11_DEVICE_CONTROL_H__
+#define	__M_C_D3D11_DEVICE_CONTROL_H__
 
 #include "../Mdefines.h"
 #ifdef __DX_VERSION_11__
