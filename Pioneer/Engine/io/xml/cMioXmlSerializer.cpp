@@ -6,13 +6,13 @@
 
 cMioXmlSerializer::cMioXmlSerializer()
 {
-	m_stream = new cMiolXml_Stream(L"");
+	m_stream = new MiolXml_Stream(L"");
 	m_root = new cMioXml_Element(0);
 }
 
 cMioXmlSerializer::cMioXmlSerializer(std::wstring _fileName, std::wstring _tag)
 {
-	m_stream = new cMiolXml_Stream(_fileName);
+	m_stream = new MiolXml_Stream(_fileName);
 	m_root = new cMioXml_Element(0);
 	m_root->SetTag(_tag);
 }
@@ -140,7 +140,7 @@ double cMioXml_Attribute::GetValueToDouble()
 	return attribute;
 }
 
-void cMioXml_Attribute::WriteXml(cMiolXml_Stream * _stream)
+void cMioXml_Attribute::WriteXml(MiolXml_Stream * _stream)
 {
 	_stream->WriteText(L" %s=\"%s\"", m_tag.data(), m_value.data());
 }
@@ -320,7 +320,7 @@ double cMioXml_SubElement::GetValueToDouble()
 	return attribute;
 }
 
-void cMioXml_SubElement::WriteXml(cMiolXml_Stream * _stream)
+void cMioXml_SubElement::WriteXml(MiolXml_Stream * _stream)
 {
 	_stream->WriteTabsByDepth(m_depth);
 	_stream->WriteText(
@@ -331,7 +331,7 @@ void cMioXml_SubElement::WriteXml(cMiolXml_Stream * _stream)
 	);
 }
 
-void cMioXml_SubElement::ReadXml(cMiolXml_Stream * _stream)
+void cMioXml_SubElement::ReadXml(MiolXml_Stream * _stream)
 {
 	std::wstring	dataLine;
 	std::wstring	dataTag;
@@ -621,7 +621,7 @@ cMioXml_Attribute * cMioXml_Element::GetAttributeNode(std::wstring _tag, bool _c
 	return findAttribute;
 }
 
-void cMioXml_Element::WriteXml(cMiolXml_Stream* _stream)
+void cMioXml_Element::WriteXml(MiolXml_Stream* _stream)
 {
 	_stream->WriteTabsByDepth(m_depth);
 	_stream->WriteText(L"<%s", m_tag.data());
@@ -655,7 +655,7 @@ void cMioXml_Element::WriteXml(cMiolXml_Stream* _stream)
 	_stream->WriteText(L"</%s>\n", m_tag.data());
 }
 
-void cMioXml_Element::ReadXml(cMiolXml_Stream* _stream)
+void cMioXml_Element::ReadXml(MiolXml_Stream* _stream)
 {
 	std::wstring dataLine;
 	dataLine.clear();
@@ -798,14 +798,14 @@ void cMioXml_Element::ReadXml(cMiolXml_Stream* _stream)
 	//else if(endSyntaxCnt == 1)
 }
 
-cMiolXml_Stream::cMiolXml_Stream()
+MiolXml_Stream::MiolXml_Stream()
 {
 	m_fileName.clear();
 	m_outStream.clear();
 	m_inStream.clear();
 }
 
-cMiolXml_Stream::cMiolXml_Stream(std::wstring _fileName)
+MiolXml_Stream::MiolXml_Stream(std::wstring _fileName)
 {
 	m_fileName.clear();
 	m_outStream.clear();
@@ -814,29 +814,29 @@ cMiolXml_Stream::cMiolXml_Stream(std::wstring _fileName)
 	m_fileName.assign(_fileName);
 }
 
-cMiolXml_Stream::~cMiolXml_Stream()
+MiolXml_Stream::~MiolXml_Stream()
 {
 	Cleanup();
 }
 
-void cMiolXml_Stream::Cleanup()
+void MiolXml_Stream::Cleanup()
 {
 	m_fileName.clear();
 	m_outStream.clear();
 	m_inStream.clear();
 }
 
-void cMiolXml_Stream::SetTargetFilePath(std::wstring _fileName)
+void MiolXml_Stream::SetTargetFilePath(std::wstring _fileName)
 {
 	m_fileName = _fileName;
 }
 
-std::string cMiolXml_Stream::GetTargetFileName()
+std::string MiolXml_Stream::GetTargetFileName()
 {
 	return std::string();
 }
 
-bool cMiolXml_Stream::WriteStart()
+bool MiolXml_Stream::WriteStart()
 {
 	if (m_fileName.size() == 0)
 	{
@@ -849,7 +849,7 @@ bool cMiolXml_Stream::WriteStart()
 	return true;
 }
 
-void cMiolXml_Stream::WriteText(const wchar_t * _format, ...)
+void MiolXml_Stream::WriteText(const wchar_t * _format, ...)
 {
 	wchar_t buffer[_MIO_XML_SERIALIZER_MAX_STRING_LEN];
 	if (m_outStream.is_open() == false)	return;
@@ -866,7 +866,7 @@ void cMiolXml_Stream::WriteText(const wchar_t * _format, ...)
 	m_buffer.append(buffer);
 }
 
-void cMiolXml_Stream::WriteTabsByDepth(int _depth)
+void MiolXml_Stream::WriteTabsByDepth(int _depth)
 {
 	if (_depth == 0)	return;
 
@@ -879,7 +879,7 @@ void cMiolXml_Stream::WriteTabsByDepth(int _depth)
 	delete[] buffer;
 }
 
-void cMiolXml_Stream::WriteEnd()
+void MiolXml_Stream::WriteEnd()
 {
 	if (m_outStream.is_open() == true)
 	{
@@ -890,7 +890,7 @@ void cMiolXml_Stream::WriteEnd()
 	m_outStream.clear();
 }
 
-bool cMiolXml_Stream::ReadStart()
+bool MiolXml_Stream::ReadStart()
 {
 	if (m_fileName.size() == 0)
 	{
@@ -916,7 +916,7 @@ bool cMiolXml_Stream::ReadStart()
 	return true;
 }
 
-const std::wstring cMiolXml_Stream::ReadToNextSyntaxOpen(bool _trim)
+const std::wstring MiolXml_Stream::ReadToNextSyntaxOpen(bool _trim)
 {
 	if (m_buffer.size() == 0)	return std::wstring();
 
@@ -943,7 +943,7 @@ const std::wstring cMiolXml_Stream::ReadToNextSyntaxOpen(bool _trim)
 	return m_lastRead;
 }
 
-const std::wstring cMiolXml_Stream::GetLastLine(bool _trim)
+const std::wstring MiolXml_Stream::GetLastLine(bool _trim)
 {
 	if (_trim == true)
 	{
@@ -953,12 +953,12 @@ const std::wstring cMiolXml_Stream::GetLastLine(bool _trim)
 	return m_lastRead;
 }
 
-void cMiolXml_Stream::ReadEnd()
+void MiolXml_Stream::ReadEnd()
 {
 	m_buffer.clear();
 }
 
-std::wstring cMiolXml_Stream::TrimString(std::wstring _data)
+std::wstring MiolXml_Stream::TrimString(std::wstring _data)
 {
 	std::wstring	temp;
 	size_t			trimPos = 0;

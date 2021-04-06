@@ -9,7 +9,7 @@
 #define _MIO_XML_SERIALIZER_MAX_STRING_LEN	256
 #include "DllExport.h"
 
-class MIO_API cMiolXml_Stream
+class MIO_API MiolXml_Stream
 {
 protected:
 	std::wstring		m_fileName;
@@ -21,9 +21,9 @@ protected:
 	std::wstring		m_buffer;
 
 public:
-	cMiolXml_Stream();
-	cMiolXml_Stream(std::wstring	_fileName);
-	virtual ~cMiolXml_Stream();
+	MiolXml_Stream();
+	MiolXml_Stream(std::wstring	_fileName);
+	virtual ~MiolXml_Stream();
 
 	void	Cleanup();
 
@@ -65,7 +65,7 @@ public:
 	int					GetValueToInt();
 	double				GetValueToDouble();
 
-	void	WriteXml(cMiolXml_Stream* _stream);
+	void	WriteXml(MiolXml_Stream* _stream);
 	void	ReadXml(std::wstring _data);
 };
 
@@ -101,8 +101,8 @@ public:
 	int					GetValueToInt();
 	double				GetValueToDouble();
 
-	void	WriteXml(cMiolXml_Stream* _stream);
-	void	ReadXml(cMiolXml_Stream* _stream);
+	void	WriteXml(MiolXml_Stream* _stream);
+	void	ReadXml(MiolXml_Stream* _stream);
 };
 
 class cMioXml_Element
@@ -140,14 +140,14 @@ public:
 	cMioXml_SubElement*	CreateSubElementNode(std::wstring _tag, double _value);
 	cMioXml_SubElement*	GetSubElementNode(std::wstring _tag, bool _createIfNotFound = false);
 
-	void	WriteXml(cMiolXml_Stream* _stream);
-	void	ReadXml(cMiolXml_Stream* _stream);
+	void	WriteXml(MiolXml_Stream* _stream);
+	void	ReadXml(MiolXml_Stream* _stream);
 };
 
 class cMioXmlSerializer
 {
 protected:
-	cMiolXml_Stream*	m_stream;
+	MiolXml_Stream*	m_stream;
 	cMioXml_Element*	m_root;
 
 public:
