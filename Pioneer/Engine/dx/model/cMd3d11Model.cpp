@@ -71,6 +71,8 @@ bool Md3d11Model::InitializeBuffers(ID3D11Device* device)
 	D3D11_BUFFER_DESC vertexBufferDesc, indexBufferDesc;
 	D3D11_SUBRESOURCE_DATA vertexData, indexData;
 	HRESULT result;
+
+	return true;
 }
 
 void Md3d11Model::CleanupBuffers()
