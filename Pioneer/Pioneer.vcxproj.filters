@@ -150,6 +150,9 @@
     <ClInclude Include="Engine\dx\model\cMd3d11Model.h">
       <Filter>Header</Filter>
     </ClInclude>
+    <ClInclude Include="Engine\io\parser\cMioParser.h">
+      <Filter>Header</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

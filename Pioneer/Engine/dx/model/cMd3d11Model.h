@@ -9,6 +9,7 @@
 #include <D3D11.h>
 #include <D3DX11.h>
 #include <D3DX10math.h>
+#include "../../ResourceList.h"
 
 class Md3d11Model
 {
@@ -24,14 +25,16 @@ public:
 	Md3d11Model(const Md3d11Model&);
 	~Md3d11Model();
 
-	bool	Initialize(ID3D11Device* device);
+	bool	Initialize(ID3D11Device* device, ModelFileType type, wchar_t* filePath);
+	bool	Initialize(ID3D11Device* device, ModelFileType type, const char* modelData);
+
 	void	Cleanup();
 	void	Render(ID3D11DeviceContext* deviceContext);
 
 	int		GetIndexCount() const;
 
 private:
-	bool	InitializeBuffers(ID3D11Device* device);
+	bool	InitializeBuffers(ID3D11Device* device, ModelFileType type, wchar_t* filePath, const char* modelData = nullptr);
 	void	CleanupBuffers();
 	void	RenderBuffers(ID3D11DeviceContext* deviceContext);
 

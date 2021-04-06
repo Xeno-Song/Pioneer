@@ -19,7 +19,14 @@ Md3d11Model::~Md3d11Model()
 	Cleanup();
 }
 
-bool Md3d11Model::Initialize(ID3D11Device* device)
+bool Md3d11Model::Initialize(ID3D11Device* device, ModelFileType type, wchar_t* filePath)
+{
+	if (InitializeBuffers(device) == false) return false;
+
+	return true;
+}
+
+bool Md3d11Model::Initialize(ID3D11Device* device, ModelFileType type, const char* modelData)
 {
 	if (InitializeBuffers(device) == false) return false;
 
@@ -39,6 +46,22 @@ void Md3d11Model::Render(ID3D11DeviceContext* deviceContext)
 int Md3d11Model::GetIndexCount() const
 {
 	return m_indexCount;
+}
+
+bool Md3d11Model::InitializeBuffers(ID3D11Device* device, ModelFileType type, wchar_t* filePath, const char* modelData)
+{
+	if(modelData != nullptr)
+	{
+		if (lstrlenA(modelData) == 0)
+			return false;
+	}
+	else if(filePath != nullptr)
+	{
+		if (lstrlenW(filePath) == 0)
+			return false;
+
+		
+	}
 }
 
 bool Md3d11Model::InitializeBuffers(ID3D11Device* device)
