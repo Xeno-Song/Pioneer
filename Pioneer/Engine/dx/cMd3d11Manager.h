@@ -6,7 +6,7 @@
 #include "../Mdefines.h"
 #ifdef __DX_VERSION_11__
 
-#include "sprite/cMd3d11Sprite.h"
+//#include "sprite/cMd3d11Sprite.h"
 #include "../MErrorCodes.h"
 #include "cMd3d11DeviceControl.h"
 
@@ -18,7 +18,7 @@ public:
 
 protected:
 	Md3dDeviceControl*	m_pDeviceControl;
-	cMd3dSprite*		m_pSpriteControl;
+//	cMd3dSprite*		m_pSpriteControl;
 
 private:
 	E_D3DERR		m_lastError;
@@ -38,8 +38,8 @@ public:
 	void					EndScene() const;
 	
 	bool					CreateSprite();
-	cMd3dSprite*			GetSpriteControl();
-	const LPD3DXSPRITE		GetSprite();
+//	cMd3dSprite*			GetSpriteControl();
+//	const LPD3DXSPRITE		GetSprite();
 
 	bool	GetLastError(E_D3DERR* _pError, HRESULT* _pResult = nullptr);
 	void	SetLastError(E_D3DERR _pError, HRESULT m_hLastError);

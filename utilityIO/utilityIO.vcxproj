@@ -157,6 +157,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="cMioArchiveFile.h" />
+    <ClInclude Include="cMioModelParser.h" />
     <ClInclude Include="cMioXmlSerializer.h" />
     <ClInclude Include="DllExport.h" />
     <ClInclude Include="framework.h" />

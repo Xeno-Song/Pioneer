@@ -65,6 +65,9 @@ BEGIN_MESSAGE_MAP(CModelConvertorDlg, CDialogEx)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+	ON_BN_CLICKED(IDCANCEL, &CModelConvertorDlg::OnBnClickedCancel)
+	ON_BN_CLICKED(IDC_BTN_SAVE_MODEL, &CModelConvertorDlg::OnBnClickedBtnSaveModel)
+	ON_BN_CLICKED(IDC_BTN_LOAD_FILE, &CModelConvertorDlg::OnBnClickedBtnLoadFile)
 END_MESSAGE_MAP()
 
 
@@ -153,3 +156,18 @@ HCURSOR CModelConvertorDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+void CModelConvertorDlg::OnBnClickedCancel()
+{
+	CDialogEx::OnCancel();
+}
+
+void CModelConvertorDlg::OnBnClickedBtnLoadFile()
+{
+	
+}
+
+void CModelConvertorDlg::OnBnClickedBtnSaveModel()
+{
+	
+}

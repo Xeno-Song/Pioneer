@@ -1,4 +1,4 @@
 #pragma once
 
-#include "xml/cMioXmlSerializer.h"
-#include "archive/cMioArchiveFile.h"
+#include "cMioXmlSerializer.h"
+#include "cMioArchiveFile.h"

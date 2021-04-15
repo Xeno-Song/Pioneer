@@ -7,9 +7,10 @@
 #define IDS_ABOUTBOX                    101
 #define IDD_MODELCONVERTOR_DIALOG       102
 #define IDR_MAINFRAME                   128
-#define IDC_BUTTON1                     1000
+#define IDC_BTN_LOAD_FILE               1000
 #define IDC_LIST1                       1001
 #define IDC_BUTTON2                     1002
+#define IDC_BTN_SAVE_MODEL              1002
 
 // Next default values for new objects
 // 
