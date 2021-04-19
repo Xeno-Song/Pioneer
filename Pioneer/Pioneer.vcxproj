@@ -136,7 +136,6 @@
     <ClInclude Include="Engine\dx\model\cMd3d11Model.h" />
     <ClInclude Include="Engine\io\parser\cMioModelParser.h" />
     <ClInclude Include="Engine\dx\sprite\cMd3d11Texture.h" />
-    <ClInclude Include="Engine\io\parser\obj\cMioParserObj.h" />
     <ClInclude Include="Engine\Mtypes.h" />
     <ClInclude Include="Engine\physics\MphysicsManager.h" />
     <ClInclude Include="Engine\physics\Object\MObjectManager.h" />

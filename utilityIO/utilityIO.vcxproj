@@ -126,6 +126,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>../header;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -158,15 +159,17 @@
   <ItemGroup>
     <ClInclude Include="cMioArchiveFile.h" />
     <ClInclude Include="cMioModelParser.h" />
+    <ClInclude Include="cMioModelParserObj.h" />
     <ClInclude Include="cMioXmlSerializer.h" />
     <ClInclude Include="DllExport.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Mdefines.h" />
     <ClInclude Include="Mio.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cMioArchiveFile.cpp" />
+    <ClCompile Include="cMioModelParser.cpp" />
+    <ClCompile Include="cMioModelParserObj.cpp" />
     <ClCompile Include="cMioXmlSerializer.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="pch.cpp">

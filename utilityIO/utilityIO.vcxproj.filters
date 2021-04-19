@@ -24,9 +24,6 @@
     <ClInclude Include="DllExport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Mdefines.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cMioArchiveFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -37,6 +34,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cMioModelParser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cMioModelParserObj.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -51,6 +51,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cMioXmlSerializer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cMioModelParserObj.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cMioModelParser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
