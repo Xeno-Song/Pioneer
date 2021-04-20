@@ -49,9 +49,9 @@ public:
 private:
 	virtual void OnCleanUp() = 0;
 
-private:
+protected:
 	std::ifstream*		m_fileReadStream;
-	char*				m_byteBuffer;
+	//char*				m_byteBuffer;
 	MmodelFileFormat*m_vertexData;
 };
 

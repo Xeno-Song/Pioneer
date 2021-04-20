@@ -39,7 +39,7 @@ public:
 
 private:
 	void	OnCleanUp() override;
-	bool	Parse();
+	bool	Parse(char* byteBuffer);
 	
 private:
 	std::vector<ObjFileVertex>	m_vertexList;
